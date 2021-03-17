@@ -54,10 +54,10 @@ export default () =>
         ),
       S.divider(),
       S.listItem()
-        .title("Blog posts")
+        .title("New Campaign")
         .icon(MdDescription)
         .schemaType("post")
-        .child(S.documentTypeList("post").title("Blog posts")),
+        .child(S.documentTypeList("post").title("Create New Campaign")),
       S.listItem()
         .title("Authors")
         .icon(MdPerson)
