@@ -21,6 +21,11 @@ export const query = graphql`
         alt
       }
       title
+      Logo {
+        ...SanityImage
+        alt
+      }
+      Brand
       slug {
         current
       }

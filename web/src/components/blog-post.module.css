@@ -6,7 +6,19 @@
 .title {
   composes: responsiveTitle1 from './typography.module.css';
 }
+.brandLogo {
+  display: block;
+  width: 10%;
+  margin: 0 auto;
 
+  @nest & img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+    object-fit: cover;
+  }
+}
 .mainImage {
   display: block;
   position: relative;

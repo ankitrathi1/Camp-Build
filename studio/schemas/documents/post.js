@@ -12,6 +12,12 @@ export default {
       description: "Titles should be catchy, descriptive, and not too long",
     },
     {
+      name: "Brand",
+      type: "string",
+      title: "Brand Name",
+      description: "What is the brand name",
+    },
+    {
       name: "slug",
       type: "slug",
       title: "Slug",
@@ -21,6 +27,11 @@ export default {
         source: "title",
         maxLength: 96,
       },
+    },
+    {
+      name: "Logo",
+      type: "mainImage",
+      title: "Brand Logo",
     },
     {
       name: "publishedAt",

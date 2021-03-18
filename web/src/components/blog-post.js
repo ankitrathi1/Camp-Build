@@ -13,11 +13,28 @@ function BlogPost(props) {
     authors,
     categories,
     title,
+    Logo,
+    Brand,
     mainImage,
     publishedAt,
   } = props;
   return (
     <article className={styles.root}>
+      <div className={styles.brandLogo}>
+          {Logo && Logo.asset && (
+          <div>
+            <img
+              src={imageUrlFor(buildImageObj(Logo))
+                .width(1200)
+                .height(Math.floor((9 / 16) * 1200))
+                .fit("crop")
+                .auto("format")
+                .url()}
+              alt={Logo.alt}
+            />
+          </div>
+        )}
+        </div>
       {mainImage && mainImage.asset && (
         <div className={styles.mainImage}>
           <img
@@ -35,6 +52,7 @@ function BlogPost(props) {
         <div className={styles.grid}>
           <div className={styles.mainContent}>
             <h1 className={styles.title}>{title}</h1>
+            <h2>{Brand}</h2>
             {_rawBody && <PortableText blocks={_rawBody} />}
           </div>
           <aside className={styles.metaContent}>
