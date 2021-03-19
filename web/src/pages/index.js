@@ -54,7 +54,6 @@ export const query = graphql`
             alt
           }
           title
-          _rawExcerpt
           slug {
             current
           }

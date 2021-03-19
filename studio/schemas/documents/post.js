@@ -45,13 +45,6 @@ export default {
       title: "Main image",
     },
     {
-      name: "excerpt",
-      type: "excerptPortableText",
-      title: "Excerpt",
-      description:
-        "This ends up on summary pages, on Google, when people share your post in social media.",
-    },
-    {
       name: "authors",
       title: "Authors",
       type: "array",
@@ -62,23 +55,18 @@ export default {
       ],
     },
     {
-      name: "categories",
+      name: "product",
       type: "array",
-      title: "Categories",
+      title: "Products",
       of: [
         {
           type: "reference",
           to: {
-            type: "category",
+            type: "product",
           },
         },
       ],
-    },
-    {
-      name: "body",
-      type: "bodyPortableText",
-      title: "Body",
-    },
+    }
   ],
   orderings: [
     {
