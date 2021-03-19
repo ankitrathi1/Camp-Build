@@ -2,9 +2,11 @@
 
 .root {
   box-sizing: border-box;
-  max-width: 960px;
-  padding: 1.5em;
+  max-width: 1200px;
+  padding: 0;
   margin: 0 auto;
+  font-family: Arial, sans-serif;
+  color: #546e98;
 
   @media (--media-min-small) {
     padding: 2em;

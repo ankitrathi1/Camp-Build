@@ -23,15 +23,37 @@
   display: block;
   width: 100%;
   overflow: hidden;
-  @nest & li{
-    list-style: none;
-    float: left;
-    width: 30%;
-    @nest & img{
-      width: 100%;
-    }
-    @nest & span{
-      text-align: center;
+  @nest & ul{
+    margin:0;
+    padding:0;
+
+    @nest & li{
+      list-style: none;
+      float: left;
+      width: 29%;
+      padding: 2%;
+      @nest & img{
+        width: 100%;
+      }
+      @nest & span{
+        margin: 0 auto;
+        text-align: center;
+        display: block;
+        padding: 10px 0;
+      }
+      @nest & div{
+        margin: 0 auto;
+        text-align: center;
+        @nest & button{
+          margin: 0 auto;
+          text-align: center;
+          background: no-repeat;
+          border: 1px solid;
+          padding: 10px 20px;
+          border-radius: 5px;
+          color: #546e98;
+        }
+      }
     }
   }
 }

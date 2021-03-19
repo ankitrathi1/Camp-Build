@@ -66,22 +66,12 @@ function BlogPost(props) {
                           alt={product.productImage.alt}
                         />
                         <span>{product.name}</span>
-                        <button>Buy Now</button>
+                        <div><button>Buy Now</button></div>
                     </li>
                   ))}
                 </ul>
               </div>
             )}
-          <aside className={styles.metaContent}>
-            {publishedAt && (
-              <div className={styles.publishedAt}>
-                {differenceInDays(new Date(publishedAt), new Date()) > 3
-                  ? formatDistance(new Date(publishedAt), new Date())
-                  : format(new Date(publishedAt), "MMMM Mo, yyyy")}
-              </div>
-            )}
-            {authors && <AuthorList items={authors} title="Authors" />}
-          </aside>
         </div>
       </Container>
     </article>
