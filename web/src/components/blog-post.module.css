@@ -10,6 +10,7 @@
   display: block;
   width: 10%;
   margin: 0 auto;
+  padding-bottom: 20px;
 
   @nest & img {
     display: block;
@@ -52,6 +53,7 @@
           padding: 10px 20px;
           border-radius: 5px;
           color: #546e98;
+          cursor: pointer;
         }
       }
     }
