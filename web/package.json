@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "blog-with-gatsby-web",
+  "name": "campaign-builder-web",
   "version": "1.0.6",
   "author": "Sanity <hello@sanity.io>",
   "scripts": {
