@@ -1,7 +1,7 @@
 export default {
   widgets: [
     { name: "structure-menu" },
-    {
+    /*{
       name: "project-info",
       options: {
         __experimental_before: [
@@ -42,16 +42,16 @@ export default {
           },
         ],
       },
-    },
-    { name: "project-users", layout: { height: "auto" } },
+    },*/
+    //{ name: "project-users", layout: { height: "auto" } },
     {
       name: "document-list",
       options: {
-        title: "Recent blog posts",
+        title: "Campaign List",
         order: "_createdAt desc",
-        types: ["post"],
+        types: ["campaign"],
       },
-      layout: { width: "medium" },
+      layout: { width: "full" },
     },
   ],
 };
