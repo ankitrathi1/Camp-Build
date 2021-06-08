@@ -1,7 +1,17 @@
 export default {
   widgets: [
     { name: "structure-menu" },
-    /*{
+    //{ name: "project-users", layout: { height: "auto" } },
+    {
+      name: "document-list",
+      options: {
+        title: "Campaign List",
+        order: "_createdAt desc",
+        types: ["campaign"],
+      },
+      layout: { width: "full" },
+    },
+    {
       name: "project-info",
       options: {
         __experimental_before: [
@@ -42,16 +52,6 @@ export default {
           },
         ],
       },
-    },*/
-    //{ name: "project-users", layout: { height: "auto" } },
-    {
-      name: "document-list",
-      options: {
-        title: "Campaign List",
-        order: "_createdAt desc",
-        types: ["campaign"],
-      },
-      layout: { width: "full" },
     },
   ],
 };

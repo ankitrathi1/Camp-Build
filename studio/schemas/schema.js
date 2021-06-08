@@ -5,12 +5,15 @@ import createSchema from "part:@sanity/base/schema-creator";
 import schemaTypes from "all:part:@sanity/base/schema-type";
 
 // document schemas
-import author from "./documents/author";
-import category from "./documents/category";
-import post from "./documents/post";
-import product from "./documents/product";
-import campaign from "./documents/campaign";
 import siteSettings from "./documents/siteSettings";
+import author from "./documents/author";
+import campaign from "./documents/campaign";
+import product from "./documents/product";
+import productSlider from "./documents/productSlider";
+import banner from "./documents/banner";
+import bannerSlider from "./documents/bannerSlider";
+import header from "./documents/header";
+import footer from "./documents/footer";
 
 // Object types
 import bodyPortableText from "./objects/bodyPortableText";
@@ -29,10 +32,13 @@ export default createSchema({
     // The following are document types which will appear
     // in the studio.
     siteSettings,
-    post,
-    product,
     campaign,
-    category,
+    header,
+    footer,
+    product,
+    banner,
+    productSlider,
+    bannerSlider,
     author,
     mainImage,
     authorReference,

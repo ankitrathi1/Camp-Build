@@ -21,8 +21,7 @@ export default {
       name: "slug",
       type: "slug",
       title: "Campaign Url",
-      description:
-        "This will be the url of campaign page",
+      description:"This will be the url of campaign page",
       options: {
         source: "title",
         maxLength: 96,
@@ -44,25 +43,14 @@ export default {
       title: "Country"
     },
     {
-      name: "brandLogo",
-      type: "mainImage",
-      title: "Brand Logo",
-    },
-    {
-      name: "heroImage",
-      type: "mainImage",
-      title: "Banner Image",
-    },
-    {
-      name: "product",
+      name: "componentLayout",
       type: "array",
-      title: "Products",
+      title: "Component Layout",
+      description: "Please select component position and order",
       of: [
         {
           type: "reference",
-          to: {
-            type: "product",
-          },
+          to: [{type: 'header'}, {type: 'footer'}, {type: 'bannerSlider'}, {type: 'productSlider'}]
         },
       ],
     },
@@ -70,46 +58,6 @@ export default {
       name: "gaID",
       type: "string",
       title: "Google Analytics ID"
-    },
-    {
-      name: "privacyNotice",
-      type: "string",
-      title: "Privacy notice label"
-    },
-    {
-      name: "privacyNoticeUrl",
-      type: "string",
-      title: "Privacy notice URL"
-    },
-    {
-      name: "cookieNotice",
-      type: "string",
-      title: "Cookie notice label"
-    },
-    {
-      name: "cookieNoticeUrl",
-      type: "string",
-      title: "Cookie notice Url"
-    },
-    {
-      name: "tnc",
-      type: "string",
-      title: "Terms & Conditions label"
-    },
-    {
-      name: "tncURL",
-      type: "string",
-      title: "Terms & Conditions Url"
-    },
-    {
-      name: "customLink",
-      type: "string",
-      title: "Custom link label"
-    },
-    {
-      name: "customLinkUrl",
-      type: "string",
-      title: "Custom link url"
     }
   ]
 };
