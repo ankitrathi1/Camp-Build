@@ -1,17 +1,7 @@
 export default {
   widgets: [
-    { name: "structure-menu" },
-    //{ name: "project-users", layout: { height: "auto" } },
-    {
-      name: "document-list",
-      options: {
-        title: "Campaign List",
-        order: "_createdAt desc",
-        types: ["campaign"],
-      },
-      layout: { width: "full" },
-    },
-    {
+    // { name: "structure-menu" },
+    /*{
       name: "project-info",
       options: {
         __experimental_before: [
@@ -52,6 +42,23 @@ export default {
           },
         ],
       },
+    },*/
+    //{ name: "project-users", layout: { height: "auto" } },
+    { name: "create-new-campaign" ,
+    layout: { width: "full" },
+   },
+    {
+      name: "document-list",
+      options: {
+        title: "My Campaigns",
+        order: "_createdAt desc",
+     
+        query: '*[_type == "campaign"]',
+        // createButtonText: 'Create new Campaign',
+        showCreateButton: false,
+       
+      },
+      layout: { width: "full" },
     },
   ],
 };

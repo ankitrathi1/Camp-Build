@@ -23,6 +23,7 @@
     "@sanity/desk-tool": "^2.10.5",
     "@sanity/studio-hints": "^2.7.0",
     "date-fns": "^2.19.0",
+    "get-it": "^4.1.4",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
