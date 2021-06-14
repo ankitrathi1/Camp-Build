@@ -17,6 +17,7 @@
     "dashboard-widget-structure-menu",
     "dashboard-widget-document-list",
     "dashboard-widget-netlify",
+    "my-dashboard-widget",
     "tabs"
   ],
   "parts": [
@@ -35,6 +36,10 @@
     {
       "implements": "part:@sanity/dashboard/config",
       "path": "./src/dashboardConfig.js"
+    },
+    {
+      "implements": "part:@sanity/base/brand-logo",
+      "path": "./Logo/Logo.js"
     }
   ]
 }

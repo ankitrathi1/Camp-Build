@@ -23,8 +23,12 @@
   --text-color: var(--brand-secondary--inverted);
   */
   /* Main Navigation */
-  /*
-  --main-navigation-color: var(--brand-secondary);
-  --main-navigation-color--inverted: var(--brand-secondary--inverted);
-  */
+  --main-navigation-color: 	#4169E1;
+  --main-navigation-color--inverted: 	#fff;
+ 
+}
+
+.createButton
+{
+  display:none;
 }
