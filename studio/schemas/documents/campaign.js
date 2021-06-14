@@ -33,7 +33,6 @@ export default {
       name: "locale",
       type: "string",
       title: "Locale",
-      fieldset: "First",
     },
     {
       name: "country",
