@@ -58,6 +58,17 @@ export default {
       name: "gaID",
       type: "string",
       title: "Google Analytics ID"
-    }
+    },
+    {
+      name: "cssFile",
+      type: "file",
+      title: "Upload campaign CSS"
+    },
+    {
+      name: "publishedAt",
+      type: "datetime",
+      title: "Published at",
+      description: "This can be used to schedule post for publishing",
+    },
   ]
 };

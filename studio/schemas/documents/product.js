@@ -19,7 +19,7 @@ export default {
     },
     {
       name: "productImage",
-      type: "mainImage",
+      type: "figure",
       title: "Product image",
     },
   ]

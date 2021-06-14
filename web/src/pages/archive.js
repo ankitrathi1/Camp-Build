@@ -1,4 +1,4 @@
-import BlogPostPreviewGrid from "../components/blog-post-preview-grid";
+import CampaignPreviewGrid from "../components/campaign-preview-grid";
 import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
 import Layout from "../containers/layout";
@@ -11,18 +11,14 @@ import { responsiveTitle1 } from "../components/typography.module.css";
 
 export const query = graphql`
   query ArchivePageQuery {
-    posts: allSanityPost(
-      sort: { fields: [publishedAt], order: DESC }
-      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
+    campaigns: allSanityCampaign(
+      sort: { fields: [_createdAt], order: DESC }
+      filter: { slug: { current: { ne: null } }, _createdAt: { ne: null } }
     ) {
       edges {
         node {
           id
-          publishedAt
-          mainImage {
-            ...SanityImage
-            alt
-          }
+          _createdAt
           title
           slug {
             current
@@ -44,15 +40,15 @@ const ArchivePage = (props) => {
     );
   }
 
-  const postNodes = data && data.posts && mapEdgesToNodes(data.posts);
-
+  const campaignNodes = data && data.campaign && mapEdgesToNodes(data.campaign);
+console.log(campaignNodes);
   return (
     <Layout>
       <SEO title="Archive" />
       <Container>
         <h1 className={responsiveTitle1}>Archive</h1>
-        {postNodes && postNodes.length > 0 && (
-          <BlogPostPreviewGrid nodes={postNodes} />
+        {campaignNodes && campaignNodes.length > 0 && (
+          <CampaignPreviewGrid nodes={campaignNodes} />
         )}
       </Container>
     </Layout>

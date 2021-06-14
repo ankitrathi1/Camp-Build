@@ -17,8 +17,9 @@ export function filterOutDocsPublishedInTheFuture({ publishedAt }) {
   return !isFuture(publishedAt);
 }
 
-export function getBlogUrl(publishedAt, slug) {
-  return `/blog/${format(new Date(publishedAt), "yyyy/MM")}/${
+export function getCampaignUrl(publishedAt, slug) {
+  //return `/campaign/${format(new Date(publishedAt), "yyyy/MM")}/${
+  return `/campaign/${
     slug.current || slug
   }/`;
 }

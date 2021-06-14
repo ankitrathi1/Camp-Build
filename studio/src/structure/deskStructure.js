@@ -70,13 +70,13 @@ export default () =>
                 .child(S.documentTypeList('footer').title('Footer')),
               S.divider(),
               S.listItem()
-                .title('Banner Slider/List')
+                .title('Banner Carousel/List')
                 .icon(FaBoxes)
                 .schemaType('bannerSlider')
                 .child(S.documentTypeList('bannerSlider').title('Banner Slider/List')),
               S.divider(),
               S.listItem()
-                .title('Product Slider/List')
+                .title('Product Carousel/List')
                 .icon(FaBoxes)
                 .schemaType('productSlider')
                 .child(S.documentTypeList('productSlider').title('Product Slider')),

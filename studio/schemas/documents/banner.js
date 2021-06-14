@@ -13,7 +13,7 @@ export default {
     },
     {
       name: "bannerImage",
-      type: "mainImage",
+      type: "figure",
       title: "Banner image",
     },
   ]

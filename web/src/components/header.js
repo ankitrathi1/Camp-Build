@@ -4,7 +4,7 @@ import Icon from "./icon";
 import { cn } from "../lib/helpers";
 
 import * as styles from "./header.module.css";
-
+/*
 const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
   <div className={styles.root}>
     <div className={styles.wrapper}>
@@ -29,5 +29,9 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
     </div>
   </div>
 );
-
+*/
+const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
+  <div className={styles.root}>
+  </div>
+);
 export default Header;

@@ -7,17 +7,16 @@ const { isFuture } = require("date-fns");
 
 const { format } = require("date-fns");
 
-async function createBlogPostPages(graphql, actions) {
+async function createCampaignPages(graphql, actions) {
   const { createPage } = actions;
   const result = await graphql(`
     {
-      allSanityPost(
-        filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
+      allSanityCampaign(
+        filter: { slug: { current: { ne: null } }, _createdAt: { ne: null } }
       ) {
         edges {
           node {
             id
-            publishedAt
             slug {
               current
             }
@@ -26,26 +25,23 @@ async function createBlogPostPages(graphql, actions) {
       }
     }
   `);
-
   if (result.errors) throw result.errors;
-
-  const postEdges = (result.data.allSanityPost || {}).edges || [];
+console.log(result);
+  const postEdges = (result.data.allSanityCampaign || {}).edges || [];
 
   postEdges
-    .filter((edge) => !isFuture(new Date(edge.node.publishedAt)))
     .forEach((edge) => {
-      const { id, slug = {}, publishedAt } = edge.node;
-      const dateSegment = format(new Date(publishedAt), "yyyy/MM");
-      const path = `/blog/${dateSegment}/${slug.current}/`;
+      const { id, slug = {} } = edge.node;
+      const path = `/campaign/${slug.current}/`;
 
       createPage({
         path,
-        component: require.resolve("./src/templates/blog-post.js"),
+        component: require.resolve("./src/templates/campaign.js"),
         context: { id },
       });
     });
 }
 
 exports.createPages = async ({ graphql, actions }) => {
-  await createBlogPostPages(graphql, actions);
+  await createCampaignPages(graphql, actions);
 };

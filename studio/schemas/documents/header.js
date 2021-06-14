@@ -25,7 +25,7 @@ export default {
     },
     {
       name: "brandLogo",
-      type: "mainImage",
+      type: "figure",
       title: "Brand Logo",
     },
   ]

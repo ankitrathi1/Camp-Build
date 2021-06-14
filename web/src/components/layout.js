@@ -3,7 +3,7 @@ import Header from "./header";
 
 import "../styles/layout.css";
 import * as styles from "./layout.module.css";
-
+/*
 const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
   <>
     <Header
@@ -24,5 +24,10 @@ const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
     </footer>
   </>
 );
-
+*/
+const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
+  <>
+    <div className={styles.content}>{children}</div>
+  </>
+);
 export default Layout;

@@ -1,9 +1,9 @@
-import * as styles from "./blog-post-preview-grid.module.css";
-import BlogPostPreview from "./blog-post-preview";
+import * as styles from "./campaign-preview-list.module.css";
+import CampaignPreview from "./campaign-preview";
 import { Link } from "gatsby";
 import React from "react";
 
-function BlogPostPreviewGrid(props) {
+function CampaignPreviewGrid(props) {
   return (
     <div className={styles.root}>
       {props.title && <h2 className={styles.headline}>{props.title}</h2>}
@@ -11,7 +11,7 @@ function BlogPostPreviewGrid(props) {
         {props.nodes &&
           props.nodes.map((node) => (
             <li key={node.id}>
-              <BlogPostPreview {...node} />
+              <CampaignPreview {...node} isInList />
             </li>
           ))}
       </ul>
@@ -24,10 +24,10 @@ function BlogPostPreviewGrid(props) {
   );
 }
 
-BlogPostPreviewGrid.defaultProps = {
+CampaignPreviewGrid.defaultProps = {
   title: "",
   nodes: [],
   browseMoreHref: "",
 };
 
-export default BlogPostPreviewGrid;
+export default CampaignPreviewGrid;
