@@ -42,7 +42,6 @@ section{
 .js_container{}
 .js_slider{
   width: 100%; 
-  height: 450px; 
   position: relative; 
   overflow: hidden;
   @nest & .slider_content{
@@ -53,6 +52,7 @@ section{
     @nest & .js_slider_item{
       width:100%; 
       float: left;
+     
       @nest & figure{
         width: 100%;
         padding: 0;
@@ -87,7 +87,6 @@ section{
 .js_slider .slider_button button svg{pointer-events: none;}
 .js_slider .slider_button button.prev{left: 10px; top: 48%;}
 .js_slider .slider_button button.next{right:10px; top: 48%;}
-
 
 
 

@@ -1,16 +1,28 @@
 import * as styles from "../campaign.module.css";
+ import * as style from "./campaign-banner.css";
 import { buildImageObj } from "../../lib/helpers";
 import { Link } from "gatsby";
 import React from "react";
 import { format } from "date-fns";
 import { urlFor } from "../../lib/image-url";
 
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
 function campaignHeader(props) {
+
   return (
+      <div>
+   
     <div className={styles.js_slider}>
+       
         <div className={styles.slider_content}>
+     
+        <Carousel interval={3000} autoPlay={true} infiniteLoop={true} >
+       
             {props.bannerImages && props.bannerImages.map((banner) => (
+               
+                     
                 <div className={styles.js_slider_item}>
                     <figure>
                         <link
@@ -65,11 +77,22 @@ function campaignHeader(props) {
                         />
                         </picture>
                     </figure>
+                  
                 </div>
-            ))}
+               
+               
+            )
+            
+            )}
+             </Carousel>
         </div>
+       
+    </div>
+  
     </div>
   );
+
+ 
 }
 
 export default campaignHeader;

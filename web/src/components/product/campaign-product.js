@@ -4,15 +4,39 @@ import { Link } from "gatsby";
 import React from "react";
 import { format } from "date-fns";
 import { urlFor } from "../../lib/image-url";
-
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 function campaignHeader(props) {
+  const responsive = {
+    superLargeDesktop: {
+        breakpoint: { max: 4000, min: 3000 },
+        items: 4,
+    },
+    desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 4,
+    },
+    tablet: {
+        breakpoint: { max: 1024, min: 464 },
+        items: 2,
+    },
+    mobile: {
+        breakpoint: { max: 464, min: 0 },
+        items: 1,
+    },
+};
   return (
     <div className="cw_container cw_container_slider cw_product_list my-2">
     <h1 className="category_title my-3">NEW Magnum Double Gold Caramel Billionaire Has Arrived</h1>
     <div className="product_slider">
       <div id="exampleSlider2" className="exampleSlider slideBlock">
         <div className="MS-content">
+        <Carousel 
+                      responsive={responsive} 
+                     infinite={true} autoPlay={false}
+                    
+                    >
             {props.product && props.product.map((product) => (
                 <div className="item">
                     <div className="cw_roduct_img">
@@ -76,8 +100,9 @@ function campaignHeader(props) {
                     </div>
                 </div>
             ))}
+             </Carousel>
         </div>
-        <div className="MS-controls">
+        {/* <div className="MS-controls">
           <button className="MS-left left" aria-label="scroll left">
             <span className="visually-hidden">Previous</span>
             <i className="left arrows">
@@ -90,7 +115,7 @@ function campaignHeader(props) {
               
             </i>
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   </div>
