@@ -17,7 +17,7 @@ function campaignHeader(props) {
        
         <div className={styles.slider_content}>
      
-        <Carousel interval={3000} autoPlay={props.autoSlide} infiniteLoop={true} >
+        <Carousel interval={3000} autoPlay={props.autoSlide} infiniteLoop={true} stopOnHover={false}>
        
             {props.bannerImages && props.bannerImages.map((banner) => (
                
