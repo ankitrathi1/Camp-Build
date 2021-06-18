@@ -5,7 +5,6 @@ import { Link } from "gatsby";
 import React from "react";
 import { format } from "date-fns";
 import { urlFor } from "../../lib/image-url";
-
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 
@@ -18,7 +17,7 @@ function campaignHeader(props) {
        
         <div className={styles.slider_content}>
      
-        <Carousel interval={3000} autoPlay={true} infiniteLoop={true} >
+        <Carousel interval={3000} autoPlay={props.autoSlide} infiniteLoop={true} >
        
             {props.bannerImages && props.bannerImages.map((banner) => (
                

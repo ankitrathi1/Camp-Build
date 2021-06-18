@@ -6,7 +6,6 @@ import Layout from "../containers/layout";
 import Container from "../components/container";
 import SEO from "../components/seo";
 import { toPlainText } from "../lib/helpers";
-
 export const query = graphql`
   query CampaignTemplateQuery($id: String!) {
     campaign: sanityCampaign(id: { eq: $id }) {
@@ -16,6 +15,7 @@ export const query = graphql`
           title
           id
           _type
+          autoSlide
           bannerImages {
             bannerImage {
               asset {
@@ -60,6 +60,10 @@ export const query = graphql`
           id
           title
           _type
+          displayFormat
+          heading
+          headingLevel
+          introText
           product {
             name
             productImage {
@@ -89,6 +93,9 @@ const CampaignTemplate = (props) => {
   const campaign = data && data.campaign;
   return (
     <Layout>
+          {/* <Helmet>
+            <script src="/analytics.js"></script>
+    </Helmet> */}
       {errors && <SEO title="GraphQL Error" />}
       {campaign && (
         <SEO
