@@ -20,5 +20,18 @@ module.exports = {
         overlayDrafts: true,
       },
     },
+    {
+      resolve: 'gatsby-plugin-svgr',
+      options: {
+        prettier: false,
+        svgoConfig: {
+          plugins: [
+            { removeViewBox: false },
+            { cleanupNumericValues: true },
+            { prefixIds: true },
+          ],
+        },
+      },
+    }
   ],
 };

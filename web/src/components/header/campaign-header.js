@@ -1,4 +1,4 @@
-import * as styles from "../campaign.module.css";
+import * as styles from "./campaign-header.css";
 import { Link } from "gatsby";
 import React from "react";
 import { format } from "date-fns";
@@ -7,7 +7,7 @@ import { urlFor } from "../../lib/image-url";
 
 function campaignHeader(props) {
   return (
-    <header className={styles.cw_header}>
+    <header className="cw_header">
         <Link to={props.logoUrl}>
         <figure>
             <link
@@ -25,7 +25,6 @@ function campaignHeader(props) {
             <picture
               className="bp-image__placeholder"
               style={{
-                paddingTop: `56.25%`,
                 background: `url(${props.brandLogo.asset.metadata.lqip})`,
                 backgroundSize: 'cover',
               }}
@@ -54,8 +53,8 @@ function campaignHeader(props) {
               />
               <img
                 src={urlFor(props.brandLogo)
-                  .width(700)
-                  .height(392)
+                  .width(100)
+                  .height(70)
                   .fit('max')
                   .url()}
                 alt={props.brandLogo.alt}

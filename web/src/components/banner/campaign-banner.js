@@ -8,28 +8,24 @@ import { urlFor } from "../../lib/image-url";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 
-function campaignHeader(props) {
-
+function campaignBanner(props) {
   return (
       <div>
-   
-    <div className={styles.js_slider}>
-       
-        <div className={styles.slider_content}>
-     
+    <div className="js_slider">
+        <div className="slider_content">
         <Carousel interval={3000} autoPlay={props.autoSlide} infiniteLoop={true} stopOnHover={false}>
        
             {props.bannerImages && props.bannerImages.map((banner) => (
                
                      
-                <div className={styles.js_slider_item}>
+                <div className="js_slider_item">
                     <figure>
                         <link
                         rel="preload"
                         as="image"
                         href={`${urlFor(banner.bannerImage)
-                            .width(700)
-                            .height(392)
+                            .width(1300)
+                            .height(450)
                             .quality(80)
                             .fit('max')
                             .auto('format')
@@ -68,9 +64,8 @@ function campaignHeader(props) {
                         />
                         <img
                             src={urlFor(banner.bannerImage)
-                            .width(700)
-                            .height(392)
-                            .fit('max')
+                            .width(1400)
+                            .height(450)
                             .url()}
                             alt={banner.bannerImage.alt}
                         />
@@ -94,4 +89,4 @@ function campaignHeader(props) {
  
 }
 
-export default campaignHeader;
+export default campaignBanner;

@@ -1,0 +1,28 @@
+.cw_header{
+  text-align: center;
+  padding:10px;
+  @nest & a{
+    max-height: 100px;
+    display: block;
+    width: 120px;
+    margin: 0 auto;
+    overflow: hidden;
+    @nest & picture{
+      min-height: 70px;
+      height: auto;
+      padding: 0;
+      width: 100%;
+      display: block;
+    }
+    @nest & img{
+      height: auto;
+      padding: 0;
+      width: 100%;
+    }
+  }
+  @nest & img{
+    height: auto;
+    padding: 0;
+    width: 100%;
+  }
+}

@@ -8,7 +8,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 
-function CampaignHeader(props) {
+function CampaignProduct(props) {
   const [page, setPage] = useState(1);
   const [productList, setProductList] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -58,22 +58,21 @@ function CampaignHeader(props) {
  
  
   return (
-    <div className="cw_container cw_container_slider cw_product_list my-2">
-    <props.headingLevel className="category_title my-3">{props.heading}</props.headingLevel>
-    <p className="category_title my-3">{props.introText}</p>
+    <div className="cw_product_container">
+    <props.headingLevel className="category_title">{props.heading}</props.headingLevel>
+    <p className="category_sub_title">{props.introText}</p>
     <div  className={`${props.displayFormat=='list' ? 'shown' : 'hidden'}`}>
-     
-       <ul class="cw_product_list">
+       <ul className="cw_product_list">
         {productList.map((x, i) =>  (
-                <li key={i}>
-                    <div className="cw_roduct_img">
+                <li key={i} className="item">
+                    <div className="cw_product_img">
                         <figure>
                             <link
                             rel="preload"
                             as="image"
                             href={`${urlFor(x.productImage)
-                                .width(700)
-                                .height(392)
+                                .width(210)
+                                .height(210)
                                 .quality(80)
                                 .fit('max')
                                 .auto('format')
@@ -91,8 +90,8 @@ function CampaignHeader(props) {
                             <source
                                 media="screen and (min-width: 560px)"
                                 srcSet={`${urlFor(x.productImage)
-                                .width(700)
-                                .height(392)
+                                .width(210)
+                                .height(210)
                                 .quality(80)
                                 .fit('max')
                                 .auto('format')
@@ -102,8 +101,8 @@ function CampaignHeader(props) {
                             <source
                                 media="screen and (min-width: 320px)"
                                 srcSet={`${urlFor(x.productImage)
-                                .width(559)
-                                .height(314)
+                                .width(210)
+                                .height(210)
                                 .quality(80)
                                 .fit('max')
                                 .auto('format')
@@ -112,8 +111,8 @@ function CampaignHeader(props) {
                             />
                             <img
                                 src={urlFor(x.productImage)
-                                .width(700)
-                                .height(392)
+                                .width(210)
+                                .height(210)
                                 .fit('max')
                                 .url()}
                                 alt={x.productImage.alt}
@@ -136,25 +135,18 @@ function CampaignHeader(props) {
     </div>
        
     </div>
-    <div  className={`product_slider ${props.displayFormat=='carousel' ? 'shown' : 'hidden'}`}>
-      <div id="exampleSlider2" className="exampleSlider slideBlock">
-      
-        <div  className="MS-content">
-        <Carousel 
-                      responsive={responsive} 
-                     infinite={true} autoPlay={false}
-                    
-                    >
+    <div  className={`cw_product_container cw_product_carousel ${props.displayFormat=='carousel' ? 'shown' : 'hidden'}`}>
+        <Carousel responsive={responsive} infinite={false} autoPlay={false}>
             {props.product && props.product.map((product) => (
                 <div className="item">
-                    <div className="cw_roduct_img">
+                    <div className="cw_product_img">
                         <figure>
                             <link
                             rel="preload"
                             as="image"
                             href={`${urlFor(product.productImage)
-                                .width(700)
-                                .height(392)
+                                .width(210)
+                                .height(210)
                                 .quality(80)
                                 .fit('max')
                                 .auto('format')
@@ -172,8 +164,8 @@ function CampaignHeader(props) {
                             <source
                                 media="screen and (min-width: 560px)"
                                 srcSet={`${urlFor(product.productImage)
-                                .width(700)
-                                .height(392)
+                                .width(210)
+                                .height(210)
                                 .quality(80)
                                 .fit('max')
                                 .auto('format')
@@ -183,8 +175,8 @@ function CampaignHeader(props) {
                             <source
                                 media="screen and (min-width: 320px)"
                                 srcSet={`${urlFor(product.productImage)
-                                .width(559)
-                                .height(314)
+                                .width(210)
+                                .height(210)
                                 .quality(80)
                                 .fit('max')
                                 .auto('format')
@@ -193,8 +185,8 @@ function CampaignHeader(props) {
                             />
                             <img
                                 src={urlFor(product.productImage)
-                                .width(700)
-                                .height(392)
+                                .width(210)
+                                .height(210)
                                 .fit('max')
                                 .url()}
                                 alt={product.productImage.alt}
@@ -209,12 +201,9 @@ function CampaignHeader(props) {
                 </div>
             ))}
              </Carousel>
-        </div>
-       
-      </div>
     </div>
   </div>
   );
 }
 
-export default CampaignHeader;
+export default CampaignProduct;

@@ -22,7 +22,11 @@ export default {
       name: "slug",
       type: "slug",
       title: "Campaign Url",
-      description:"This will be the url of campaign page"
+      description:"This will be the url of campaign page",
+      options: {
+        source: "title",
+        maxLength: 96,
+      },
     },
     {
       name: "brand",

@@ -4,28 +4,35 @@ import { Link } from "gatsby";
 import React from "react";
 import { format } from "date-fns";
 import { urlFor } from "../../lib/image-url";
+import { ReactComponent as UnileverLogo } from '../../images/svg/unilever_logo.svg';
 
 
-function campaignHeader(props) {
+function campaignFooter(props) {
   return (
     <div className="cw_footer cw_text_center">
+        <ul class="cw_footer_socialIcon">
+            <li><a class="socialIcon facebook" href="http://www.facebook.com/magnumuk" target="_blank" title="facebook-icon - Link open in new window">facebook-icon - Link open in new window</a></li>
+            <li><a class="socialIcon twitter" href="http://www.twitter.com/magnumuk" target="_blank" title="twitter-icon - Link open in new window">twitter-icon - Link open in new window</a></li>
+            <li><a class="socialIcon instagram" href="http://www.instagram.com/magnum" target="_blank" title="instagram-icon - Link open in new window">instagram-icon - Link open in new window</a></li>
+            <li><a class="socialIcon youtube" href="http://www.youtube.com/mymagnum" target="_blank" title="youtube-icon - Link open in new window">youtube-icon - Link open in new window</a></li>
+        </ul>
         <ul className="cw_footer_links">
             <li>
                 <a href={props.cookieNoticeUrl} target="_blank" title={props.cookieNotice}>{props.cookieNotice}<i className="copy_icon"></i></a>
             </li>
             <li>
-                <a href={props.cookieNoticeUrl} target="_blank" title={props.cookieNotice}>{props.cookieNotice}<i className="copy_icon"></i></a>
+                <a href={props.privacyNoticeUrl} target="_blank" title={props.privacyNotice}>{props.privacyNotice}<i className="copy_icon"></i></a>
             </li>
             <li><button className="ot-sdk-show-settings">Manage Preferences</button></li>
         </ul>
         <div className="copyright">
         <a href="https://www.unilever.com/" target="_blank" title="Link opens in a new window">
-            <img src="images/footer-logo.png" alt="Unilever" /><span>© 
-            <script>document.write(new Date().getFullYear());</script> Unilever</span>
+            <UnileverLogo />
+            <span>© {new Date().getFullYear()} Unilever</span>
         </a>
         </div>
     </div>
   );
 }
 
-export default campaignHeader;
+export default campaignFooter;

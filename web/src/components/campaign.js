@@ -23,6 +23,7 @@ function Campaign(props) {
     componentLayout
   } = props;
   console.log(props);
+  
   return (
       <div className="cw_main_container">
         {componentLayout && componentLayout.map((comp) => (
