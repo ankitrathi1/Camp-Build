@@ -61,147 +61,153 @@ function CampaignProduct(props) {
     <div className="cw_product_container">
     <props.headingLevel className="category_title">{props.heading}</props.headingLevel>
     <p className="category_sub_title">{props.introText}</p>
-    <div  className={`${props.displayFormat=='list' ? 'shown' : 'hidden'}`}>
-       <ul className="cw_product_list">
-        {productList.map((x, i) =>  (
-                <li key={i} className="item">
-                    <div className="cw_product_img">
-                        <figure>
-                            <link
-                            rel="preload"
-                            as="image"
-                            href={`${urlFor(x.productImage)
-                                .width(210)
-                                .height(210)
-                                .quality(80)
-                                .fit('max')
-                                .auto('format')
-                                .url()
-                                .toString()}`}
-                            />
-                            <picture
-                            classeName="bp-image__placeholder"
-                            style={{
-                                paddingTop: `56.25%`,
-                                background: `url(${x.productImage.asset.metadata.lqip})`,
-                                backgroundSize: 'cover',
-                            }}
-                            >
-                            <source
-                                media="screen and (min-width: 560px)"
-                                srcSet={`${urlFor(x.productImage)
-                                .width(210)
-                                .height(210)
-                                .quality(80)
-                                .fit('max')
-                                .auto('format')
-                                .url()
-                                .toString()}`}
-                            />
-                            <source
-                                media="screen and (min-width: 320px)"
-                                srcSet={`${urlFor(x.productImage)
-                                .width(210)
-                                .height(210)
-                                .quality(80)
-                                .fit('max')
-                                .auto('format')
-                                .url()
-                                .toString()}`}
-                            />
-                            <img
-                                src={urlFor(x.productImage)
-                                .width(210)
-                                .height(210)
-                                .fit('max')
-                                .url()}
-                                alt={x.productImage.alt}
-                            />
-                            </picture>
-                        </figure>
-                    </div>
-                    <div className="cw_product_title">{x.name}</div>
-                    <div className="cw_btn_wrap">
-                    <button className="cw_btn_buynow" >Buy Now</button>
-                    </div>
-                </li>
-            ))}
-            
-       </ul>
-       <div class="cw_height_10"></div>
-    <div class="cw_load_cta">
-    {totalProduct !== productList.length && <button className="cw_btn_load" onClick={() => setPage(page + 1)}>Load More</button>}
-     
-    </div>
-       
-    </div>
-    <div  className={`cw_product_container cw_product_carousel ${props.displayFormat=='carousel' ? 'shown' : 'hidden'}`}>
-        <Carousel responsive={responsive} infinite={false} autoPlay={false}>
-            {props.product && props.product.map((product) => (
-                <div className="item">
-                    <div className="cw_product_img">
-                        <figure>
-                            <link
-                            rel="preload"
-                            as="image"
-                            href={`${urlFor(product.productImage)
-                                .width(210)
-                                .height(210)
-                                .quality(80)
-                                .fit('max')
-                                .auto('format')
-                                .url()
-                                .toString()}`}
-                            />
-                            <picture
-                            classeName="bp-image__placeholder"
-                            style={{
-                                paddingTop: `56.25%`,
-                                background: `url(${product.productImage.asset.metadata.lqip})`,
-                                backgroundSize: 'cover',
-                            }}
-                            >
-                            <source
-                                media="screen and (min-width: 560px)"
-                                srcSet={`${urlFor(product.productImage)
-                                .width(210)
-                                .height(210)
-                                .quality(80)
-                                .fit('max')
-                                .auto('format')
-                                .url()
-                                .toString()}`}
-                            />
-                            <source
-                                media="screen and (min-width: 320px)"
-                                srcSet={`${urlFor(product.productImage)
-                                .width(210)
-                                .height(210)
-                                .quality(80)
-                                .fit('max')
-                                .auto('format')
-                                .url()
-                                .toString()}`}
-                            />
-                            <img
-                                src={urlFor(product.productImage)
-                                .width(210)
-                                .height(210)
-                                .fit('max')
-                                .url()}
-                                alt={product.productImage.alt}
-                            />
-                            </picture>
-                        </figure>
-                    </div>
-                    <div className="cw_product_title">Magnum Double Gold Caramel Billionaire Tub 440ml</div>
-                    <div className="cw_btn_wrap">
-                    <button className="cw_btn_buynow" >Buy Now</button>
-                    </div>
-                </div>
-            ))}
-             </Carousel>
-    </div>
+    {props.displayFormat=='list' && (
+               <div>
+               <ul className="cw_product_list">
+                {productList.map((x, i) =>  (
+                        <li key={i} className="item">
+                            <div className="cw_product_img">
+                                <figure>
+                                    <link
+                                    rel="preload"
+                                    as="image"
+                                    href={`${urlFor(x.productImage)
+                                        .width(210)
+                                        .height(210)
+                                        .quality(80)
+                                        .fit('max')
+                                        .auto('format')
+                                        .url()
+                                        .toString()}`}
+                                    />
+                                    <picture
+                                    classeName="bp-image__placeholder"
+                                    style={{
+                                        paddingTop: `56.25%`,
+                                        background: `url(${x.productImage.asset.metadata.lqip})`,
+                                        backgroundSize: 'cover',
+                                    }}
+                                    >
+                                    <source
+                                        media="screen and (min-width: 560px)"
+                                        srcSet={`${urlFor(x.productImage)
+                                        .width(210)
+                                        .height(210)
+                                        .quality(80)
+                                        .fit('max')
+                                        .auto('format')
+                                        .url()
+                                        .toString()}`}
+                                    />
+                                    <source
+                                        media="screen and (min-width: 320px)"
+                                        srcSet={`${urlFor(x.productImage)
+                                        .width(210)
+                                        .height(210)
+                                        .quality(80)
+                                        .fit('max')
+                                        .auto('format')
+                                        .url()
+                                        .toString()}`}
+                                    />
+                                    <img
+                                        src={urlFor(x.productImage)
+                                        .width(210)
+                                        .height(210)
+                                        .fit('max')
+                                        .url()}
+                                        alt={x.productImage.alt}
+                                    />
+                                    </picture>
+                                </figure>
+                            </div>
+                            <div className="cw_product_title">{x.name}</div>
+                            <div className="cw_btn_wrap">
+                            <button className="cw_btn_buynow" >Buy Now</button>
+                            </div>
+                        </li>
+                    ))}
+                    
+               </ul>
+               <div class="cw_height_10"></div>
+            <div class="cw_load_cta">
+            {totalProduct !== productList.length && <button className="cw_btn_load" onClick={() => setPage(page + 1)}>Load More</button>}
+             
+            </div>
+               
+            </div>
+            )}
+             {props.displayFormat=='carousel'  && (
+                <div className="cw_product_container cw_product_carousel">
+                <Carousel responsive={responsive} infinite={false} autoPlay={false}>
+                    {props.product && props.product.map((product) => (
+                        <div className="item">
+                            <div className="cw_product_img">
+                                <figure>
+                                    <link
+                                    rel="preload"
+                                    as="image"
+                                    href={`${urlFor(product.productImage)
+                                        .width(210)
+                                        .height(210)
+                                        .quality(80)
+                                        .fit('max')
+                                        .auto('format')
+                                        .url()
+                                        .toString()}`}
+                                    />
+                                    <picture
+                                    classeName="bp-image__placeholder"
+                                    style={{
+                                        paddingTop: `56.25%`,
+                                        background: `url(${product.productImage.asset.metadata.lqip})`,
+                                        backgroundSize: 'cover',
+                                    }}
+                                    >
+                                    <source
+                                        media="screen and (min-width: 560px)"
+                                        srcSet={`${urlFor(product.productImage)
+                                        .width(210)
+                                        .height(210)
+                                        .quality(80)
+                                        .fit('max')
+                                        .auto('format')
+                                        .url()
+                                        .toString()}`}
+                                    />
+                                    <source
+                                        media="screen and (min-width: 320px)"
+                                        srcSet={`${urlFor(product.productImage)
+                                        .width(210)
+                                        .height(210)
+                                        .quality(80)
+                                        .fit('max')
+                                        .auto('format')
+                                        .url()
+                                        .toString()}`}
+                                    />
+                                    <img
+                                        src={urlFor(product.productImage)
+                                        .width(210)
+                                        .height(210)
+                                        .fit('max')
+                                        .url()}
+                                        alt={product.productImage.alt}
+                                    />
+                                    </picture>
+                                </figure>
+                            </div>
+                            <div className="cw_product_title">Magnum Double Gold Caramel Billionaire Tub 440ml</div>
+                            <div className="cw_btn_wrap">
+                            <button className="cw_btn_buynow" >Buy Now</button>
+                            </div>
+                        </div>
+                    ))}
+                     </Carousel>
+            </div>
+            )}
+  
+  
   </div>
   );
 }

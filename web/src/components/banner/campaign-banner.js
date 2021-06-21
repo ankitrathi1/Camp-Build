@@ -2,16 +2,24 @@ import * as styles from "../campaign.module.css";
  import * as style from "./campaign-banner.css";
 import { buildImageObj } from "../../lib/helpers";
 import { Link } from "gatsby";
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import { format } from "date-fns";
 import { urlFor } from "../../lib/image-url";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
-
-function campaignBanner(props) {
+var newBannerCount=0;
+function CampaignBanner(props) {
+    
+const [count, setCount] = useState(newBannerCount);
+  useEffect(() => {
+   
+    setCount(newBannerCount++);
+    
+},[props.id]);
+   
   return (
       <div>
-    <div className="js_slider">
+    <div className="js_slider" id={'bannerSlider'+count}>
         <div className="slider_content">
         <Carousel interval={3000} autoPlay={props.autoSlide} infiniteLoop={true} stopOnHover={false}>
        
@@ -89,4 +97,4 @@ function campaignBanner(props) {
  
 }
 
-export default campaignBanner;
+export default CampaignBanner;
