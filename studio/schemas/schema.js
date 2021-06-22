@@ -14,6 +14,8 @@ import banner from "./documents/banner";
 import bannerSlider from "./documents/bannerSlider";
 import header from "./documents/header";
 import footer from "./documents/footer";
+import country from "./documents/country";
+import brand from "./documents/brand";
 
 // Object types
 import bodyPortableText from "./objects/bodyPortableText";
@@ -47,6 +49,8 @@ export default createSchema({
     bodyPortableText,
     bioPortableText,
     excerptPortableText,
+    country,
+    brand
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ]),
