@@ -7,7 +7,7 @@ import { format } from "date-fns";
 import { urlFor } from "../../lib/image-url";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
-var newBannerCount=0;
+var newBannerCount = 1;
 function CampaignBanner(props) {
     
 const [count, setCount] = useState(newBannerCount);
@@ -19,14 +19,14 @@ const [count, setCount] = useState(newBannerCount);
    
   return (
       <div>
-    <div className="js_slider" id={'bannerSlider'+count}>
+    <div className="cw_js_slider" id={'cw_banner_slider'+count}>
         <div className="slider_content">
         <Carousel interval={3000} autoPlay={props.autoSlide} infiniteLoop={true} stopOnHover={false}>
        
             {props.bannerImages && props.bannerImages.map((banner) => (
                
                      
-                <div className="js_slider_item">
+                <div className="cw_js_slider_item">
                     <figure>
                         <link
                         rel="preload"

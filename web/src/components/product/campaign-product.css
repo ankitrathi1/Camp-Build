@@ -87,3 +87,11 @@
     width: 35px;
     height: 35px;
 }
+
+
+@media (max-width:575px){
+    .cw_main_container .cw_product_container .item{
+        width: 82%;
+        margin: 0 9% 5%;
+    }
+}

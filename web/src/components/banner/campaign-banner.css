@@ -1,17 +1,26 @@
 @import '../../styles/custom-media.css';
 @import '../../styles/custom-properties.css';
-
+picture{padding:0!important;}
 .js_container{}
-.js_slider{
-  width: 100%; 
-  position: relative; 
-  overflow: hidden;
+#cw_banner_slider1{
+    width:100%;
+    height:450px;
+    @nest & figure{
+        height:450px;
+    }
+}
+.cw_js_slider{
+    width: 1140px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    height:550px;
   @nest & .slider_content{
     display: -webkit-box;
     /*display: flex;*/
     -webkit-transition: all 1s ease-in-out;
     transition: all 1s ease-in-out;
-    @nest & .js_slider_item{
+    @nest & .cw_js_slider_item{
       width:100%; 
       float: left;
      
@@ -19,7 +28,7 @@
         width: 100%;
         padding: 0;
         margin: 0;
-        height:450px;
+        height:550px;
         @nest & img{
           width:100%;
         }
@@ -27,27 +36,27 @@
     }
   }
 }
-.js_slider .carousel.carousel-slider .control-arrow{
+.cw_js_slider .carousel.carousel-slider .control-arrow{
     width: 20px;
     height: 20px;
     padding: 0;
     opacity: .3;
     visibility: hidden;
 }
-.js_slider:hover .carousel.carousel-slider .control-arrow{visibility: visible;}
-.js_slider .carousel.carousel-slider .control-arrow:hover{opacity: 1; background: none;}
-.cw_main_container .js_slider .carousel .control-arrow:before, .carousel.carousel-slider .control-arrow:before{content: normal;}
-.js_slider .carousel.carousel-slider .control-arrow.control-prev{
+.cw_js_slider:hover .carousel.carousel-slider .control-arrow{visibility: visible;}
+.cw_js_slider .carousel.carousel-slider .control-arrow:hover{opacity: 1; background: none;}
+.cw_main_container .cw_js_slider .carousel .control-arrow:before, .carousel.carousel-slider .control-arrow:before{content: normal;}
+.cw_js_slider .carousel.carousel-slider .control-arrow.control-prev{
     left: 10px; top: 48%;
     background-image: url(../../images/svg/left-icon.svg);
 }
-.js_slider .carousel.carousel-slider .control-arrow.control-next{
+.cw_js_slider .carousel.carousel-slider .control-arrow.control-next{
     right: 10px; top: 48%;
     background-image: url(../../images/svg/right-icon.svg);
 }
 
-.js_slider  button:focus{border:0; outline: none;}
-.js_slider button svg{pointer-events: none;}
+.cw_js_slider  button:focus{border:0; outline: none;}
+.cw_js_slider button svg{pointer-events: none;}
 
 
 .carousel-status
@@ -61,7 +70,7 @@
 }
 
 
-.js_slider .carousel ul.control-dots li.dot{
+.cw_js_slider .carousel ul.control-dots li.dot{
     padding: 0;
     width: 22px;
     height: 5px;
@@ -76,11 +85,46 @@
     transition: 0.3s;
     opacity: 1;
 }
-.js_slider .carousel ul.control-dots li.dot.selected {
+.cw_js_slider .carousel ul.control-dots li.dot.selected {
     background-color: #c79652;
     -moz-animation: boing 0.5s forwards;
     -o-animation: boing 0.5s forwards;
     -webkit-animation: boing 0.5s forwards;
     animation: boing 0.5s forwards;
 }
-.js_slider .carousel ul.control-dots li.dot:hover {background-color: #c79652;}
+.cw_js_slider .carousel ul.control-dots li.dot:hover {background-color: #c79652;}
+
+@media (max-width:575px){
+    .cw_main_container .cw_js_slider{
+        width: 100%;
+        height: 200px;
+    }
+    .cw_js_slider .carousel.carousel-slider .control-arrow{
+        display: none;
+    }
+    .cw_main_container #cw_banner_slider1{
+        height: 200px;
+        @nest & .slider_content{
+            @nest & figure{
+                height: 100%;
+            }
+        }
+    }
+    .cw_main_container .cw_js_slider{
+        height: 200px;
+        @nest & .slider_content{
+            @nest & figure{
+                height: 100%;
+            }
+        }
+    }
+    .cw_main_container .cw_product_container .category_title{
+        font-size: 1.6rem;
+        padding: 30px 5 20px;
+    }
+    .cw_main_container .cw_product_container .category_sub_title{
+        font-size: 1.1rem;
+        margin: -10px 5px 15px;
+    }
+}
+    
