@@ -30,9 +30,8 @@ export default {
     },
     {
       name: "brand",
-      type: "reference",
+      type: "string",
       title: "Brand",
-      to: [{ type: 'brand' }],
     },
     {
       name: "locale",
@@ -41,9 +40,8 @@ export default {
     },
     {
       name: "country",
-      type: "reference",
+      type: "string",
       title: "Country",
-      to: [{ type: 'country' }],
     },
     {
       name: "componentLayout",
