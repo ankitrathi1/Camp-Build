@@ -38,7 +38,8 @@ export default {
         name: "introText",
         type: "string",
         title: "Introduction Text",
-        description: "Provide heading introduction text (optional)"
+        description: "Provide heading introduction text (optional)",
+        validation: Rule => Rule.required()
       },
       {
         name: "displayFormat",

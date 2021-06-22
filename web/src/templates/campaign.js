@@ -9,7 +9,6 @@ import { toPlainText } from "../lib/helpers";
 export const query = graphql`
   query CampaignTemplateQuery($id: String!) {
     campaign: sanityCampaign(id: { eq: $id }) {
-      brand
       componentLayout {
         ... on SanityBannerSlider {
           title
@@ -78,8 +77,6 @@ export const query = graphql`
           }
         }
       }
-      country
-      gaID
       id
       locale
       publishedAt
