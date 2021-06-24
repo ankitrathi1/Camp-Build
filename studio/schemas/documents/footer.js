@@ -1,9 +1,11 @@
 import { format } from "date-fns";
+import { MdBorderBottom } from 'react-icons/md'
 
 export default {
   name: "footer",
   type: "document",
   title: "Footer",
+  icon: MdBorderBottom,
   fields: [
     {
         name: "title",

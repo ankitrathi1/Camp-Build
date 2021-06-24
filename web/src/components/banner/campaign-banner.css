@@ -2,11 +2,15 @@
 @import '../../styles/custom-properties.css';
 picture{padding:0!important;}
 .js_container{}
+.cw_js_slider .carousel-root{width:100%;}
 #cw_banner_slider1{
     width:100%;
     height:450px;
     @nest & figure{
         height:450px;
+        @nest & img{
+            width:100%;
+          }
     }
 }
 .cw_js_slider{
@@ -30,7 +34,8 @@ picture{padding:0!important;}
         margin: 0;
         height:550px;
         @nest & img{
-          width:100%;
+          height:100%;
+          width:auto;
         }
       }
     }

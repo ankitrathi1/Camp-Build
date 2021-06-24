@@ -6,6 +6,8 @@ import Layout from "../containers/layout";
 import Container from "../components/container";
 import SEO from "../components/seo";
 import { toPlainText } from "../lib/helpers";
+import favicon from '/src/images/favicon.ico';
+import Helmet from 'react-helmet';
 export const query = graphql`
   query CampaignTemplateQuery($id: String!) {
     campaign: sanityCampaign(id: { eq: $id }) {
@@ -90,9 +92,9 @@ const CampaignTemplate = (props) => {
   const campaign = data && data.campaign;
   return (
     <Layout>
-          {/* <Helmet>
-            <script src="/analytics.js"></script>
-    </Helmet> */}
+    <Helmet>
+      <link rel="icon" href={favicon} />
+    </Helmet>
       {errors && <SEO title="GraphQL Error" />}
       {campaign && (
         <SEO

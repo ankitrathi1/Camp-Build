@@ -28,5 +28,11 @@ export default {
       type: "figure",
       title: "Brand Logo",
     },
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      media: 'brandLogo'
+    }
+  }
 };

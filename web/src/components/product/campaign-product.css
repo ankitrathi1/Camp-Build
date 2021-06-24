@@ -5,6 +5,7 @@
     width: 100%;
     margin: 0 auto; 
     padding: 0px;
+    margin-bottom: 35px;
 }
 .cw_main_container .cw_product_container .category_title {
     text-align: center;
@@ -90,6 +91,9 @@
 
 
 @media (max-width:575px){
+    .cw_main_container .cw_product_container{
+        margin-bottom: 25px;
+    }
     .cw_main_container .cw_product_container .item{
         width: 82%;
         margin: 0 9% 5%;

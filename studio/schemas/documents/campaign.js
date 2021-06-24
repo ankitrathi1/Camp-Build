@@ -1,5 +1,6 @@
 import Tabs from "sanity-plugin-tabs";
 import { format } from "date-fns";
+import { MdLocalMovies } from 'react-icons/md'
 
 export default {
   name: "campaign",
@@ -11,6 +12,7 @@ export default {
       type: "string",
       title: "Campaign Title",
       description: "What is name of your campaign",
+      icon: MdLocalMovies,
     },
     {
       name: "rootUrl",
@@ -47,6 +49,7 @@ export default {
       name: "componentLayout",
       type: "array",
       title: "Component Layout",
+      icon: MdLocalMovies,
       description: "Please select component position and order",
       of: [
         {
@@ -66,5 +69,11 @@ export default {
       title: "Published at",
       description: "This can be used to schedule post for publishing",
     },
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      media: 'componentLayout.0.brandLogo'
+    }
+  }
 };

@@ -28,18 +28,6 @@ const [count, setCount] = useState(newBannerCount);
                      
                 <div className="cw_js_slider_item">
                     <figure>
-                        <link
-                        rel="preload"
-                        as="image"
-                        href={`${urlFor(banner.bannerImage)
-                            .width(1300)
-                            .height(450)
-                            .quality(80)
-                            .fit('max')
-                            .auto('format')
-                            .url()
-                            .toString()}`}
-                        />
                         <picture
                         className="bp-image__placeholder"
                         style={{
@@ -49,22 +37,20 @@ const [count, setCount] = useState(newBannerCount);
                         }}
                         >
                         <source
-                            media="screen and (min-width: 560px)"
+                            media="screen and (max-width: 560px)"
                             srcSet={`${urlFor(banner.bannerImage)
-                            .width(700)
-                            .height(392)
-                            .quality(80)
+                            .width(375)
+                            .height(200)
                             .fit('max')
                             .auto('format')
                             .url()
                             .toString()}`}
                         />
                         <source
-                            media="screen and (min-width: 320px)"
+                            media="screen and (max-width: 320px)"
                             srcSet={`${urlFor(banner.bannerImage)
                             .width(559)
                             .height(314)
-                            .quality(80)
                             .fit('max')
                             .auto('format')
                             .url()
@@ -73,7 +59,8 @@ const [count, setCount] = useState(newBannerCount);
                         <img
                             src={urlFor(banner.bannerImage)
                             .width(1400)
-                            .height(450)
+                            .height(550)
+                            .fit('max')
                             .url()}
                             alt={banner.bannerImage.alt}
                         />

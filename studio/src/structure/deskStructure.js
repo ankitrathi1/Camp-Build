@@ -95,14 +95,19 @@ export default () =>
         .icon(MdImage)
         .schemaType("banner")
         .child(S.documentTypeList("banner").title("Banner Images (Add hero images used for banner carousel/listing)")),
+      S.listItem()
+        .title("Social Media Links")
+        .icon(MdImage)
+        .schemaType("socialMedia")
+        .child(S.documentTypeList("socialMedia").title("Add Social Media to show in footer")),
       S.divider(),
       // `S.documentTypeListItems()` returns an array of all the document types
       // defined in schema.js. We filter out those that we have
       // defined the structure above.
-      ...S.documentTypeListItems().filter(
+      /*...S.documentTypeListItems().filter(
         (listItem) =>
           !["category", "author", "post", "siteSettings", "campaign", "product", "component", "banner", "bannerSlider", "productSlider", "header", "footer"].includes(
             listItem.getId()
           )
-      ),
+      ),*/
     ]);

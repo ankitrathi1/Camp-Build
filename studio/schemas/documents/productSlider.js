@@ -66,5 +66,11 @@ export default {
         },
       ],
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      media: 'product.0.productImage'
+    }
+  }
 };

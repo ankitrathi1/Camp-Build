@@ -68,22 +68,10 @@ function CampaignProduct(props) {
                         <li key={i} className="item">
                             <div className="cw_product_img">
                                 <figure>
-                                    <link
-                                    rel="preload"
-                                    as="image"
-                                    href={`${urlFor(x.productImage)
-                                        .width(210)
-                                        .height(210)
-                                        .quality(80)
-                                        .fit('max')
-                                        .auto('format')
-                                        .url()
-                                        .toString()}`}
-                                    />
                                     <picture
                                     classeName="bp-image__placeholder"
                                     style={{
-                                        paddingTop: `56.25%`,
+                                        paddingTop: `100%`,
                                         background: `url(${x.productImage.asset.metadata.lqip})`,
                                         backgroundSize: 'cover',
                                     }}
@@ -93,7 +81,6 @@ function CampaignProduct(props) {
                                         srcSet={`${urlFor(x.productImage)
                                         .width(210)
                                         .height(210)
-                                        .quality(80)
                                         .fit('max')
                                         .auto('format')
                                         .url()
@@ -104,7 +91,6 @@ function CampaignProduct(props) {
                                         srcSet={`${urlFor(x.productImage)
                                         .width(210)
                                         .height(210)
-                                        .quality(80)
                                         .fit('max')
                                         .auto('format')
                                         .url()
@@ -144,22 +130,10 @@ function CampaignProduct(props) {
                         <div className="item">
                             <div className="cw_product_img">
                                 <figure>
-                                    <link
-                                    rel="preload"
-                                    as="image"
-                                    href={`${urlFor(product.productImage)
-                                        .width(210)
-                                        .height(210)
-                                        .quality(80)
-                                        .fit('max')
-                                        .auto('format')
-                                        .url()
-                                        .toString()}`}
-                                    />
                                     <picture
                                     classeName="bp-image__placeholder"
                                     style={{
-                                        paddingTop: `56.25%`,
+                                        paddingTop: `100%`,
                                         background: `url(${product.productImage.asset.metadata.lqip})`,
                                         backgroundSize: 'cover',
                                     }}
@@ -169,7 +143,6 @@ function CampaignProduct(props) {
                                         srcSet={`${urlFor(product.productImage)
                                         .width(210)
                                         .height(210)
-                                        .quality(80)
                                         .fit('max')
                                         .auto('format')
                                         .url()
@@ -180,7 +153,6 @@ function CampaignProduct(props) {
                                         srcSet={`${urlFor(product.productImage)
                                         .width(210)
                                         .height(210)
-                                        .quality(80)
                                         .fit('max')
                                         .auto('format')
                                         .url()

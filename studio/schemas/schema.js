@@ -14,6 +14,7 @@ import banner from "./documents/banner";
 import bannerSlider from "./documents/bannerSlider";
 import header from "./documents/header";
 import footer from "./documents/footer";
+//import social from "./documents/socialMedia";
 
 // Object types
 import bodyPortableText from "./objects/bodyPortableText";

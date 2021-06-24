@@ -32,5 +32,11 @@ export default {
           },
         ],
       },
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      media: 'bannerImages.0.bannerImage'
+    }
+  }
 };

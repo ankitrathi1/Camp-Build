@@ -16,5 +16,11 @@ export default {
       type: "figure",
       title: "Banner image",
     },
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      media: 'bannerImage'
+    }
+  }
 };

@@ -22,5 +22,11 @@ export default {
       type: "figure",
       title: "Product image",
     },
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'name',
+      media: 'productImage'
+    }
+  }
 };
