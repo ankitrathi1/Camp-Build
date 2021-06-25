@@ -14,6 +14,12 @@ export default {
         validation: Rule => Rule.required()
     },
     {
+        name: "socialMedia",
+        type: "array",
+        title: "Add Social Media Channel",
+        of: [{type: "socialLink"}]
+    },
+    {
         name: "privacyNotice",
         type: "string",
         title: "Privacy notice label",

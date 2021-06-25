@@ -16,6 +16,7 @@ import header from "./documents/header";
 import footer from "./documents/footer";
 import country from "./documents/country";
 import brand from "./documents/brand";
+import social from "./documents/socialMedia";
 
 // Object types
 import bodyPortableText from "./objects/bodyPortableText";
@@ -24,6 +25,7 @@ import excerptPortableText from "./objects/excerptPortableText";
 import mainImage from "./objects/mainImage";
 import figure from "./objects/figure";
 import authorReference from "./objects/authorReference";
+import socialLink from "./objects/socialLink";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -50,7 +52,9 @@ export default createSchema({
     bioPortableText,
     excerptPortableText,
     country,
-    brand
+    brand,
+    socialLink,
+    social
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ]),
