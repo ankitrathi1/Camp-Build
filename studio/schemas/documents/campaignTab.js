@@ -1,5 +1,6 @@
-import { format } from "date-fns";
+
 import Tabs from "sanity-plugin-tabs";
+import { format } from "date-fns";
 import { MdLocalMovies } from 'react-icons/md'
 export default {
     name: "content",
@@ -11,7 +12,11 @@ export default {
         { name: "AnalyticsDetails", title: "Analytics Details",options: { sortOrder: 20 }},
         { name: "CampaignContent", title: "Campaign Content" ,options: { sortOrder: 30 }},
       ],
-
+      options: {
+        // setting layout to object will group the tab content in an object fieldset border.
+        // ... Useful for when your tab is in between other fields inside a document.
+        layout: "object"
+      },
        fields: [
     {
       name: "title",
