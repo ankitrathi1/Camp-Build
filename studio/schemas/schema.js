@@ -17,7 +17,6 @@ import footer from "./documents/footer";
 import country from "./documents/country";
 import brand from "./documents/brand";
 import campaignTab from "./documents/campaignTab";
-import social from "./documents/socialMedia";
 // Object types
 import bodyPortableText from "./objects/bodyPortableText";
 import bioPortableText from "./objects/bioPortableText";
@@ -54,7 +53,6 @@ export default createSchema({
     country,
     brand,
     socialLink,
-    social,
     campaignTab
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
