@@ -40,6 +40,7 @@ export const getDefaultDocumentNode = (props) => {
  */
 
 export default () =>
+//S.documentTypeList("campaign").title("Campaign");
   S.list()
     .title("Content")
     .items([
@@ -50,7 +51,7 @@ export default () =>
         .schemaType("campaign")
         .child(S.documentTypeList("campaign").title("Campaign")),
       //S.divider(),
-      S.listItem()
+      /*S.listItem()
         .title('Manage Components')
         .icon(FaBuffer)
         .child(
@@ -83,19 +84,17 @@ export default () =>
               S.divider(),
             ])
         ),
-      //S.divider(),
       S.listItem()
         .title("Products")
         .icon(MdAddShoppingCart)
         .schemaType("product")
         .child(S.documentTypeList("product").title("Products (add products used for product carousel/listing)")),
-      //S.divider(),
       S.listItem()
         .title("Banner Images")
         .icon(MdImage)
         .schemaType("banner")
         .child(S.documentTypeList("banner").title("Banner Images (Add hero images used for banner carousel/listing)")),
-      /*S.listItem()
+      S.listItem()
         .title("Social Media Links")
         .icon(MdImage)
         .schemaType("socialMedia")

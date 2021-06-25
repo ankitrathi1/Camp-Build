@@ -1,6 +1,6 @@
-import Tabs from "sanity-plugin-tabs";
+
 import { format } from "date-fns";
-import { MdLocalMovies } from 'react-icons/md'
+
 
 export default {
   name: "campaign",
@@ -8,74 +8,15 @@ export default {
   title: "Campaign",
   fields: [
     {
-      name: "title",
-      type: "string",
-      title: "Campaign Title",
-      description: "What is name of your campaign",
-      icon: MdLocalMovies,
-    },
-    {
-      name: "rootUrl",
-      type: "string",
-      title: "Home page or Campaign root URL",
-      description: "Provide the url of brand website",
-    },
-    {
-      name: "slug",
-      type: "slug",
-      title: "Campaign Url",
-      description:"This will be the url of campaign page",
-      options: {
-        source: "title",
-        maxLength: 96,
-      },
-    },
-    {
-      name: "brand",
-      type: "reference",
-      title: "Brand",
-      to: [{ type: 'brand' }],
-    },
-    {
-      name: "locale",
-      type: "string",
-      title: "Locale",
-    },
-    {
-      name: "country",
-      type: "reference",
-      title: "Country",
-      to: [{ type: 'country' }],
-    },
-    {
-      name: "componentLayout",
-      type: "array",
-      title: "Component Layout",
-      icon: MdLocalMovies,
-      description: "Please select component position and order",
-      of: [
-        {
-          type: "reference",
-          to: [{type: 'header'}, {type: 'footer'}, {type: 'bannerSlider'}, {type: 'productSlider'}]
-        },
-      ],
-    },
-    {
-      name: "gaID",
-      type: "string",
-      title: "Google Analytics ID",
-    },
-    {
-      name: "publishedAt",
-      type: "datetime",
-      title: "Published at",
-      description: "This can be used to schedule post for publishing",
-    },
+      name: "content",
+      type: "content",
+     
+    }
   ],
-  preview: {
+    preview: {
     select: {
-      title: 'title',
-      media: 'componentLayout.0.brandLogo'
+     title: 'content.title',
+      media: 'content.component.0.brandLogo'
     }
   }
 };
