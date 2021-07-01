@@ -27,13 +27,13 @@
   --main-navigation-color--inverted: 	#fff;
 }
 
-:global(.formView_root_3UiZr) {
+:global([class^='formView_root_']) {
   max-width: 85%;
 }
-:global(.DefaultFormField_root_1aVxI){
+:global([class^='DefaultFormField_root_']){
   max-width: 500px;
 }
-:global(.tabs_content_object_feGh5){
+:global([class^='tabs_content_object_']){
   padding-bottom: 50px;
   padding-left: 50px;
 }
@@ -44,12 +44,12 @@
   height: 33px;
   color: #ffffff;
 }
-:global(.DefaultPane_headerToolContainer_3B1OM a.DefaultButton_root_i03nr:before){
+:global([class^='DefaultPane_headerToolContainer_'] a[class^='DefaultButton_root_']:before){
   content: "Create";
   line-height: 29px;
   text-align: center;
   padding-left: 29px;
 }
-:global(.DefaultPane_headerToolContainer_3B1OM a.DefaultButton_root_i03nr svg){
+:global([class^='DefaultPane_headerToolContainer_'] a[class^='DefaultButton_root_'] svg){
   display: none;
 }
