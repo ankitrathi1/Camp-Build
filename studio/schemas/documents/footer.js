@@ -14,21 +14,17 @@ export default {
         validation: Rule => Rule.required()
     },
     {
-        name: "socialMedia",
-        type: "array",
-        title: "Add Social Media Channel",
-        of: [{type: "socialLink"}]
-    },
-    {
         name: "privacyNotice",
         type: "string",
         title: "Privacy notice label",
+        description:"The label should match what is mentioned in Privacy notice page of the region here https://www.unilevernotices.com/privacy-notice/notice.html",
         validation: Rule => Rule.required()
       },
       {
         name: "privacyNoticeUrl",
         type: "string",
         title: "Privacy notice URL",
+        description: "You can get Privacy notice URL for your region from here https://www.unilevernotices.com/privacy-notice/notice.html",
         validation: Rule => Rule.required()
       },
       {

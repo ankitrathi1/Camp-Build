@@ -9,15 +9,20 @@ import siteSettings from "./documents/siteSettings";
 import author from "./documents/author";
 import campaign from "./documents/campaign";
 import product from "./documents/product";
-import productSlider from "./documents/productSlider";
+import productCarousel from "./documents/productCarousel";
+import productList from "./documents/productList";
 import banner from "./documents/banner";
-import bannerSlider from "./documents/bannerSlider";
-import header from "./documents/header";
-import footer from "./documents/footer";
+import imageBanner from "./documents/imageBanner";
+import imageCarousel from "./documents/imageCarousel";
 import country from "./documents/country";
 import brand from "./documents/brand";
 import campaignTab from "./documents/campaignTab";
+import basicComponent from "./documents/basicComponent";
+import socialChannel from "./documents/socialChannel";
+import customLink from "./documents/customLink";
 // Object types
+import header from "./objects/header";
+import footer from "./objects/footer";
 import bodyPortableText from "./objects/bodyPortableText";
 import bioPortableText from "./objects/bioPortableText";
 import excerptPortableText from "./objects/excerptPortableText";
@@ -25,6 +30,8 @@ import mainImage from "./objects/mainImage";
 import figure from "./objects/figure";
 import authorReference from "./objects/authorReference";
 import socialLink from "./objects/socialLink";
+import productInput from "./objects/productInput";
+import textEditor from "./objects/textEditor";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -41,8 +48,12 @@ export default createSchema({
     footer,
     product,
     banner,
-    productSlider,
-    bannerSlider,
+    basicComponent,
+    imageBanner,
+    imageCarousel,
+    productCarousel,
+    productList,
+    socialChannel,
     author,
     mainImage,
     figure,
@@ -53,7 +64,10 @@ export default createSchema({
     country,
     brand,
     socialLink,
-    campaignTab
+    productInput,
+    campaignTab,
+    textEditor,
+    customLink
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ]),

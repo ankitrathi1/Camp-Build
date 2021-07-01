@@ -31,7 +31,7 @@ const verifyInput = socialLink => {
 
 export default {
   name: 'socialLink',
-  title: 'Social Media Channel',
+  title: 'Social Channel',
   type: 'object',
 
   // 4. Perform validation
@@ -41,7 +41,7 @@ export default {
     {
       // 5. Enable editors to input a string from a predefined list (social)
       name: 'channelName',
-      title: 'Channel Name',
+      title: 'CHANNEL NAME',
       type: 'string',
       options: {
         list: social
@@ -52,20 +52,20 @@ export default {
     {
       // 7. Same time input as above, but assigned to a different field
       name: 'channelIcon',
-      title: 'Channel icon URL',
+      title: 'CHANNEL ICON URL',
       type: 'url',
       description: 'If not provided, default will be used',
     },
     {
       // 7. Same time input as above, but assigned to a different field
       name: 'iconAlt',
-      title: 'Icon Alt Text',
+      title: 'ICON ALT TEXT',
       type: 'string',
     },
     {
       // 7. Same time input as above, but assigned to a different field
       name: 'channelUrl',
-      title: 'Channel URL',
+      title: 'CHANNEL URL',
       type: 'url',
     }
   ],

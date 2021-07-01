@@ -13,7 +13,7 @@ class CreateCampaign extends React.Component {
 <div>
                 <a  className={styles.linkStyle} href="/intent/create/type=campaign/">
                 
-                  <div>Create New Campaign</div>
+                  <div>Create New Campaign0</div>
                 </a>
               </div>
     </div>

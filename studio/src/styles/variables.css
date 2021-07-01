@@ -25,16 +25,31 @@
   /* Main Navigation */
   --main-navigation-color: 	#4169E1;
   --main-navigation-color--inverted: 	#fff;
- 
 }
 
-.createButton
-{
-  display:none;
+:global(.formView_root_3UiZr) {
+  max-width: 85%;
 }
-
-.tabs_content_document_1AuyP {
-  border: 1px solid rgba(93, 113, 145, 0.35);
-  border-top: 0;
-  padding: 0 20px 20px;
+:global(.DefaultFormField_root_1aVxI){
+  max-width: 500px;
+}
+:global(.tabs_content_object_feGh5){
+  padding-bottom: 50px;
+  padding-left: 50px;
+}
+:global([class^='DefaultPane_headerToolContainer_'] a[class^='DefaultButton_root_']){
+  background: #4169E1;
+  border: 1px solid #4169E1;
+  border-radius: 5px;
+  height: 33px;
+  color: #ffffff;
+}
+:global(.DefaultPane_headerToolContainer_3B1OM a.DefaultButton_root_i03nr:before){
+  content: "Create";
+  line-height: 29px;
+  text-align: center;
+  padding-left: 29px;
+}
+:global(.DefaultPane_headerToolContainer_3B1OM a.DefaultButton_root_i03nr svg){
+  display: none;
 }

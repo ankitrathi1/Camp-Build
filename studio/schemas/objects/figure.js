@@ -19,33 +19,6 @@ export default {
       options: {
         isHighlighted: true
       }
-    },
-    {
-      name: 'imageCaption',
-      title: 'Caption',
-      description: 'Name or description of image',
-      type: 'string',
-      options: {
-        isHighlighted: true
-      }
-    },
-    {
-      name: 'imageCredit',
-      title: 'Credit',
-      description: 'Leave blank if image is from TAB',
-      type: 'string',
-      options: {
-        isHighlighted: true
-      }
-    },
-    {
-      name: 'imageTabID',
-      title: 'tabID',
-      description: 'Leave blank if image is not from TAB',
-      type: 'string',
-      options: {
-        isHighlighted: true
-      }
     }
   ]
 }

@@ -1,20 +1,21 @@
 import { format } from "date-fns";
 
 export default {
-  name: "bannerSlider",
+  name: "imageCarousel",
   type: "document",
-  title: "Banner Carousel/List",
+  title: "Image Carousel",
   fields: [
     {
         name: "title",
         type: "string",
-        title: "Banner Slider/List Name",
+        title: "CAROUSEL NAME",
+        description: "Name is used to identify the carousel for page layout",
         validation: Rule => Rule.required()
     },
     {
         name: "autoSlide",
         type: "boolean",
-        title: "Make banner slider auto slide/swipe",
+        title: "MAKE BANNER CAROUSEL AUTO SWIPE",
         initialValue: false,
         description: "If you enable this then banner will swipe automatically",
     },
@@ -23,14 +24,7 @@ export default {
         type: "array",
         title: "Select banner images",
         description: "Please select banner images from drop dowm, if you want single hero image then select only one image",
-        of: [
-          {
-            type: "reference",
-            to: {
-              type: "banner",
-            },
-          },
-        ],
+        of: [{type: "figure"}]
       },
   ],
   preview: {

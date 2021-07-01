@@ -10,7 +10,9 @@ export default {
       fieldsets: [
         { name: "CampaignDetails", title: "Campaign Details",options: { sortOrder: 10 }  },
         { name: "AnalyticsDetails", title: "Analytics Details",options: { sortOrder: 20 }},
-        { name: "CampaignContent", title: "Campaign Content" ,options: { sortOrder: 30 }},
+        { name: "StyleDetails", title: "Header, Footer & Styling",options: { sortOrder: 30 }},
+        { name: "CampaignContent", title: "Content" ,options: { sortOrder: 40 }},
+        { name: "publishDetail", title: "Publish" ,options: { sortOrder: 50 }},
       ],
       options: {
         // setting layout to object will group the tab content in an object fieldset border.
@@ -18,90 +20,107 @@ export default {
         layout: "object"
       },
        fields: [
-    {
-      name: "title",
-      type: "string",
-      title: "Campaign Title",
-      description: "What is name of your campaign",
-	  icon: MdLocalMovies,
-	  fieldset: "CampaignDetails",
-    },
-    {
-      name: "rootUrl",
-      type: "string",
-      title: "Home page or Campaign root URL",
-      description: "Provide the url of brand website",
-	  fieldset: "CampaignDetails",
-    },
-    {
-      name: "slug",
-      type: "slug",
-      title: "Campaign Url",
-      description:"This will be the url of campaign page",
-      options: {
-        source: "content.title",
-        maxLength: 96,
+        {
+          name: "brand",
+          type: "reference",
+          title: "BRAND",
+          to: [{ type: 'brand' }],
+          fieldset: "CampaignDetails",
+        },
+        {
+          name: "locale",
+          type: "string",
+          title: "LOCALE",
+          fieldset: "CampaignDetails",
+        },
+        {
+          name: "country",
+          type: "reference",
+          title: "COUNTRY",
+          to: [{ type: 'country' }],
+          fieldset: "CampaignDetails",
+        },
+        {
+          name: "title",
+          type: "string",
+          title: "CAMPAIGN TITLE",
+          description: "What is name of your campaign",
+        icon: MdLocalMovies,
+        fieldset: "CampaignDetails",
+        },
+        {
+          name: "rootUrl",
+          type: "string",
+          title: "HOME PAGE OR CAMPAIGN ROOT URL",
+          description: "Provide the url of brand website",
+        fieldset: "CampaignDetails",
+        },
+        {
+          name: "gaID",
+          type: "string",
+          title: "GOOGLE ANALYTICS ID",
+        fieldset: "AnalyticsDetails",
+        },
+      {
+          name: "reportSuiteID",
+          type: "string",
+          title: "REPORT SUITE ID",
+        fieldset: "AnalyticsDetails",
+        },
+        {
+          name: "brandOoneTruseID",
+          type: "string",
+          title: "BRAND ONE TRUST ID",
+          fieldset: "AnalyticsDetails",
+        },
+        {
+          name: "style",
+          type: "basicComponent",
+          title: "Configure Header of the page",
+          fieldset: "StyleDetails",
+        },
+      {
+        name: "bodyComponent",
+        type: "array",
+        title: "CREATE/ORDER BODY COMPONENT FOR PAGE",
+        fieldset: "CampaignContent",
+        of: [
+          {type: "imageBanner"},
+          {type: "imageCarousel"},
+          {type: "productCarousel"},
+          {type: "productList"},
+          {type: "socialChannel"}
+        ],
       },
-	  fieldset: "CampaignDetails",
-    },
-    {
-      name: "brand",
-      type: "reference",
-      title: "Brand",
-      to: [{ type: 'brand' }],
-	  fieldset: "CampaignDetails",
-    },
-    {
-      name: "locale",
-      type: "string",
-      title: "Locale",
-	  fieldset: "CampaignDetails",
-    },
-    {
-      name: "country",
-      type: "reference",
-      title: "Country",
-      to: [{ type: 'country' }],
-	  fieldset: "CampaignDetails",
-    },
-    {
-      name: "component",
-      type: "array",
-      title: "Create Header & Footer of the page",
-      fieldset: "CampaignContent",
-      of: [
-        {type: "header"},
-        {type: "footer"},
-      ],
-    },
-    {
-      name: "bodyComponent",
-      type: "array",
-      title: "Create/Order body component for page",
-      fieldset: "CampaignContent",
-      of: [
-        {type: "bannerSlider"},
-        {type: "productSlider"},
-      ],
-    },
-    {
-      name: "gaID",
-      type: "string",
-      title: "Google Analytics ID",
-	  fieldset: "AnalyticsDetails",
-    },
-	 {
-      name: "reportSuiteID",
-      type: "string",
-      title: "Report Suite ID",
-	  fieldset: "AnalyticsDetails",
-    },
-    {
-      name: "publishedAt",
-      type: "datetime",
-      title: "Published at",
-      description: "This can be used to schedule post for publishing",
-	   fieldset: "CampaignContent",
-    },
-  ]
+      {
+        name: "slug",
+        type: "slug",
+        title: "CAMPAIGN URL",
+        description:"This will be the url of campaign page",
+        options: {
+          source: "content.title",
+          maxLength: 96,
+        },
+      fieldset: "publishDetail",
+      },
+      {
+        name: "publishedAt",
+        type: "datetime",
+        title: "PUBLISH AT",
+        description: "This can be used to schedule post for publishing",
+        fieldset: "publishDetail",
+      },
+      {
+        name: "unPublishedAt",
+        type: "datetime",
+        title: "UNPUBLISH AT",
+        description: "This can be used to schedule post for unpublishing",
+        fieldset: "publishDetail",
+      },
+    ],
+    preview: {
+      select: {
+        title: 'title',
+      }
+    }
   };
