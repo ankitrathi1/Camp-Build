@@ -15,16 +15,18 @@ export const query = graphql`
   query IndexPageQuery {
     campaigns: allSanityCampaign(
       sort: { fields: [_createdAt], order: DESC }
-      filter: { slug: { current: { ne: null } }, _createdAt: { ne: null } }
+      filter: { _createdAt: { ne: null } }
     ) {
       edges {
         node {
           id
           _createdAt
-          publishedAt
-          title
-          slug {
-            current
+          content {
+            title
+            publishedAt
+            slug {
+              current
+            }
           }
         }
       }
@@ -42,7 +44,6 @@ const IndexPage = (props) => {
       </Layout>
     );
   }
-
   //const site = (data || {}).site;
   const campaignNodes = (data || {}).campaigns
     ? mapEdgesToNodes(data.campaigns)

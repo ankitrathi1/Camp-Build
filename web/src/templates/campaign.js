@@ -11,63 +11,14 @@ import Helmet from 'react-helmet';
 export const query = graphql`
   query CampaignTemplateQuery($id: String!) {
     campaign: sanityCampaign(id: { eq: $id }) {
-      componentLayout {
-        ... on SanityBannerSlider {
-          title
-          id
-          _type
-          autoSlide
-          bannerImages {
-            bannerImage {
-              asset {
-                url
-                metadata {
-                  lqip
-                }
-              }
-              alt
-            }
-          }
-        }
-        ... on SanityFooter {
-          id
-          title
-          _type
-          cookieNotice
-          cookieNoticeUrl
-          customLink
-          customLinkUrl
-          privacyNotice
-          privacyNoticeUrl
-          tnc
-          tncURL
-        }
-        ... on SanityHeader {
-          id
-          title
-          _type
-          logoUrl
-          brandLogo {
-            alt
-            asset {
-              url
-              metadata {
-                lqip
-              }
-            }
-          }
-        }
-        ... on SanityProductSlider {
-          id
-          title
-          _type
-          displayFormat
-          heading
-          headingLevel
-          introText
-          product {
-            name
-            productImage {
+      id
+      content{
+        locale
+        rootUrl
+        title
+        bodyComponent {
+          ... on SanityImageCarousel {
+            imageCarousel: bannerImages {
               alt
               asset {
                 url
@@ -75,15 +26,52 @@ export const query = graphql`
                   lqip
                 }
               }
+            }
+            _type
+            autoSlide
+          }
+          ... on SanityImageBanner {
+            bannerImages {
+              alt
+              asset {
+                url
+                metadata {
+                  lqip
+                }
+              }
+            }
+            title
+            _type
+          }
+        }
+        style {
+          header {
+            logoUrl
+            clickLogo
+            brandLogo {
+              alt
+              asset {
+                url
+                metadata {
+                  lqip
+                }
+              }
+            }
+          }
+          footer {
+            tncURL
+            tnc
+            privacyNoticeUrl
+            privacyNotice
+            cookieNoticeUrl
+            cookieNotice
+            customLink {
+              customLink
+              customLinkUrl
             }
           }
         }
       }
-      id
-      locale
-      publishedAt
-      rootUrl
-      title
     }
   }
 `;

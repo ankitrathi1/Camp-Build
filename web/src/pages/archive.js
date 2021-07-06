@@ -13,15 +13,17 @@ export const query = graphql`
   query ArchivePageQuery {
     campaigns: allSanityCampaign(
       sort: { fields: [_createdAt], order: DESC }
-      filter: { slug: { current: { ne: null } }, _createdAt: { ne: null } }
+      filter: { _createdAt: { ne: null } }
     ) {
       edges {
         node {
           id
           _createdAt
-          title
-          slug {
-            current
+          content {
+            title
+            slug {
+              current
+            }
           }
         }
       }

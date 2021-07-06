@@ -10,7 +10,7 @@ import styles from "./IframePreview.module.css";
  */
 
 const assemblePostUrl = ({ displayed, options }) => {
-  const { slug, publishedAt } = displayed;
+  const { slug, publishedAt } = displayed.content;
   const { previewURL } = options;
   if (!slug || !previewURL) {
     console.warn("Missing slug or previewURL", { slug, previewURL });
@@ -24,6 +24,7 @@ const assemblePostUrl = ({ displayed, options }) => {
 };
 
 const IframePreview = (props) => {
+  console.log(props);
   const { options } = props;
   const { displayed } = props.document;
 

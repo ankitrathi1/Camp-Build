@@ -8,7 +8,6 @@ import schemaTypes from "all:part:@sanity/base/schema-type";
 import siteSettings from "./documents/siteSettings";
 import author from "./documents/author";
 import campaign from "./documents/campaign";
-import product from "./documents/product";
 import productCarousel from "./documents/productCarousel";
 import productList from "./documents/productList";
 import banner from "./documents/banner";
@@ -46,7 +45,6 @@ export default createSchema({
     campaign,
     header,
     footer,
-    product,
     banner,
     basicComponent,
     imageBanner,

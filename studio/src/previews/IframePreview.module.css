@@ -10,3 +10,8 @@
   top: 0;
   width: 100%;
 }
+
+.iframeContainer iframe .cw_main_container{
+  width:100%;
+  color:red;
+}

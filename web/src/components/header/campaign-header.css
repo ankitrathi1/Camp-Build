@@ -4,7 +4,7 @@
   @nest & a{
     max-height: 100px;
     display: block;
-    width: 120px;
+    width: 140px;
     margin: 0 auto;
     overflow: hidden;
     @nest & picture{

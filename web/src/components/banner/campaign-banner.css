@@ -3,9 +3,10 @@
 picture{padding:0!important;}
 .js_container{}
 .cw_js_slider .carousel-root{width:100%;}
-#cw_banner_slider1{
+.cw_main_container .cw_image_banner{
     width:100%;
     height:450px;
+    margin-bottom: 35px;
     @nest & figure{
         height:450px;
         @nest & img{

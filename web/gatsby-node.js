@@ -12,13 +12,15 @@ async function createCampaignPages(graphql, actions) {
   const result = await graphql(`
     {
       allSanityCampaign(
-        filter: { slug: { current: { ne: null } }, _createdAt: { ne: null } }
+        filter: { _createdAt: { ne: null } }
       ) {
         edges {
           node {
             id
-            slug {
-              current
+            content {
+              slug {
+                current
+              }
             }
           }
         }
@@ -31,8 +33,8 @@ console.log(result);
 
   postEdges
     .forEach((edge) => {
-      const { id, slug = {} } = edge.node;
-      const path = `/campaign/${slug.current}/`;
+      const { id, content = {} } = edge.node;
+      const path = `/campaign/${content.slug.current}/`;
 
       createPage({
         path,

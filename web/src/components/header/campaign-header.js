@@ -8,33 +8,15 @@ import { urlFor } from "../../lib/image-url";
 function campaignHeader(props) {
   return (
     <header className="cw_header">
-        <Link to={props.logoUrl}>
+        <Link to={props.style.header.logoUrl}>
         <figure>
-            <link
-              rel="preload"
-              as="image"
-              href={`${urlFor(props.brandLogo)
-                .width(700)
-                .height(392)
-                .quality(80)
-                .fit('max')
-                .auto('format')
-                .url()
-                .toString()}`}
-            />
             <picture
-              className="bp-image__placeholder"
-              style={{
-                background: `url(${props.brandLogo.asset.metadata.lqip})`,
-                backgroundSize: 'cover',
-              }}
-            >
+              className="bp-image__placeholder">
               <source
                 media="screen and (min-width: 560px)"
-                srcSet={`${urlFor(props.brandLogo)
-                  .width(700)
-                  .height(392)
-                  .quality(80)
+                srcSet={`${urlFor(props.style.header.brandLogo)
+                  .width(180)
+                  .height(60)
                   .fit('max')
                   .auto('format')
                   .url()
@@ -42,22 +24,21 @@ function campaignHeader(props) {
               />
               <source
                 media="screen and (min-width: 320px)"
-                srcSet={`${urlFor(props.brandLogo)
-                  .width(559)
-                  .height(314)
-                  .quality(80)
+                srcSet={`${urlFor(props.style.header.brandLogo)
+                  .width(180)
+                  .height(60)
                   .fit('max')
                   .auto('format')
                   .url()
                   .toString()}`}
               />
               <img
-                src={urlFor(props.brandLogo)
-                  .width(100)
-                  .height(70)
+                src={urlFor(props.style.header.brandLogo)
+                  .width(180)
+                  .height(60)
                   .fit('max')
                   .url()}
-                alt={props.brandLogo.alt}
+                alt={props.style.header.brandLogo.alt}
               />
             </picture>
           </figure>

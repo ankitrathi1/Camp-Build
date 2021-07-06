@@ -12,11 +12,11 @@ function CampaignPreview(props) {
   return (
     <Link
       className={props.isInList ? styles.inList : styles.inGrid}
-      to={getCampaignUrl(props.publishedAt, props.slug.current)}
+      to={getCampaignUrl(props.content.publishedAt, props.content.slug.current)}
     >
       
       <div className={styles.text}>
-        <h3 className={cn(responsiveTitle3, styles.title)}>{props.title}</h3>
+        <h3 className={cn(responsiveTitle3, styles.title)}>{props.content.title}</h3>
         
       </div>
     </Link>

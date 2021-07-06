@@ -4,7 +4,8 @@ import AuthorList from "./author-list";
 import HeaderComponent from "./header/campaign-header";
 import FooterComponent from "./footer/campaign-footer";
 import ProductComponent from "./product/campaign-product";
-import BannerComponent from "./banner/campaign-banner";
+import ImageBanner from "./banner/image-banner";
+import ImageCarousel from "./banner/image-carousel";
 //import PortableText from "./portableText";
 import React from "react";
 import { buildImageObj } from "../lib/helpers";
@@ -12,21 +13,38 @@ import { imageUrlFor } from "../lib/image-url";
 
 function Campaign(props) {
   const {
-    country,
-    gaID,
-    id,
-    locale,
-    publishedAt,
-    rootUrl,
     title,
-    brand,
-    componentLayout
+    content
   } = props;
   console.log(props);
   
   return (
       <div className="cw_main_container">
-        {componentLayout && componentLayout.map((comp) => (
+        <section>
+          <HeaderComponent {...content} />
+        </section>
+        {content.bodyComponent && content.bodyComponent.map((comp) => (
+          <section>
+            {comp._type === 'imageBanner' && (
+              <ImageBanner {...comp} />
+            )}
+            {comp._type === 'imageCarousel' && (
+              <ImageCarousel {...comp} />
+            )}
+          </section>
+        ))}
+        <section>
+          <FooterComponent {...content} />
+        </section>
+      </div>
+  );
+}
+
+export default Campaign;
+
+
+/*
+{componentLayout && componentLayout.map((comp) => (
           <section>
             {comp._type === 'header' && (
               <HeaderComponent {...comp} />
@@ -42,8 +60,4 @@ function Campaign(props) {
             )}
           </section>
         ))}
-      </div>
-  );
-}
-
-export default Campaign;
+*/

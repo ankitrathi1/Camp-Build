@@ -9,21 +9,12 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 var newBannerCount = 1;
 function CampaignBanner(props) {
-    
-const [count, setCount] = useState(newBannerCount);
-  useEffect(() => {
-   
-    setCount(newBannerCount++);
-    
-},[props.id]);
-   
   return (
-      <div>
-    <div className="cw_js_slider" id={'cw_banner_slider'+count}>
+    <div className="cw_js_slider">
         <div className="slider_content">
         <Carousel interval={3000} autoPlay={props.autoSlide} infiniteLoop={true} stopOnHover={false}>
        
-            {props.bannerImages && props.bannerImages.map((banner) => (
+            {props.imageCarousel && props.imageCarousel.map((banner) => (
                
                      
                 <div className="cw_js_slider_item">
@@ -32,13 +23,13 @@ const [count, setCount] = useState(newBannerCount);
                         className="bp-image__placeholder"
                         style={{
                             paddingTop: `56.25%`,
-                            background: `url(${banner.bannerImage.asset.metadata.lqip})`,
+                            background: `url(${banner.asset.metadata.lqip})`,
                             backgroundSize: 'cover',
                         }}
                         >
                         <source
                             media="screen and (max-width: 560px)"
-                            srcSet={`${urlFor(banner.bannerImage)
+                            srcSet={`${urlFor(banner)
                             .width(375)
                             .height(200)
                             .fit('max')
@@ -48,7 +39,7 @@ const [count, setCount] = useState(newBannerCount);
                         />
                         <source
                             media="screen and (max-width: 320px)"
-                            srcSet={`${urlFor(banner.bannerImage)
+                            srcSet={`${urlFor(banner)
                             .width(559)
                             .height(314)
                             .fit('max')
@@ -57,12 +48,12 @@ const [count, setCount] = useState(newBannerCount);
                             .toString()}`}
                         />
                         <img
-                            src={urlFor(banner.bannerImage)
+                            src={urlFor(banner)
                             .width(1400)
                             .height(550)
                             .fit('max')
                             .url()}
-                            alt={banner.bannerImage.alt}
+                            alt={banner.alt}
                         />
                         </picture>
                     </figure>
@@ -76,8 +67,6 @@ const [count, setCount] = useState(newBannerCount);
              </Carousel>
         </div>
        
-    </div>
-  
     </div>
   );
 
