@@ -30,6 +30,12 @@
 :global([class^='formView_root_']) {
   max-width: 85%;
 }
+:global([class^='formView_root_'] .jEAqfz){
+  border-left:0;
+}
+:global([class^='ChangeBar_'] .hZDYBt) {
+  padding-bottom: 100px;
+}
 :global([class^='formView_root_'] [class^='DefaultFormField_root_']){
   max-width: 500px;
 }

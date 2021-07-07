@@ -1,24 +1,24 @@
 import React from 'react'
+import SearchableSelect from 'part:@sanity/components/selects/searchable'
 import FormField from 'part:@sanity/components/formfields/default'
-import TextInput from 'part:@sanity/components/textinputs/default';
+import {PatchEvent, set, unset} from 'part:@sanity/form-builder/patch-event'
 
 
 const RadioOptions = React.forwardRef((props, ref) => {
     console.log(props);
     const {
       type,
-      value
+      value,
+      onFocus,
+      onChange
     } = props
     return (
-        <FormField
-          description={type.description}
-          title={type.title}
-        >
-          <TextInput 
-            value={value}
-
-          />
-        </FormField>
+        <FormField label={type.title} description={type.description}>
+        <SearchableSelect
+          placeholder="Type to search…"
+          value={value}
+        />
+      </FormField>
     )
 });
 

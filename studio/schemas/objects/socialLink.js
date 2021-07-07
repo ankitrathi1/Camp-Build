@@ -1,5 +1,6 @@
 // 1. Import the SocialInput react component
 import { MdPhonelinkSetup } from 'react-icons/md'
+import SocialInput from "../../components/SocialInput"
 
 // 2. List of social the editor may choose from
 const social = [ 
@@ -43,6 +44,7 @@ export default {
       name: 'channelName',
       title: 'CHANNEL NAME',
       type: 'string',
+      //inputComponent: SocialInput,
       options: {
         list: social
       },

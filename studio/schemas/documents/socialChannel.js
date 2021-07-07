@@ -1,9 +1,12 @@
 import { format } from "date-fns";
+import { IoMegaphoneOutline, IoShareSocialSharp } from 'react-icons/io5'
+
 
 export default {
   name: "socialChannel",
   type: "document",
   title: "Social Channel",
+  icon: IoMegaphoneOutline,
   fields: [
     {
         name: "socialChannel",

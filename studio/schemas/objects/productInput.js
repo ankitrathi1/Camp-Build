@@ -27,7 +27,7 @@ export default {
     {
       // 5. Enable editors to input a string from a predefined list (social)
       name: 'productCode',
-      title: 'PRODUCT EAN/GTIN',
+      title: 'PRODUCT GTIN/EAN/UPC',
       type: 'string',
     }
   ],

@@ -1,4 +1,5 @@
 import {FaImage} from 'react-icons/fa'
+import SocialInput from "../../components/ImageInput"
 
 export default {
   name: 'figure',

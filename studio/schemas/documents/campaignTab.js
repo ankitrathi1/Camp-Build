@@ -64,7 +64,7 @@ export default {
       {
           name: "reportSuiteID",
           type: "string",
-          title: "REPORT SUITE ID",
+          title: "ADOBE ANALYTICS REPORT SUITES ID",
         fieldset: "AnalyticsDetails",
         },
         {

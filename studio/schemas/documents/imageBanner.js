@@ -1,27 +1,34 @@
 import { format } from "date-fns";
+import { BsImage } from 'react-icons/bs'
+//import { bannerIcon } from "./../../static/image-banner.svg"
 
 export default {
   name: "imageBanner",
   type: "document",
   title: "Image Banner",
+  icon: BsImage,
   fields: [
-    {
-        name: "title",
-        type: "string",
-        title: "BANNER",
-        description: "Name is used to identify the slider for page layout",
-        validation: Rule => Rule.required()
-    },
     {
         name: "bannerImages",
         type: "figure",
         title: "SELECT BANNER IMAGE",
       },
+      {
+        name: "title",
+        type: "string",
+        title: "BANNER NAME",
+        description: "Name is used to identify the banner for page layout",
+    },
   ],
   preview: {
     select: {
       title: 'title',
-      media: 'bannerImages.0.bannerImage'
+    },
+    prepare(selection) {
+      const {title} = selection
+      return {
+        title: `${title} : Image banner`
+      }
     }
   }
 };

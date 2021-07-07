@@ -1,9 +1,11 @@
 import { format } from "date-fns";
+import { MdViewCarousel } from 'react-icons/md'
 
 export default {
   name: "productCarousel",
   type: "document",
   title: "Product Carousel",
+  icon: MdViewCarousel,
   fields: [
     {
       name: "heading",
@@ -49,7 +51,7 @@ export default {
     prepare(selection) {
       const {title} = selection
       return {
-        title: `Product Carousel : ${title}`
+        title: `${title} : Product Carousel`
       }
     }
   }

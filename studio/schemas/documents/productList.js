@@ -1,9 +1,12 @@
 import { format } from "date-fns";
+import { RiPlayListAddFill } from 'react-icons/ri'
+import { IoMegaphoneOutline, IoShareSocialSharp } from 'react-icons/io5'
 
 export default {
   name: "productList",
   type: "document",
   title: "Product List",
+  icon: RiPlayListAddFill,
   fields: [
     {
       name: "heading",
@@ -49,7 +52,7 @@ export default {
     prepare(selection) {
       const {title} = selection
       return {
-        title: `Product Carousel : ${title}`
+        title: `${title} : Product List`
       }
     }
   }

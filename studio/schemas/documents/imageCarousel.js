@@ -1,17 +1,12 @@
 import { format } from "date-fns";
+import { BsImages } from 'react-icons/bs'
 
 export default {
   name: "imageCarousel",
   type: "document",
   title: "Image Carousel",
+  icon: BsImages,
   fields: [
-    {
-        name: "title",
-        type: "string",
-        title: "CAROUSEL NAME",
-        description: "Name is used to identify the carousel for page layout",
-        validation: Rule => Rule.required()
-    },
     {
         name: "autoSlide",
         type: "boolean",
@@ -26,11 +21,22 @@ export default {
         description: "Please select banner images from drop dowm, if you want single hero image then select only one image",
         of: [{type: "figure"}]
       },
+      {
+        name: "title",
+        type: "string",
+        title: "CAROUSEL NAME",
+        description: "Name is used to identify the carousel for page layout",
+    },
   ],
   preview: {
     select: {
       title: 'title',
-      media: 'bannerImages.0.bannerImage'
+    },
+    prepare(selection) {
+      const {title} = selection
+      return {
+        title: `${title} : Image Carousel`
+      }
     }
   }
 };
