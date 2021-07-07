@@ -46,5 +46,10 @@
       "implements": "part:@sanity/base/brand-logo",
       "path": "./Logo/Logo.js"
     }
+    ,
+    {
+          "implements": "part:@sanity/base/document-actions/resolver",
+          "path": "./schemas/documentActions.js"
+    }
   ]
 }
