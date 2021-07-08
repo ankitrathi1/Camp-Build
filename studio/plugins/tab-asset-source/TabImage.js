@@ -24,7 +24,8 @@ export const TabImage = ({ asset, onSelect, onIntersection }) => {
         },
       },
     };
-
+    alert('image selected');
+    console.log(selectedItem);
     onSelect([selectedItem]);
   });
   const setObserver = useCallback(() => {

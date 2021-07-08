@@ -3,4 +3,4 @@ import TabAPISource from 'part:sanity-plugin-asset-source-tab/image-asset-source
 import AssetSourceUrl from 'part:sanity-plugin-asset-source-tab/asset-source-url'
 //import MediaAssetSource from 'part:sanity-plugin-media/asset-source'
 
-export default [SanityAssetSource, TabAPISource, AssetSourceUrl]
+export default [TabAPISource, AssetSourceUrl]

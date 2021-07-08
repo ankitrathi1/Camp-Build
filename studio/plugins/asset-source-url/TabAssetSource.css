@@ -9,6 +9,9 @@
   align-items: center;
   justify-content: center;
 }
+.container input{
+  width: 500px;
+}
 
 .container__divider {
   margin: 0 1rem;

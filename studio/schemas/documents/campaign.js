@@ -16,7 +16,7 @@ export default {
     preview: {
     select: {
      title: 'content.title',
-      media: 'content.component.0.brandLogo'
+      media: 'content.style.header.brandLogo'
     }
   }
 };

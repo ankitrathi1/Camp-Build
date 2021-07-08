@@ -119,6 +119,7 @@ const TabImageSearch = ({ onClose, onSelect }) => {
         {hasError && `Sorry an error has occured`}
         {foundAssets &&
           foundAssets.assets.map((asset, index) => {
+            console.log('image aaset', asset);
             if (asset.OriginalURL !== 'null')
               return (
                 <TabImage
