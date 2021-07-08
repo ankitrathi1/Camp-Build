@@ -54,10 +54,17 @@ const SearchImageByUrl = ({ onClose, onSelect }) => {
 
   const onSearch = useCallback(
     async (pageToFetch) => {
-      //console.log(searchTerms);
-      const base64Image = await getBase64ImageFromUrl(searchTerms.assetId);
+      alert(123);
+      var can = document.getElementById("imgCanvas");
+      var img = document.getElementById("imageByUrl");
+      var ctx = can.getContext("2d");
+      ctx.drawImage(img, 10, 10);
+      var encodedBase = can.toDataURL();
+      
+      console.log('newbaseimage - ', encodedBase);
+      //const base64Image = await getBase64ImageFromUrl(searchTerms.assetId);
       // if the selected image is in format application/octet-stream it will convert it to tiff
-      const uploadBase64 = base64Image.replace('application/octet-stream', 'image/tiff');
+      const uploadBase64 = encodedBase.replace('application/octet-stream', 'image/tiff');
       //console.log(uploadBase64);
       const selectedItem = {
         kind: 'base64',
@@ -100,6 +107,44 @@ const SearchImageByUrl = ({ onClose, onSelect }) => {
     setPageNumber(pageNumber + 1);
   }, [onSearch, setPageNumber]);
 
+  const onClick = useCallback(async () => {
+    var canvas = document.createElement('canvas'),
+    src = 'https://www.gstatic.com/webp/gallery/1.jpg',
+    ctx = canvas.getContext('2d'),
+    img = document.getElementById("imageByUrl");
+    img.crossOrigin = 'Anonymous';
+    img.onload = function () {
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0, img.width, img.height);
+      var encoded = canvas.toDataURL();
+      console.log('sasasasasa', encoded);
+    }
+    img.src = src;
+
+    var encodedBase =  dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+
+    alert(123);
+    console.log('result---', encodedBase);
+    //const base64Image = await getBase64ImageFromUrl(asset.OriginalURL);
+    // if the selected image is in format application/octet-stream it will convert it to tiff
+    const uploadBase64 = encodedBase.replace('application/octet-stream', 'image/tiff');
+    const selectedItem = {
+      kind: 'base64',
+      value: uploadBase64,
+      assetDocumentProps: {
+        //originalFilename: `${asset.title[0]}.tif`,
+        source: {
+          name: 'tab-api',
+          id: 'url123',
+        },
+      },
+    };
+    alert('image selected');
+    console.log(selectedItem);
+    onSelect([selectedItem]);
+  });
+
   return (
     <Dialog title="Select image from TAB" onClose={onClose} isOpen>
       <div className={styles.container}>
@@ -113,24 +158,10 @@ const SearchImageByUrl = ({ onClose, onSelect }) => {
           <Button onClick={onSearch}>Get Image</Button>
         </div>
       </div>
-      <div className={styles['c-results-container']}>
-        {hasError && `Sorry an error has occured`}
-        {foundAssets &&
-          foundAssets.assets.map((asset, index) => {
-            if (asset.OriginalURL !== 'null')
-              return (
-                <TabImage
-                  key={asset.assetID}
-                  asset={asset}
-                  onSelect={onSelect}
-                  // Only add intersection to 2nd to last result
-                  onIntersection={
-                    foundAssets.assets.length - 2 === index ? onIntersection : undefined
-                  }
-                />
-              );
-          })}
-        {loading && <Spinner />}
+      <div id="imageBox" className={styles['c-results-container']}>
+        <button className={styles['c-image-button']} onClick={onClick}>
+          <img id="imageByUrl" />
+        </button>
       </div>
     </Dialog>
   );

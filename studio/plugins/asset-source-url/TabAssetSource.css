@@ -25,6 +25,11 @@
   justify-content: center;
 }
 
+.c-image-button{
+  display: block;
+  overflow: hidden;
+}
+
 .c-search__label {
   display: flex;
   align-items: center;

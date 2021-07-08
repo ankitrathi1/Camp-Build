@@ -36,6 +36,9 @@
 :global([class^='ChangeBar_'] .hZDYBt) {
   padding-bottom: 100px;
 }
+:global([class^='Navbar_createButton_']) {
+  display: none;
+}
 :global([class^='formView_root_'] [class^='DefaultFormField_root_']){
   max-width: 500px;
 }
@@ -52,11 +55,14 @@
   height: 33px;
   color: #ffffff;
 }
+:global([class^='DefaultPane_headerToolContainer_'] a[class^='DefaultButton_root_'] [class^='DefaultButton_inner_']){
+  display: none;
+}
 :global([class^='DefaultPane_headerToolContainer_'] a[class^='DefaultButton_root_']:before){
   content: "Create";
   line-height: 29px;
   text-align: center;
-  padding-left: 29px;
+  padding: 0 29px;
 }
 :global([class^='DefaultPane_headerToolContainer_'] a[class^='DefaultButton_root_'] svg){
   display: none;

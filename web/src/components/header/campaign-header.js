@@ -15,9 +15,7 @@ function campaignHeader(props) {
               <source
                 media="screen and (min-width: 560px)"
                 srcSet={`${urlFor(props.style.header.brandLogo)
-                  .width(180)
-                  .height(60)
-                  .fit('max')
+                  .width(200)
                   .auto('format')
                   .url()
                   .toString()}`}
@@ -25,18 +23,14 @@ function campaignHeader(props) {
               <source
                 media="screen and (min-width: 320px)"
                 srcSet={`${urlFor(props.style.header.brandLogo)
-                  .width(180)
-                  .height(60)
-                  .fit('max')
+                  .width(200)
                   .auto('format')
                   .url()
                   .toString()}`}
               />
               <img
                 src={urlFor(props.style.header.brandLogo)
-                  .width(180)
-                  .height(60)
-                  .fit('max')
+                  .width(200)
                   .url()}
                 alt={props.style.header.brandLogo.alt}
               />

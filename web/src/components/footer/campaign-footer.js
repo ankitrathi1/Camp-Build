@@ -8,11 +8,11 @@ import { ReactComponent as UnileverLogo } from '../../images/svg/unilever_logo.s
 
 /*
 <ul class="cw_footer_socialIcon">
-    <li><a class="socialIcon facebook" href="http://www.facebook.com/magnumuk" target="_blank" title="facebook-icon - Link open in new window">facebook-icon - Link open in new window</a></li>
-    <li><a class="socialIcon twitter" href="http://www.twitter.com/magnumuk" target="_blank" title="twitter-icon - Link open in new window">twitter-icon - Link open in new window</a></li>
-    <li><a class="socialIcon instagram" href="http://www.instagram.com/magnum" target="_blank" title="instagram-icon - Link open in new window">instagram-icon - Link open in new window</a></li>
-    <li><a class="socialIcon youtube" href="http://www.youtube.com/mymagnum" target="_blank" title="youtube-icon - Link open in new window">youtube-icon - Link open in new window</a></li>
-</ul>
+            <li><a class="socialIcon facebook" href="http://www.facebook.com/magnumuk" target="_blank" title="facebook-icon - Link open in new window">facebook-icon - Link open in new window</a></li>
+            <li><a class="socialIcon twitter" href="http://www.twitter.com/magnumuk" target="_blank" title="twitter-icon - Link open in new window">twitter-icon - Link open in new window</a></li>
+            <li><a class="socialIcon instagram" href="http://www.instagram.com/magnum" target="_blank" title="instagram-icon - Link open in new window">instagram-icon - Link open in new window</a></li>
+            <li><a class="socialIcon youtube" href="http://www.youtube.com/mymagnum" target="_blank" title="youtube-icon - Link open in new window">youtube-icon - Link open in new window</a></li>
+        </ul>
 */
 
 function campaignFooter(props) {

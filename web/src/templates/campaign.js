@@ -17,6 +17,13 @@ export const query = graphql`
         rootUrl
         title
         bodyComponent {
+          ... on SanitySocialChannel {
+            socialChannel {
+              channelName
+              channelUrl
+            }
+            _type
+          }
           ... on SanityImageCarousel {
             imageCarousel: bannerImages {
               alt

@@ -1,5 +1,5 @@
 // 1. Import the SocialInput react component
-import { MdPhonelinkSetup } from 'react-icons/md'
+import { IoShareSocialSharp } from 'react-icons/io5'
 import SocialInput from "../../components/SocialInput"
 
 // 2. List of social the editor may choose from
@@ -34,6 +34,7 @@ export default {
   name: 'socialLink',
   title: 'Social Channel',
   type: 'object',
+  icon: IoShareSocialSharp,
 
   // 4. Perform validation
   validation: Rule => Rule.custom(verifyInput),
@@ -52,6 +53,13 @@ export default {
       //inputComponent: SocialInput
     },
     {
+        // 7. Same time input as above, but assigned to a different field
+        name: 'channelUrl',
+        title: 'CHANNEL URL',
+        type: 'url',
+        validation: Rule => Rule.required(),
+      },
+    {
       // 7. Same time input as above, but assigned to a different field
       name: 'channelIcon',
       title: 'CHANNEL ICON URL',
@@ -63,12 +71,6 @@ export default {
       name: 'iconAlt',
       title: 'ICON ALT TEXT',
       type: 'string',
-    },
-    {
-      // 7. Same time input as above, but assigned to a different field
-      name: 'channelUrl',
-      title: 'CHANNEL URL',
-      type: 'url',
     }
   ],
 
@@ -81,7 +83,7 @@ export default {
     prepare({social, mediaLink}) {
       return {
         title: social,
-        subtitle: `${mediaLink}`
+        subtitle: `${mediaLink}`,
       }
     }
   }

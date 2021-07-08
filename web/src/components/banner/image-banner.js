@@ -27,7 +27,6 @@ function CampaignBanner(props) {
                         media="screen and (max-width: 560px)"
                         srcSet={`${urlFor(props.bannerImages)
                         .width(375)
-                        .height(200)
                         .fit('max')
                         .auto('format')
                         .url()
@@ -37,7 +36,6 @@ function CampaignBanner(props) {
                         media="screen and (max-width: 320px)"
                         srcSet={`${urlFor(props.bannerImages)
                         .width(559)
-                        .height(314)
                         .fit('max')
                         .auto('format')
                         .url()
@@ -46,7 +44,6 @@ function CampaignBanner(props) {
                     <img
                         src={urlFor(props.bannerImages)
                         .width(1400)
-                        .height(550)
                         .fit('max')
                         .url()}
                         alt={props.bannerImages.alt}

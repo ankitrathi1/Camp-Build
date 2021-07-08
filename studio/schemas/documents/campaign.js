@@ -13,10 +13,18 @@ export default {
      
     }
   ],
-    preview: {
+  
+  preview: {
     select: {
-     title: 'content.title',
-      media: 'content.style.header.brandLogo'
+      title: 'content.title',
+      media: 'content.style.header.brandLogo' // if the movie has a director, follow the relation and get the name
+    },
+    prepare(selection) {
+      const {title, media} = selection
+      return {
+        title: ` ${title ? title : 'New Campaign'}`,
+        media: media
+      }
     }
   }
 };

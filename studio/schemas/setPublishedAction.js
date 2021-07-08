@@ -33,7 +33,7 @@ onHandle: async () => {
 
   
     var productid=[];
-    props.published.content.bodyComponent.forEach(x=>
+    /*props.published.content.bodyComponent.forEach(x=>
       {
           if(x._type=="productList")
           {
@@ -57,7 +57,7 @@ onHandle: async () => {
                 }
                         console.log(data)
                         
-   const jsonString = JSON.stringify(data)
+   const jsonString = JSON.stringify(data)*/
 
    
   //   const requestOptions = 

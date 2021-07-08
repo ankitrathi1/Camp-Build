@@ -27,7 +27,7 @@ export default {
     prepare(selection) {
       const {title} = selection
       return {
-        title: `${title} : Image banner`
+        title: `${title ? title+' : Image Banner' : 'Image Banner'}`
       }
     }
   }

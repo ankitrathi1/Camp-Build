@@ -6,6 +6,7 @@ import FooterComponent from "./footer/campaign-footer";
 import ProductComponent from "./product/campaign-product";
 import ImageBanner from "./banner/image-banner";
 import ImageCarousel from "./banner/image-carousel";
+import Social from "./social/social";
 //import PortableText from "./portableText";
 import React from "react";
 import { buildImageObj } from "../lib/helpers";
@@ -30,6 +31,9 @@ function Campaign(props) {
             )}
             {comp._type === 'imageCarousel' && (
               <ImageCarousel {...comp} />
+            )}
+            {comp._type === 'socialChannel' && (
+              <Social {...comp} />
             )}
           </section>
         ))}

@@ -15,11 +15,11 @@ picture{padding:0!important;}
     }
 }
 .cw_js_slider{
-    width: 1140px;
+    max-width: 1140px;
     position: relative;
     overflow: hidden;
     margin: 0 auto;
-    height:550px;
+    height:auto;
   @nest & .slider_content{
     display: -webkit-box;
     /*display: flex;*/
@@ -33,10 +33,10 @@ picture{padding:0!important;}
         width: 100%;
         padding: 0;
         margin: 0;
-        height:550px;
+        height:auto;
         @nest & img{
-          height:100%;
-          width:auto;
+          height:auto;
+          width:100%;
         }
       }
     }
