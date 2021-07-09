@@ -1,6 +1,6 @@
 // 1. Import the SocialInput react component
 import { MdPhonelinkSetup } from 'react-icons/md'
-import MyCustomObject from '../../components/MyCustomObject';
+import MyCustomObject from '../../components/myCustomObject';
 
 // 3. Validate function which is invoked on user input
 const verifyInput = socialLink => {
