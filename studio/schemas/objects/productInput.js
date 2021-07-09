@@ -19,7 +19,7 @@ export default {
   name: 'productInput',
   title: 'Add Product',
   type: 'object',
-  //inputComponent: MyCustomObject,
+  inputComponent: MyCustomObject,
   validation: Rule => Rule.custom(fields => {
     if (fields.smartProductId==null) return "Incorrect Product"
     return true
