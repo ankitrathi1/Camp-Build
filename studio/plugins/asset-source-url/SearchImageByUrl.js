@@ -54,17 +54,17 @@ const SearchImageByUrl = ({ onClose, onSelect }) => {
 
   const onSearch = useCallback(
     async (pageToFetch) => {
-      alert(123);
+      /*alert(123);
       var can = document.getElementById("imgCanvas");
       var img = document.getElementById("imageByUrl");
       var ctx = can.getContext("2d");
       ctx.drawImage(img, 10, 10);
-      var encodedBase = can.toDataURL();
+      var encodedBase = can.toDataURL();*/
       
-      console.log('newbaseimage - ', encodedBase);
-      //const base64Image = await getBase64ImageFromUrl(searchTerms.assetId);
+      //console.log('newbaseimage - ', encodedBase);
+      const base64Image = await getBase64ImageFromUrl(searchTerms.assetId);
       // if the selected image is in format application/octet-stream it will convert it to tiff
-      const uploadBase64 = encodedBase.replace('application/octet-stream', 'image/tiff');
+      const uploadBase64 = base64Image.replace('application/octet-stream', 'image/tiff');
       //console.log(uploadBase64);
       const selectedItem = {
         kind: 'base64',
@@ -72,6 +72,7 @@ const SearchImageByUrl = ({ onClose, onSelect }) => {
         assetDocumentProps: {
           source: {
             name: 'image-url',
+            id: 'urlImage'
           },
         },
       };
@@ -159,12 +160,14 @@ const SearchImageByUrl = ({ onClose, onSelect }) => {
         </div>
       </div>
       <div id="imageBox" className={styles['c-results-container']}>
-        <button className={styles['c-image-button']} onClick={onClick}>
-          <img id="imageByUrl" />
-        </button>
+        
       </div>
     </Dialog>
   );
 };
 
 export default SearchImageByUrl;
+
+/*<button className={styles['c-image-button']} onClick={onClick}>
+          <img id="imageByUrl" />
+        </button>*/

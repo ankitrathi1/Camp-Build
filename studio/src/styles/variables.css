@@ -36,6 +36,9 @@
 :global([class^='ChangeBar_'] .hZDYBt) {
   padding-bottom: 100px;
 }
+:global([class^='ChangeBar_'] .jRHHNP) {
+  padding-bottom: 100px;
+}
 :global([class^='Navbar_createButton_']) {
   display: none;
 }

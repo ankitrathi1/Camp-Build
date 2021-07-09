@@ -52,7 +52,7 @@ export default {
     prepare(selection) {
       const {title} = selection
       return {
-        title: `${title} : Product List`
+        title: `${title ? title+' : Product List' : 'Product List'}`
       }
     }
   }

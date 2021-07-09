@@ -51,7 +51,7 @@ export default {
     prepare(selection) {
       const {title} = selection
       return {
-        title: `${title} : Product Carousel`
+        title: `${title ? title+' : Product Carousel' : 'Product Carousel'}`
       }
     }
   }
