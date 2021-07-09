@@ -45,7 +45,7 @@ import {MdClear,MdSearch} from "react-icons/md"
         if(field.name == 'productCode'){
           let inputValue = fieldPatchEvent.patches[0].value;
           if ( inputValue && inputValue.length < 11 ) { setData({});setIsDataAvailable(false);  return false; }
-              const API_URL=`http://app.cartwire.co/Product_rest/details?ean_no=${inputValue}&country_id=${30}`
+              const API_URL=`https://app.cartwire.co/Product_rest/details?ean_no=${inputValue}&country_id=${30}`
             //const API_URL = `https://app.cartwire.co/Product_rest/details?ean_no=${inputValue}`;
             try{
                 fetch(API_URL)
