@@ -125,8 +125,8 @@ setValueSet({
             />
           )
         })}
-         {isDataAvailable==true && <MdCheck style={{position:'absolute',top:31,right:10,color:'green',fontSize:22}}/>}
-        {isDataAvailable===false && <MdClear style={{position:'absolute',top:31,right:10,color:'red',fontSize:22,cursor:'pointer'}} />}
+         {isDataAvailable==true && <MdCheck style={{position:'absolute',top:50,right:10,color:'green',fontSize:22}}/>}
+        {isDataAvailable===false && <MdClear style={{position:'absolute',top:50,right:10,color:'red',fontSize:22,cursor:'pointer'}} />}
         {/* {isDataAvailable===false && <span style={{color:'red'}}>{'No data found'}</span>} */}
       </Fieldset>
     )
