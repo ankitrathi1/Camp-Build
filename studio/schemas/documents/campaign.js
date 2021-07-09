@@ -6,7 +6,6 @@ export default {
   name: "campaign",
   type: "document",
   title: "Campaign",
-  liveEdit: true,
   fields: [
     {
       name: "content",
