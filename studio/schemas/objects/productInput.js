@@ -2,18 +2,6 @@
 import { MdPhonelinkSetup } from 'react-icons/md'
 import MyCustomObject from '../../components/myCustomObject';
 
-// 3. Validate function which is invoked on user input
-const verifyInput = socialLink => {
-  const {channelName, channelUrl} = socialLink
-  if (!channelName) {
-    return 'Please select a social media channel'
-  }
-  if (!channelUrl) {
-    return 'Enter channel URL'
-  }
-  //return mediaName < mediaLink ? true : `Let's open the store before we close it on ${social}, shall we?`
-  return true
-}
 
 export default {
   name: 'productInput',
