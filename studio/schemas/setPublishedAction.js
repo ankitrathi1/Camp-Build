@@ -40,7 +40,7 @@ onHandle: async () => {
         case 'campaign':
         console.log(props);
 
-    props.published.content.bodyComponent.forEach(x=>
+    props.draft.content.bodyComponent.forEach(x=>
       {
           if(x._type=="productList" || x._type =="productCarousel")
           {
@@ -54,26 +54,15 @@ onHandle: async () => {
       }
       
       );
-      smartProductID.forEach((d,index)=>
-        {
-          if(smartProductID.length==index+1)
-          {
-            EanCode += d;
-          }
-          else
-          {
-            EanCode += d + ',';
-          }
-        }
-
-      );
+ 
+      console.log(smartProductID.toString());
     const client = sanityClient(sanityClientConfig);
     const data= {  
                    campaign_id:props.id,
-                   campaign_name: props.published.content.title,
-                   country_id:	parseInt(props.published.content.country._ref),
-                   brand_id:	parseInt(props.published.content.brand._ref.split("_")[1]),
-                   smartkey_data: EanCode
+                   campaign_name: props.draft.content.title,
+                   country_id:	parseInt(props.draft.content.country._ref),
+                   brand_id:	parseInt(props.draft.content.brand._ref.split("_")[1]),
+                   smartkey_data: smartProductID.toString()
                 }    
    const jsonString = JSON.stringify(data)
   
