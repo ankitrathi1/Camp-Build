@@ -58,7 +58,7 @@ function CampaignProduct(props) {
  
  
   return (
-    <div className="cw_product_container">
+    <div className="cw_product_container product_list_section">
     <props.headingLevel className="category_title">{props.heading}</props.headingLevel>
     <p className="category_sub_title">{props.introText}</p>
     {props.displayFormat=='list' && (
@@ -172,6 +172,7 @@ function CampaignProduct(props) {
                             <div className="cw_product_title">Magnum Double Gold Caramel Billionaire Tub 440ml</div>
                             <div className="cw_btn_wrap">
                             <button className="cw_btn_buynow" >Buy Now</button>
+                              {/* <button className="cw_btn_buynow" onClick={() => window.CTGetWidget(product.smartProductId,props.id)}>Buy Now</button> */}
                             </div>
                         </div>
                     ))}

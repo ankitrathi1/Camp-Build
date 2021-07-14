@@ -33,6 +33,7 @@ export default {
           title: "LOCALE",
           fieldset: "CampaignDetails",
         },
+  
         {
           name: "country",
           type: "reference",
@@ -64,7 +65,12 @@ export default {
       {
           name: "reportSuiteID",
           type: "string",
+
           title: "ADOBE ANALYTICS REPORT SUITES ID",
+
+          
+       
+
         fieldset: "AnalyticsDetails",
         },
         {

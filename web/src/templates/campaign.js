@@ -12,6 +12,7 @@ export const query = graphql`
   query CampaignTemplateQuery($id: String!) {
     campaign: sanityCampaign(id: { eq: $id }) {
       id
+      _id
       content{
         locale
         rootUrl
@@ -50,6 +51,38 @@ export const query = graphql`
             title
             _type
           }
+          ... on SanityProductCarousel {
+            headingLevel
+            heading
+            product {
+              productImage
+              smartProductId
+              title
+              productCode
+            }
+            _type
+            introText {
+              children {
+                text
+              }
+            }
+          }
+          ... on SanityProductList {
+            _type
+            headingLevel
+            heading
+            product {
+              productCode
+              smartProductId
+              productImage
+              title
+            }
+            introText {
+              children {
+                text
+              }
+            }
+          }
         }
         style {
           header {
@@ -85,10 +118,17 @@ export const query = graphql`
 const CampaignTemplate = (props) => {
   const { data, errors } = props;
   const campaign = data && data.campaign;
+  const dt = new Date;
+	const masterCSS= 'https://s3-ap-southeast-1.amazonaws.com/www.cartwire.co/widget' + '/v2.0/css/' + 'cw_gride_widget_main.css'+'?ver='+dt.getTime();
+	const childCSS= 'https://s3-ap-southeast-1.amazonaws.com/www.cartwire.co/widget' + '/v2.0/css/' + 'cw_gride_widget_magnum_uk.css' +'?ver='+dt.getTime();
+	
   return (
     <Layout>
     <Helmet>
       <link rel="icon" href={favicon} />
+      {/* <script src="/googleAnalytics.js"></script> */}
+      <link rel="stylesheet" href={masterCSS} />
+            <link rel="stylesheet" href={childCSS} />
     </Helmet>
       {errors && <SEO title="GraphQL Error" />}
       {campaign && (

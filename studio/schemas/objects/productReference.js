@@ -1,22 +1,10 @@
 // 1. Import the SocialInput react component
 import { MdPhonelinkSetup } from 'react-icons/md'
-import MyCustomObject from '../../components/myCustomObject';
-
-// 3. Validate function which is invoked on user input
-const verifyInput = socialLink => {
-  const {channelName, channelUrl} = socialLink
-  if (!channelName) {
-    return 'Please select a social media channel'
-  }
-  if (!channelUrl) {
-    return 'Enter channel URL'
-  }
-  //return mediaName < mediaLink ? true : `Let's open the store before we close it on ${social}, shall we?`
-  return true
-}
+import React from "react";
+import MyCustomObject from '../../components/MyCustomObject';
 
 export default {
-  name: 'productInput',
+  name: 'productReference',
   title: 'Add Product',
   type: 'object',
   inputComponent: MyCustomObject,
@@ -25,12 +13,13 @@ export default {
     return true
   }),
 
-
   fields: [
     {
       // 5. Enable editors to input a string from a predefined list (social)
       name: 'productCode',
-      title: 'PRODUCT GTIN/EAN/UPC 1',
+
+      title: 'PRODUCT GTIN/EAN/UPC',
+
       type: 'string',
       description: "Please enter the Product GTIN/EAN/UPC to check availability",
     },
@@ -49,16 +38,33 @@ export default {
       description: "You can't type here!",
    
     },
+    {
+        name: "productImage",
+        type: "string",
+        title: "PRODUCT IMAGE",
+        readOnly:true,
+        description: "You can't type here!",
+     
+      }
   ],
 
-  // 8. Define how the socialLink object will render in the Studio 
+  
   preview: {
     select: {
-      productCode:'productCode'
+
+      productCode:'productCode',
+      smartProductId:'smartProductId',
+      title:'title',
+     productImage:'productImage'
     },
-    prepare({productCode}) {
+
+    prepare({productCode,smartProductId,title,productImage}) {
+      //const path = `${productCode}` + `:`+`${smartProductId}` + `:` + `${title}`
+      const path =  `${title}`
       return {
-        title: `Product code : ${productCode}`
+        title:  path,
+       media:  <img src={productImage}  alt="jadggas"  />,
+
       }
     }
   }

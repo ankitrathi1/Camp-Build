@@ -5,3 +5,12 @@
  */
 
 // You can delete this file if you're not using it
+const React = require("react")
+
+export const onRenderBody = ({ setHeadComponents }, pluginOptions) => {
+  setHeadComponents([
+    <script src="/jquery-1.7.1.js">
+    </script>,
+      <script src="/widget_retailPopup.js"></script>
+  ])
+}

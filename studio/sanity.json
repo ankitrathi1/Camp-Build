@@ -47,6 +47,7 @@
       "implements": "part:@sanity/form-builder/input/image/asset-sources",
       "path": "./parts/asset-sources.js"
     },
+    
     {
       "implements": "part:@sanity/base/brand-logo",
       "path": "./Logo/Logo.js"

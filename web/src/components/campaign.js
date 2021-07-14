@@ -6,6 +6,8 @@ import FooterComponent from "./footer/campaign-footer";
 import ProductComponent from "./product/campaign-product";
 import ImageBanner from "./banner/image-banner";
 import ImageCarousel from "./banner/image-carousel";
+import ProductList from "./product/product-list";
+import ProductCarousel from "./product/product-carousel";
 import Social from "./social/social";
 //import PortableText from "./portableText";
 import React from "react";
@@ -15,12 +17,17 @@ import { imageUrlFor } from "../lib/image-url";
 function Campaign(props) {
   const {
     title,
-    content
+    content,
+    _id
   } = props;
   console.log(props);
   
   return (
       <div className="cw_main_container">
+         {/* <div>
+        <input className={styles.analytics} id="analytics-id" type="text" value={gaID}/>
+        <input className={styles.analytics} id="rootUrl-id" type="text" value={rootUrl}/>
+        </div> */}
         <section>
           <HeaderComponent {...content} />
         </section>
@@ -35,6 +42,12 @@ function Campaign(props) {
             {comp._type === 'socialChannel' && (
               <Social {...comp} />
             )}
+              {comp._type === 'productList' && (
+              <ProductList {...comp}  id={_id}/>
+            )}
+              {comp._type === 'productCarousel'  && (
+              <ProductCarousel {...comp} id={_id}/>
+            )}
           </section>
         ))}
         <section>
@@ -45,23 +58,3 @@ function Campaign(props) {
 }
 
 export default Campaign;
-
-
-/*
-{componentLayout && componentLayout.map((comp) => (
-          <section>
-            {comp._type === 'header' && (
-              <HeaderComponent {...comp} />
-            )}
-            {comp._type === 'footer' && (
-              <FooterComponent {...comp} />
-            )}
-            {comp._type === 'productSlider' && (
-              <ProductComponent {...comp} />
-            )}
-            {comp._type === 'bannerSlider' && (
-              <BannerComponent {...comp} />
-            )}
-          </section>
-        ))}
-*/

@@ -19,6 +19,12 @@ import campaignTab from "./documents/campaignTab";
 import basicComponent from "./documents/basicComponent";
 import socialChannel from "./documents/socialChannel";
 import customLink from "./documents/customLink";
+import productItem from "./documents/productItem";
+import campaignProductItem from "./documents/campaignProductItem";
+import product from "./documents/product";
+import retailers from "./documents/retailer";
+import countryCount from "./documents/countryCount";
+import smartProduct from "./documents/smartProduct";
 // Object types
 import header from "./objects/header";
 import footer from "./objects/footer";
@@ -29,7 +35,7 @@ import mainImage from "./objects/mainImage";
 import figure from "./objects/figure";
 import authorReference from "./objects/authorReference";
 import socialLink from "./objects/socialLink";
-import productInput from "./objects/productInput";
+import productReference from "./objects/productReference";
 import textEditor from "./objects/textEditor";
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -62,10 +68,16 @@ export default createSchema({
     country,
     brand,
     socialLink,
-    productInput,
+    productReference,
     campaignTab,
     textEditor,
-    customLink
+    customLink,
+    product,
+    productItem,
+    campaignProductItem,
+    retailers,
+    countryCount,
+    smartProduct
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ]),

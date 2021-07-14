@@ -42,7 +42,7 @@ export default {
         type: "product",
         title: "SELECT PRODUCT",
         type: "array",
-        of: [{type: "productInput"}]
+        of: [{type: "productReference"}]
       }
   ],
   preview: {
