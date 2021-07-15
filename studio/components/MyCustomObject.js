@@ -66,7 +66,7 @@ console.log(value ==undefined? "NotAvalaib":value.productCode );
           }
               
           
-          const API_URL=`http://app.cartwire.co/Product_rest/details?ean_no=${inputValue}&country_id=${countryId}`
+          const API_URL=`https://app.cartwire.co/Product_rest/details?ean_no=${inputValue}&country_id=${countryId}`
       
             try{
                 fetch(API_URL)
