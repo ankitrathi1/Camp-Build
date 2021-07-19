@@ -23,13 +23,7 @@ export default {
       type: 'string',
       description: "Please enter the Product GTIN/EAN/UPC to check availability",
     },
-    {
-      name: 'smartProductId',
-      type: 'string',
-      title: 'SMART PRODUCT ID',
-      readOnly:true,
-      description: "You can't type here!",
-    },
+   
     {
       name: "title",
       type: "string",
@@ -37,6 +31,13 @@ export default {
       readOnly:true,
       description: "You can't type here!",
    
+    },
+    {
+      name: 'smartProductId',
+      type: 'string',
+      title: 'SMART PRODUCT ID',
+      readOnly:true,
+      description: "You can't type here!",
     },
     {
         name: "productImage",
@@ -60,9 +61,10 @@ export default {
 
     prepare({productCode,smartProductId,title,productImage}) {
       //const path = `${productCode}` + `:`+`${smartProductId}` + `:` + `${title}`
-      const path =  `${title}`
+      const path =   `${title}` 
+     
       return {
-        title:  path,
+        title:  title ==undefined?  'Missing Product Name':path ,
        media:  <img src={productImage}   />,
 
       }

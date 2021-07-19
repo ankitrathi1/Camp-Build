@@ -152,7 +152,7 @@ console.log(value ==undefined? "NotAvalaib":value.productCode );
         })}
          {isDataAvailable==true && <MdCheck style={{position:'absolute',zIndex: '11',top:50,right:10,color:'green',fontSize:22}}/>}
         {isDataAvailable===false && <MdClear style={{position:'absolute',zIndex: '11',top:50,right:10,color:'red',fontSize:22,cursor:'pointer'}} />}
-        {/* {isDataAvailable===false && <span style={{color:'red'}}>{'No data found'}</span>} */}
+        {isDataAvailable===false && <span style={{color:'red', position: 'absolute', top:84,fontSize: 15,left: 10}}>{'No Data Found'}</span>}
       </Fieldset>
     )
   }
