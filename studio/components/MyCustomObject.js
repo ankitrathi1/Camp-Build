@@ -39,30 +39,29 @@ console.log(value ==undefined? "NotAvalaib":value.productCode );
       (field, fieldPatchEvent) => {
     
           
-            // var current={ "smartProductId":"null", "title":null,"productCode":fieldPatchEvent.patches[0].value}
-            // setValueSet({
-            //   ...valueSet,
-            //   ...current
-            // });
-         console.log("before",fieldPatchEvent);
+     
          onChange(fieldPatchEvent.prefixAll(field.name).prepend(setIfMissing({ _type: type.name })));
-         console.log("after",fieldPatchEvent);
-        console.log("onchange", field.name, fieldPatchEvent.patches[0].value );
-        if(field.name == 'productCode'  ){
+           if(field.name == 'productCode'  ){
           let inputValue = fieldPatchEvent.patches[0].value;
-          if ( inputValue && inputValue.length < 13 ) { 
+          if ( inputValue==undefined || (inputValue && inputValue.length < 13) ) { 
             
             setData({});
-            setIsDataAvailable(false); 
+            if(inputValue==undefined)
+            {
+              setIsDataAvailable(null); 
+            }
+            else{
+              setIsDataAvailable(false); 
+            }
+            
             fieldPatchEvent.patches[0].value=undefined;
-                         
-                           
             onChange(fieldPatchEvent.prefixAll("smartProductId").prepend(setIfMissing({ _type: type.name })));
             
             fieldPatchEvent.patches[0].value=undefined;
             onChange(fieldPatchEvent.prefixAll("title").prepend(setIfMissing({ _type: type.name })));
             
-          
+            fieldPatchEvent.patches[0].value=undefined;
+            onChange(fieldPatchEvent.prefixAll("productImage").prepend(setIfMissing({ _type: type.name })));
           }
               
           
@@ -151,8 +150,8 @@ console.log(value ==undefined? "NotAvalaib":value.productCode );
             />
           )
         })}
-         {isDataAvailable==true && <MdCheck style={{position:'absolute',top:50,right:10,color:'green',fontSize:22}}/>}
-        {isDataAvailable===false && <MdClear style={{position:'absolute',top:50,right:10,color:'red',fontSize:22,cursor:'pointer'}} />}
+         {isDataAvailable==true && <MdCheck style={{position:'absolute',zIndex: '11',top:50,right:10,color:'green',fontSize:22}}/>}
+        {isDataAvailable===false && <MdClear style={{position:'absolute',zIndex: '11',top:50,right:10,color:'red',fontSize:22,cursor:'pointer'}} />}
         {/* {isDataAvailable===false && <span style={{color:'red'}}>{'No data found'}</span>} */}
       </Fieldset>
     )

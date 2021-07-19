@@ -63,7 +63,7 @@ export default {
       const path =  `${title}`
       return {
         title:  path,
-       media:  <img src={productImage}  alt="jadggas"  />,
+       media:  <img src={productImage}   />,
 
       }
     }
