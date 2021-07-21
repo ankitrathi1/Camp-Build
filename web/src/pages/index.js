@@ -11,7 +11,7 @@ import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 
-/*const sanityClient = require('@sanity/client')
+const sanityClient = require('@sanity/client')
 
 const client = sanityClient({
   projectId: '8gjfptsf',
@@ -27,7 +27,7 @@ client.fetch(queryDraft).then(response => {
   console.log('client response', response);
 }).catch(error => {
   console.log('problem found', error)
-})*/
+})
 
 export const query = graphql`
   query IndexPageQuery {
