@@ -1,5 +1,9 @@
 export async function getBase64ImageFromUrl(imageUrl) {
-  const res = await fetch(imageUrl);
+  const res = 
+  await fetch(imageUrl)
+  .catch((error) => {
+    console.log('fetch error123', error)
+  });
   const blob = await res.blob();
 
   return new Promise((resolve, reject) => {

@@ -24,6 +24,7 @@
     "date-fns": "^1.28.5",
     "gatsby": "^3.0.3",
     "gatsby-image": "^2.0.41",
+    "gatsby-plugin-create-client-paths": "^3.10.0",
     "gatsby-plugin-image": "^1.0.0",
     "gatsby-plugin-load-script": "^1.1.0",
     "gatsby-plugin-postcss": "^4.0.0",

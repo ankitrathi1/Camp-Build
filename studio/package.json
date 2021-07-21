@@ -21,7 +21,7 @@
     "@sanity/default-layout": "^2.12.2",
     "@sanity/default-login": "^2.11.1",
     "@sanity/desk-tool": "^2.12.2",
-    "@sanity/production-preview": "^2.2.6",
+    "@sanity/production-preview": "^2.13.0",
     "@sanity/studio-hints": "^2.7.0",
     "axios": "^0.21.1",
     "base64-img": "^1.0.4",

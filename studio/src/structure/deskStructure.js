@@ -1,7 +1,15 @@
-import S from "@sanity/desk-tool/structure-builder";
-import { MdPages, MdAddShoppingCart, MdImage, MdViewCompact} from "react-icons/md";
-import { FaSitemap, FaTag, FaTags, FaBuffer, FaSlidersH, FaBoxes, FaGlobe } from 'react-icons/fa'
-import IframePreview from "../previews/IframePreview";
+import S from "@sanity/desk-tool/structure-builder"
+import EyeIcon from 'part:@sanity/base/eye-icon'
+import EditIcon from 'part:@sanity/base/edit-icon'
+//import { MdPages, MdAddShoppingCart, MdImage, MdViewCompact, MdAccessibility} from "react-icons/md"
+//import { FaSitemap, FaTag, FaTags, FaBuffer, FaSlidersH, FaBoxes, FaGlobe } from 'react-icons/fa'
+import IframePreview from "../previews/IframePreview"
+//import SeoPreview from '../previews/seo/SeoPreviews'
+
+// a11y preview
+//import ColorblindPreview from '../previews/a11y/colorblind-filter/ColorblindPreview'
+//import TextToSpeechPreview from '../previews/a11y/text-to-speech/TextToSpeechPreview'
+//import BraillePreview from '../previews/a11y/braille/Braille'
 
 // Web preview configuration
 const remoteURL = "https://camp-build.netlify.app";
@@ -25,6 +33,21 @@ export const getDefaultDocumentNode = (props) => {
         .component(IframePreview)
         .title("Web preview")
         .options({ previewURL }),
+      /*S.view
+        .component(SeoPreview)
+        .options({previewURL})
+        .icon(EyeIcon)
+        .title('SEO Preview'),
+        S.view
+          .component(ColorblindPreview)
+          .options({previewURL})
+          .icon(EyeIcon)
+          .title('Colorblind'),
+        S.view
+          .component(TextToSpeechPreview)
+          .options({fields: ['title', 'excerpt', 'body']})
+          .icon(MdAccessibility)
+          .title('Text to speech'),*/
     ]);
   }
   return S.document().views([S.view.form()]);

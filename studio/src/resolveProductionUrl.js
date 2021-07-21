@@ -1,5 +1,5 @@
-// ./resolveProductionUrl.js
 export default function resolveProductionUrl(document) {
-    return `https://camp-build.netlify.app/campaign/${document.slug.current}`
-  }
-  
+    console.log('preview document', document);
+    
+    return `http://localhost:8000/campaign/${document.content.slug.current}`
+}

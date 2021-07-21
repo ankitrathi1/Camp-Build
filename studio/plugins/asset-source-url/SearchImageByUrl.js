@@ -54,13 +54,6 @@ const SearchImageByUrl = ({ onClose, onSelect }) => {
 
   const onSearch = useCallback(
     async (pageToFetch) => {
-      /*alert(123);
-      var can = document.getElementById("imgCanvas");
-      var img = document.getElementById("imageByUrl");
-      var ctx = can.getContext("2d");
-      ctx.drawImage(img, 10, 10);
-      var encodedBase = can.toDataURL();*/
-      
       //console.log('newbaseimage - ', encodedBase);
       const base64Image = await getBase64ImageFromUrl(searchTerms.assetId);
       // if the selected image is in format application/octet-stream it will convert it to tiff

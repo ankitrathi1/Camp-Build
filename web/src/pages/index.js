@@ -11,6 +11,24 @@ import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 
+/*const sanityClient = require('@sanity/client')
+
+const client = sanityClient({
+  projectId: '8gjfptsf',
+  dataset: 'production',
+  useCdn: false, // `false` if you want to ensure fresh data
+  withCredentials: true
+})
+
+const queryDraft = `*[_id == "drafts.6338abd2-270a-48e9-8eb2-ff9b7d54ec76"]  {
+  ...,
+}`
+client.fetch(queryDraft).then(response => {
+  console.log('client response', response);
+}).catch(error => {
+  console.log('problem found', error)
+})*/
+
 export const query = graphql`
   query IndexPageQuery {
     campaigns: allSanityCampaign(
@@ -35,6 +53,7 @@ export const query = graphql`
 `;
 
 const IndexPage = (props) => {
+  console.log('index page data', props);
   const { data, errors } = props;
 
   if (errors) {

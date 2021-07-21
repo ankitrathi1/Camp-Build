@@ -13,6 +13,9 @@ const sanityClientConfig = {
 var productid=[];
 var smartProductID=[];
 var EanCode="";
+function startBuild(props){
+  console.log('campaign details new', props);
+}
 export  function setPublishedAction(props) {
   console.log(props);
   const {patch, publish} = useDocumentOperation(props.id, props.type)
@@ -23,97 +26,74 @@ export  function setPublishedAction(props) {
     if (isPublishing && !props.draft) {
       setIsPublishing(false)
     }
-  }, [props.draft])
-
-  
+  }, [props.draft]);
   return {
-     disabled: publish.disabled,
+    disabled: publish.disabled,
     label: isPublishing ? 'Publishing…' : 'Publish',
-   
-onHandle: async () => {
+    onHandle: async () => {
       // This will update the button text 
       setIsPublishing(true)
-
-     // const client = sanityClient(sanityClientConfig)
+      // const client = sanityClient(sanityClientConfig)
       /// Set the slug based on the document type
       switch (props.type) {
         case 'campaign':
         console.log(props);
-
-    props.draft.content.bodyComponent.forEach(x=>
-      {
-          if(x._type=="productList" || x._type =="productCarousel")
-          {
-              x.product.forEach(Y=>
-                {
-                  productid.push(Y.productCode);
-                  smartProductID.indexOf(Y.smartProductId) === -1 ? smartProductID.push(Y.smartProductId) :console.log("This item already exists");
-                //  smartProductID.push(Y.smartProductId);
-                })
+        props.draft.content.bodyComponent.forEach(x=> {
+          if(x._type=="productList" || x._type =="productCarousel"){
+            x.product.forEach(Y=> {
+              productid.push(Y.productCode);
+              smartProductID.indexOf(Y.smartProductId) === -1 ? smartProductID.push(Y.smartProductId) :console.log("This item already exists");
+              //  smartProductID.push(Y.smartProductId);
+            })
           }
-      }
-      
-      );
- 
-      console.log(smartProductID.toString());
-    const client = sanityClient(sanityClientConfig);
-    const data= {  
-                   campaign_id:props.id,
-                   campaign_name: props.draft.content.title,
-                   country_id:	parseInt(props.draft.content.country._ref),
-                   brand_id:	parseInt(props.draft.content.brand._ref.split("_")[1]),
-                   smartkey_data: smartProductID.toString()
-                }    
-   const jsonString = JSON.stringify(data)
-  
+        }
 
-    const requestOptions = 
-    {
-        method: 'POST',
-        body:jsonString
-        
-    };
-   
-   fetch('https://app.cartwire.co/CW_API/post_BIN_products_details', requestOptions)
-   .then(response => response.json())
-   .then(data => {
-     console.log('Success:', data.items);
-   
-     var responseData= addProductAction( data.items,props.id,smartProductID) ;
-     console.log(responseData);
-        let transaction = client.transaction();
-       responseData.forEach(document => {
-        document.forEach(mainDoc=>
-          {
-            transaction.createOrReplace(mainDoc)
+        );
+
+        console.log(smartProductID.toString());
+        const client = sanityClient(sanityClientConfig);
+        const data= {
+          campaign_id:props.id,
+          campaign_name: props.draft.content.title,
+          country_id:	parseInt(props.draft.content.country._ref),
+          brand_id:	parseInt(props.draft.content.brand._ref.split("_")[1]),
+          smartkey_data: smartProductID.toString()
+        }    
+        const jsonString = JSON.stringify(data)
+        const requestOptions = {
+          method: 'POST',
+          body:jsonString
+        };
+        fetch('https://app.cartwire.co/CW_API/post_BIN_products_details', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          console.log('Success1:', data.items);
+          var responseData= addProductAction( data.items,props.id,smartProductID) ;
+          console.log(responseData);
+          let transaction = client.transaction();
+          responseData.forEach(document => {
+            document.forEach(mainDoc=> {
+              transaction.createOrReplace(mainDoc)
+            });
           });
-        
-        
-       });
-   
-       transaction.commit()
-   })
+          transaction.commit()
+        })
         .catch(error => {
-            console.error('There was an error!', error);
+          console.error('There was an error!', error);
         });
-     
-     // let initalProduct=["b25353904cb483c1f7f8c42856786136","9c92e921eabf27aa0c8b0c5a9c1657bb"];
-    
-    
-       console.log("CustomPublish")
-        
-          break;
 
+        // let initalProduct=["b25353904cb483c1f7f8c42856786136","9c92e921eabf27aa0c8b0c5a9c1657bb"];
+        console.log("CustomPublish")
+
+        break;
         default:
-          /// Doing nothing? Consider deleting this switch statement to simplify your code.
-          break;
+        /// Doing nothing? Consider deleting this switch statement to simplify your code.
+        break;
       }
-       // Perform the publish
- publish.execute()
-      
- // Signal that the action is completed
- props.onComplete() 
-     
+      // Perform the publish
+      publish.execute()
+      // Signal that the action is completed
+      props.onComplete(startBuild(props));
     }
   }
 }
