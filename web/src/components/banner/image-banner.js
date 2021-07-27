@@ -17,11 +17,6 @@ function CampaignBanner(props) {
                 <figure>
                     <picture
                     className="bp-image__placeholder"
-                    style={{
-                        paddingTop: `56.25%`,
-                        background: `url(${props.bannerImages.asset.metadata.lqip})`,
-                        backgroundSize: 'cover',
-                    }}
                     >
                     <source
                         media="screen and (max-width: 560px)"
