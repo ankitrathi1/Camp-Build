@@ -10,17 +10,17 @@ import styles from "./IframePreview.module.css";
  */
 
 const assemblePostUrl = ({ displayed, options }) => {
+  console.log('displayed 1', options);
   const { slug, publishedAt } = displayed.content;
+  const campId = displayed._id;
   const { previewURL } = options;
   if (!slug || !previewURL) {
     console.warn("Missing slug or previewURL", { slug, previewURL });
     return "";
   }
-  const dateSegment = format(new Date(publishedAt), "yyyy/MM");
   //const path = `/${dateSegment}/${slug.current}/`;
  // return `${previewURL}/blog${path}`;
- const path = `/${slug.current}/`;
-  return `${previewURL}/campaign${path}`;
+  return `${previewURL}/preview/?${campId}`;
 };
 
 const IframePreview = (props) => {
