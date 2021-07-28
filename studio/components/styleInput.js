@@ -13,7 +13,7 @@ const StyleInput = React.forwardRef((props, ref) => {
         value
     } = props
     return (
-        <span className={styles.downloadLink}>{type.description} <a href="{type.options.downloadLink}">{type.title}</a></span>
+        <span className={styles.downloadLink}>{type.description} <a href="https://cdn.sanity.io/files/8gjfptsf/production/3172f272c6890b7710b0d90f5e46969e6e7b9043.css?dl">{type.title}</a></span>
     )
 })
 

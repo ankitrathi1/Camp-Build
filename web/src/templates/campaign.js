@@ -85,6 +85,12 @@ export const query = graphql`
           }
         }
         style {
+          styleFile {
+            asset {
+              id
+              url
+            }
+          }
           header {
             logoUrl
             clickLogo
@@ -121,7 +127,9 @@ const CampaignTemplate = (props) => {
   const campaign = data && data.campaign;
   const dt = new Date;
 	const masterCSS= 'https://s3-ap-southeast-1.amazonaws.com/www.cartwire.co/widget' + '/v2.0/css/' + 'cw_gride_widget_main.css'+'?ver='+dt.getTime();
-	const childCSS= 'https://s3-ap-southeast-1.amazonaws.com/www.cartwire.co/widget' + '/v2.0/css/' + 'cw_gride_widget_magnum_uk.css' +'?ver='+dt.getTime();
+  const childCSS= 'https://s3-ap-southeast-1.amazonaws.com/www.cartwire.co/widget' + '/v2.0/css/' + 'cw_gride_widget_magnum_uk.css' +'?ver='+dt.getTime();
+  
+  {errors && <SEO title="GraphQL Error" />}
 	
   return (
     <Layout>
@@ -129,7 +137,10 @@ const CampaignTemplate = (props) => {
       <link rel="icon" href={favicon} />
       {/* <script src="/googleAnalytics.js"></script> */}
       <link rel="stylesheet" href={masterCSS} />
-            <link rel="stylesheet" href={childCSS} />
+      <link rel="stylesheet" href={childCSS} />
+      {campaign.content.style.styleFile && (
+        <link rel="stylesheet" href={campaign.content.style.styleFile.asset.url} />
+      )}
     </Helmet>
       {errors && <SEO title="GraphQL Error" />}
       {campaign && (

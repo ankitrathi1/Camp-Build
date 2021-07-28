@@ -37,6 +37,10 @@ export default {
           name: "styleFile",
           type: "file",
           title: "CSS",
+          options: {
+            accept: ".css",
+            storeOriginalFilename: true,
+          },
           description: "Upload css file from your computer",
           fieldset: "styleSetting",
         },

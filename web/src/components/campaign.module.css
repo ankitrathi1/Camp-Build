@@ -47,9 +47,15 @@ section{
 {
   visibility:hidden;
 }
-
-
-
+.cw_no_preview{
+  padding:100px 0;
+}
+.cw_no_preview p{
+  margin: 0 auto;
+}
+.cw_no_preview a{
+  color:blue;
+}
 
 
 

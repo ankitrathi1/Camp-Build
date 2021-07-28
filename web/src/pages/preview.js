@@ -1,22 +1,17 @@
 import React from "react";
 import { graphql } from "gatsby";
-import {
-  filterOutDocsPublishedInTheFuture,
-  filterOutDocsWithoutSlugs,
-  mapEdgesToNodes,
-} from "../lib/helpers";
-import CampaignPreviewList from "../components/campaign-preview-list";
 import Campaign from "../components/campaign";
-import Container from "../components/container";
-import GraphQLErrorList from "../components/graphql-error-list";
+import NoPreview from "../components/no-preview";
 import SEO from "../components/seo";
+import Helmet from 'react-helmet';
 import Layout from "../containers/layout";
+const clientConfig = require("../../client-config");
 
 const sanityClient = require('@sanity/client')
 
 const client = sanityClient({
-  projectId: '8gjfptsf',
-  dataset: 'production',
+  projectId: clientConfig.sanity.projectId,
+  dataset: clientConfig.sanity.dataset,
   useCdn: false, // `false` if you want to ensure fresh data
   withCredentials: true
 })
@@ -25,8 +20,8 @@ class PreviewDoc extends React.Component {
     constructor (props) {
       super(props)
       this.state = {
-        document: null,
-        type: null
+        CampData: null,
+        cssFile: null
       }
     }
     componentDidMount () {
@@ -35,8 +30,16 @@ class PreviewDoc extends React.Component {
           }`
           client.fetch(queryDraft).then(response => {
             console.log('client response', response[0]);
+            let cssFile = '';
+            if(response[0].content.style && response[0].content.style.styleFile){
+                cssFile = response[0].content.style.styleFile.asset._ref;
+                cssFile = cssFile.replace('file-', '');
+                cssFile = cssFile.replace('-css', '');
+                cssFile = 'https://cdn.sanity.io/files/'+clientConfig.sanity.projectId+'/'+clientConfig.sanity.dataset+'/'+cssFile+'.css';
+            }
             this.setState({
-                CampData: response[0]
+                CampData: response[0],
+                cssFile: cssFile
             });
             console.log('this is data', this.state.CampData);
           }).catch(error => {
@@ -45,7 +48,20 @@ class PreviewDoc extends React.Component {
     }
     renderPreview() {
         if (this.state.CampData) {
-            return <Campaign {...this.state.CampData} />
+            return (
+            <Layout>
+                <Helmet>
+                {this.state.cssFile && (
+                    <link rel="stylesheet" href={this.state.cssFile} />
+                )}
+                </Helmet>
+            <Campaign {...this.state.CampData} />
+            </Layout>
+            );
+        }else{
+            return(
+                <NoPreview url={clientConfig.sanity.studioUrl} />
+            );
         }
     }
     render () {
@@ -56,26 +72,11 @@ class PreviewDoc extends React.Component {
       )
     }
   }
-
-
 const PreviewPage = (props) => {
   console.log('index page data', props);
   let campaingId = props.location.search;
   campaingId = campaingId.substring(1);
   console.log('campaign id:', campaingId);
-  /*const queryDraft = `*[_id == "${campaingId}"]  {
-    ...,
-  }`
-  client.fetch(queryDraft).then(response => {
-    console.log('client response', response[0]);
-    const CampData = response[0];
-    this.setState({
-        CampData: CampData
-    });
-  }).catch(error => {
-    console.log('problem found', error)
-  })*/
-
   return (
     <Layout>
       <PreviewDoc campaingId={campaingId} />

@@ -49,6 +49,9 @@ const IframePreview = (props) => {
   return (
     <div className={styles.componentWrapper}>
       <div className={styles.iframeContainer}>
+        <div className={styles.LinkClass}>
+            <a href={url} target="_blank">Open in New Window</a>
+        </div>
         <iframe src={url} frameBorder={"0"} />
       </div>
     </div>
