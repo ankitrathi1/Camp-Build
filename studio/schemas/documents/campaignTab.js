@@ -116,12 +116,6 @@ export default {
         description: "This can be used to schedule post for publishing",
         fieldset: "publishDetail",
       },
-      {
-        name: "unPublishedAt",
-        type: "datetime",
-        title: "UNPUBLISH AT",
-        description: "This can be used to schedule post for unpublishing",
-        fieldset: "publishDetail",
-      },
+
     ]
   };

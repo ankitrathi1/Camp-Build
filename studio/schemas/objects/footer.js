@@ -13,26 +13,62 @@ export default {
             type: "string",
             title: "PRIVACY NOTICE LABEL",
             description:"The label should match what is mentioned in Privacy notice page of the region here https://www.unilevernotices.com/privacy-notice/notice.html",
-            validation: Rule => Rule.required()
+           // validation: Rule => Rule.required()
+           validation: Rule => Rule.custom(val => {
+     
+            if (!val ) {
+              return 'Please Provide Privacy Notice Label'
+            }
+           else{
+             return true
+           }
+          })
           },
           {
             name: "privacyNoticeUrl",
             type: "string",
             title: "PRIVACY NOTICE URL",
             description: "You can get Privacy notice URL for your region from here https://www.unilevernotices.com/privacy-notice/notice.html",
-            validation: Rule => Rule.required()
+           // validation: Rule => Rule.required()
+           validation: Rule => Rule.custom(val => {
+     
+            if (!val ) {
+              return 'Please Provide Privacy Notice URL'
+            }
+           else{
+             return true
+           }
+          })
           },
           {
             name: "cookieNotice",
             type: "string",
             title: "COOKIE NOTICE LABEL",
-            validation: Rule => Rule.required()
+           // validation: Rule => Rule.required()
+           validation: Rule => Rule.custom(val => {
+     
+            if (!val ) {
+              return 'Please Provide Cookie Notice Label'
+            }
+           else{
+             return true
+           }
+          })
           },
           {
             name: "cookieNoticeUrl",
             type: "string",
             title: "COOKIE NOTICE URL",
-            validation: Rule => Rule.required()
+         //   validation: Rule => Rule.required()
+         validation: Rule => Rule.custom(val => {
+     
+          if (!val ) {
+            return 'Please Provide Cookie Notice Url'
+          }
+         else{
+           return true
+         }
+        })
           },
           {
             name: "tnc",

@@ -15,7 +15,16 @@ export default {
       title: 'Alt Text *',
       description: 'For accessibility purposes, please describe the image',
       type: 'string',
-      validation: Rule => Rule.required(),
+     // validation: Rule => Rule.required("Please provide alt text for Image"),
+     validation: Rule => Rule.custom(val => {
+     
+      if (!val ) {
+        return 'Please Provide Alt Text For Image'
+      }
+     else{
+       return true
+     }
+    }),
       options: {
         isHighlighted: true
       }

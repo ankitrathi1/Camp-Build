@@ -12,7 +12,16 @@ export default {
       type: "string",
       title: "HEADING TEXT",
       description: "Provide product carousel/list heading",
-      validation: Rule => Rule.required()
+    //  validation: Rule => Rule.required()
+    validation: Rule => Rule.custom(val => {
+     
+      if (!val ) {
+        return 'Please Provide Carousel/List Heading'
+      }
+     else{
+       return true
+     }
+    })
     },
     {
       name: "headingLevel",

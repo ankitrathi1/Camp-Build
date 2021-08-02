@@ -73,4 +73,3 @@
 :global([class^='tabs_tab_headers_'] [class^='tabs_tab_inner_']){
   font-weight: 500;
 }
-

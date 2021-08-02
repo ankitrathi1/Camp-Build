@@ -9,7 +9,7 @@ export default {
   type: 'object',
   inputComponent: MyCustomObject,
   validation: Rule => Rule.custom(fields => {
-    if (fields.smartProductId==null) return "Incorrect Product"
+    if (fields.smartProductId==null) return "Please Add Correct Product"
     return true
   }),
 

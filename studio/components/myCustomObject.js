@@ -37,12 +37,11 @@ console.log(value ==undefined? "NotAvalaib":value.productCode );
   //  const [ valueSet , setValueSet] = useState({ "smartProductId":currentSmartId, "productCode":currentProductCode, "title": currentTitle });
     const handleFieldChange = React.useCallback(
       (field, fieldPatchEvent) => {
-    
-          
-     
-         onChange(fieldPatchEvent.prefixAll(field.name).prepend(setIfMissing({ _type: type.name })));
+     onChange(fieldPatchEvent.prefixAll(field.name).prepend(setIfMissing({ _type: type.name })));
            if(field.name == 'productCode'  ){
-          let inputValue = fieldPatchEvent.patches[0].value;
+          let inputValue =(fieldPatchEvent.patches[0].value).toString();
+           inputValue="'" + inputValue + "'"
+          console.log("tostring",inputValue);
           if ( inputValue==undefined || (inputValue && inputValue.length < 13) ) { 
             
             setData({});
@@ -53,14 +52,14 @@ console.log(value ==undefined? "NotAvalaib":value.productCode );
             else{
               setIsDataAvailable(false); 
             }
-            
-            fieldPatchEvent.patches[0].value=undefined;
+            //props.onChange(PatchEvent.from(unset()));
+            fieldPatchEvent.patches[0].value=null;
             onChange(fieldPatchEvent.prefixAll("smartProductId").prepend(setIfMissing({ _type: type.name })));
             
-            fieldPatchEvent.patches[0].value=undefined;
+            fieldPatchEvent.patches[0].value=null;
             onChange(fieldPatchEvent.prefixAll("title").prepend(setIfMissing({ _type: type.name })));
             
-            fieldPatchEvent.patches[0].value=undefined;
+            fieldPatchEvent.patches[0].value=null;
             onChange(fieldPatchEvent.prefixAll("productImage").prepend(setIfMissing({ _type: type.name })));
           }
               
@@ -73,17 +72,11 @@ console.log(value ==undefined? "NotAvalaib":value.productCode );
                 .then(response => {
                             if ( !response ) return "no response";
                             console.log("resData=======",response)
-                            setData(response.data)
-                            response.data && response.data.length ? setIsDataAvailable(true) : setIsDataAvailable(false);
+                            if(response.message=="Data Available")
+                            {
+                              response.data && response.data.length ? setIsDataAvailable(true) : setIsDataAvailable(false);
                               if(response.data.length)
                                {   
-                                 
-                                var abc={ "smartProductId":response.data[0].smart_prduct_id, "title":response.data[0].productTitle,"productCode":inputValue}
-                          
-                               setValueSet({
-                                 ...valueSet,
-                                 ...abc
-                               })
                            
                                 fieldPatchEvent.patches[0].value=response.data[0].smart_prduct_id;
                                 onChange(fieldPatchEvent.prefixAll("smartProductId").prepend(setIfMissing({ _type: type.name })));
@@ -92,6 +85,21 @@ console.log(value ==undefined? "NotAvalaib":value.productCode );
                                 fieldPatchEvent.patches[0].value=response.data[0].image_url;
                                 onChange(fieldPatchEvent.prefixAll("productImage").prepend(setIfMissing({ _type: type.name })));
                                }
+
+
+                            }
+                         else{
+                     
+                          setIsDataAvailable(false)
+                          fieldPatchEvent.patches[0].value=null;
+                          onChange(fieldPatchEvent.prefixAll("smartProductId").prepend(setIfMissing({ _type: type.name })));
+                          
+                          fieldPatchEvent.patches[0].value=null;
+                          onChange(fieldPatchEvent.prefixAll("title").prepend(setIfMissing({ _type: type.name })));
+                          
+                          fieldPatchEvent.patches[0].value=null;
+                          onChange(fieldPatchEvent.prefixAll("productImage").prepend(setIfMissing({ _type: type.name })));
+                          }
                             
                           })
             }catch(e){
