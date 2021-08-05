@@ -51,7 +51,8 @@ export default {
         type: "product",
         title: "SELECT PRODUCT",
         type: "array",
-        of: [{type: "productReference"}]
+        of: [{type: "productReference"}],
+        validation: Rule => Rule.required().min(1).error("Please Add Alteast One Product For ProductList")
       }
   ],
   preview: {

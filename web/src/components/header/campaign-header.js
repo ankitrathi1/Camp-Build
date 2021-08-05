@@ -7,7 +7,7 @@ import { urlFor } from "../../lib/image-url";
 
 function campaignHeader(props) {
   return (
-    <header className="cw_header">
+    <header className="cw_header campaign-component">
         <Link to={props.style.header.logoUrl}>
         <figure>
             <picture

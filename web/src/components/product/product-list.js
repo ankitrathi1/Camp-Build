@@ -58,7 +58,7 @@ function CampaignProduct(props) {
  
  
   return (
-    <div className="cw_product_container product_list_section">
+    <div className="cw_product_container product_list_section campaign-component productList-section" data-componentname="productList" data-component-experience-variant="default" data-component-variants="defaultView" data-service-provider="cartwire">
     <props.headingLevel className="category_title">{props.heading}</props.headingLevel>
     <p className="category_sub_title">{props.introText[0].children[0].text}</p>
     
@@ -87,7 +87,7 @@ function CampaignProduct(props) {
                             </div>
                             <div className="cw_product_title">{x.title}</div>
                             <div className="cw_btn_wrap">
-                            <button className="cw_btn_buynow" onClick={() => window.CTGetWidget(x.smartProductId,props.id)}>Buy Now</button>
+                            <button className="cw_btn_buynow"   data-index={i} onClick={() => window.CTGetWidget(x.smartProductId,props.id,'productList-section')}>Buy Now</button>
                             {/* <button className="cw_btn_buynow" >Buy Now</button> */}
                             </div>
                         </li>

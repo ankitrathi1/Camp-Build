@@ -17,7 +17,7 @@ import { ReactComponent as UnileverLogo } from '../../images/svg/unilever_logo.s
 
 function campaignFooter(props) {
   return (
-    <div className="cw_footer cw_text_center">
+    <div className="cw_footer cw_text_center campaign-component">
         
         <ul className="cw_footer_links">
             <li><button className="ot-sdk-show-settings">Manage Preferences</button></li>

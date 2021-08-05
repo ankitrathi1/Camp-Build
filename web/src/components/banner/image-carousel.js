@@ -10,8 +10,10 @@ import { Carousel } from 'react-responsive-carousel';
 var newBannerCount = 1;
 function CampaignBanner(props) {
   return (
-    <div className="cw_js_slider">
+    <div className="cw_js_slider banner_list_section campaign-component" data-componentname="imageCarousel" data-component-experience-variant="default" data-component-variants="defaultView">
+           <h1 className="category_title hidden data-componentname">{props.title}</h1>
         <div className="slider_content">
+     
         <Carousel interval={3000} autoPlay={props.autoSlide} infiniteLoop={true} stopOnHover={false}>
        
             {props.imageCarousel && props.imageCarousel.map((banner) => (
