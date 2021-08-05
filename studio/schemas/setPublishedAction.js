@@ -60,6 +60,7 @@ export  function setPublishedAction(props) {
         {
           if(x._type=="productList" || x._type =="productCarousel")
           {
+
               x.product.forEach(Y=>
                 {
                   productid.push(Y.productCode);
@@ -80,13 +81,13 @@ export  function setPublishedAction(props) {
                       brand_id:	parseInt(props.draft.content.brand._ref.split("_")[1]),
                       smartkey_data: smartProductID.toString()
                     }    
-      const jsonString = JSON.stringify(data)
-      const requestOptions = 
-      {
-          method: 'POST',
-          body:jsonString
-          
-      };
+        const jsonString = JSON.stringify(data)
+        const requestOptions = 
+        {
+            method: 'POST',
+            body:jsonString
+            
+        };
           fetch('https://cwqa.srmtechsol.com/SNWLive/CW_API/post_BIN_products_details', requestOptions)
         //fetch('https://app.cartwire.co/CW_API/post_BIN_products_details', requestOptions)
         .then(response => response.json())

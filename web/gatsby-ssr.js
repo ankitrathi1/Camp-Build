@@ -11,6 +11,6 @@ export const onRenderBody = ({ setHeadComponents }, pluginOptions) => {
   setHeadComponents([
     <script src="/jquery-1.7.1.js">
     </script>,
-      <script src="/widget_retailPopup.js"></script>
+      <script src="/widget_retailPopup_new.js"></script>
   ])
 }
