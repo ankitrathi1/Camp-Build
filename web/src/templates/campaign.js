@@ -128,6 +128,7 @@ const CampaignTemplate = (props) => {
   const { data, errors } = props;
   const campaign = data && data.campaign;
   const dt = new Date;
+  
   const childCSS= 'https://s3-ap-southeast-1.amazonaws.com/www.cartwire.co/widget' + '/v2.0/css/' + 'cw_gride_widget_magnum_uk.css' +'?ver='+dt.getTime();
   
   {errors && <SEO title="GraphQL Error" />}
