@@ -20,8 +20,8 @@ function getChildUrlData(url, cwId, ip, clientUrl, retailerId, productId, produc
       if(productPrice== "null"){
           cwPriSymTemp =''; 
       }
-      arr = { "productID": productEan, "productName": unescape(productName), "price":cwPriSymTemp, "brand": cwBrandName, "quantity": quantity,"retailerName" :retailerName,"sku":productVariant,"quantity":quantity,"category":category}
-      cwDigitalData("", "retailer_click", arr);
+    //  arr = { "productID": productEan, "productName": unescape(productName), "price":cwPriSymTemp, "brand": cwBrandName, "quantity": quantity,"retailerName" :retailerName,"sku":productVariant,"quantity":quantity,"category":category}
+    //  cwDigitalData("", "retailer_click", arr);
       /* Analytic Callback Function */
       if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) {
           var cwEvent = document.createEvent("CustomEvent");
@@ -293,8 +293,8 @@ function CTGetWidget(proId,CampaignID,classSelectorObj) {
             widgetNm = widgetName[0];
 		    brandNm = cwBrandName;
             pId=cwProductEan;
-           arr = { "productID": pId, "productName": unescape(widgetNm), "price": "", "brand": brandNm, "quantity": "" }
-           cwDigitalData("", "shop_now", arr);
+         //  arr = { "productID": pId, "productName": unescape(widgetNm), "price": "", "brand": brandNm, "quantity": "" }
+        //   cwDigitalData("", "shop_now", arr);
             var relCount = 0, js_innerblock = '', selectOpt = '';
             for (t = 0; t < titles.length; t++) {
                 titlesNm = titles[t].replace(/\s+/g, '-').toLowerCase();
