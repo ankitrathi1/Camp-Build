@@ -6,7 +6,7 @@ import { format } from "date-fns";
 
 function campaignSocial(props) {
   return (
-    <div className="cw_footer cw_text_center">
+    <div className="cw_footer cw_text_center campaign-component">
         <ul class="cw_footer_socialIcon">
             {props.socialChannel && props.socialChannel.map((social) => (
                  <li>

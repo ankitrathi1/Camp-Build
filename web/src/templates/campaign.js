@@ -9,6 +9,7 @@ import SEO from "../components/seo";
 import { toPlainText } from "../lib/helpers";
 import favicon from '/src/images/favicon.ico';
 import Helmet from 'react-helmet';
+import '../styles/cw_gride_widget_main.css';
 export const query = graphql`
   query CampaignTemplateQuery($id: String!) {
     campaign: sanityCampaign(id: { eq: $id }) {
@@ -37,6 +38,7 @@ export const query = graphql`
               }
             }
             _type
+            title
             autoSlide
           }
           ... on SanityImageBanner {
@@ -127,7 +129,7 @@ const CampaignTemplate = (props) => {
   const { data, errors } = props;
   const campaign = data && data.campaign;
   const dt = new Date;
-	const masterCSS= 'https://s3-ap-southeast-1.amazonaws.com/www.cartwire.co/widget' + '/v2.0/css/' + 'cw_gride_widget_main.css'+'?ver='+dt.getTime();
+  
   const childCSS= 'https://s3-ap-southeast-1.amazonaws.com/www.cartwire.co/widget' + '/v2.0/css/' + 'cw_gride_widget_magnum_uk.css' +'?ver='+dt.getTime();
   
   {errors && <SEO title="GraphQL Error" />}
@@ -141,7 +143,6 @@ const CampaignTemplate = (props) => {
       {/* OneTrust Cookies Consent Notice end for unilever-campaign.netlify.app */}
 
       {/* <script src="/googleAnalytics.js"></script> */}
-      <link rel="stylesheet" href={masterCSS} />
       <link rel="stylesheet" href={childCSS} />
       {campaign.content.style.styleFile && (
         <link rel="stylesheet" href={campaign.content.style.styleFile.asset.url} />

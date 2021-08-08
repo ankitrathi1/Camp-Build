@@ -11,7 +11,7 @@ var newBannerCount = 1;
 function CampaignBanner(props) {
    
   return (
-    <div className="cw_js_slider cw_image_banner">
+    <div className="cw_js_slider cw_image_banner campaign-component" data-componentname="imageBanner" data-component-experience-variant="default" data-component-variants="defaultView">
         <div className="slider_content">
         <div className="cw_js_slider_item">
                 <figure>

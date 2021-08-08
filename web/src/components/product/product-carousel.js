@@ -29,13 +29,13 @@ function CampaignProduct(props) {
 };
   
   return (
-    <div className="cw_product_container product_list_section">
-    <props.headingLevel className="category_title">{props.heading}</props.headingLevel>
+    <div className="cw_product_container product_list_section campaign-component productCarousel-section" data-componentname="productCarousel" data-component-experience-variant="default" data-component-variants="defaultView" data-service-provider="cartwire">
+    <props.headingLevel className="category_title" >{props.heading}</props.headingLevel>
     <p className="category_sub_title">{props.introText[0].children[0].text}</p>
     <div className="cw_product_container cw_product_carousel">
                 <Carousel responsive={responsive} infinite={false} autoPlay={false}>
-                    {props.product && props.product.map((product) => (
-                        <div className="item">
+                    {props.product && props.product.map((product,i) => (
+                        <div className="item" >
                             <div className="cw_product_img">
                                 <figure>
                                     <picture
@@ -55,7 +55,7 @@ function CampaignProduct(props) {
                             <div className="cw_product_title">{product.title}</div>
                             <div className="cw_btn_wrap">
                             {/* <button className="cw_btn_buynow" >Buy Now</button> */}
-                            <button className="cw_btn_buynow" onClick={() => window.CTGetWidget(product.smartProductId,props.id)}>Buy Now</button>
+                            <button className="cw_btn_buynow" data-index={i} onClick={() => window.CTGetWidget(product.smartProductId,props.id,'productCarousel-section')}>Buy Now</button>
                             </div>
                         </div>
                     ))}

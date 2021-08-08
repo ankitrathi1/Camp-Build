@@ -19,7 +19,8 @@ export default {
         type: "array",
         title: "Select banner images",
         description: "Please select banner images from drop dowm, if you want single hero image then select only one image",
-        of: [{type: "figure"}]
+        of: [{type: "figure"}],
+        validation: Rule => Rule.required().min(1).error("Please Add Alteast One BannerImage")
       },
       {
         name: "title",
