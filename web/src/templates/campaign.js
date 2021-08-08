@@ -1,5 +1,6 @@
 import { graphql } from "gatsby";
 import Campaign from "../components/campaign";
+import OneTrust from "../components/onetrust";
 import React from "react";
 import GraphQLErrorList from "../components/graphql-error-list";
 import Layout from "../containers/layout";
@@ -130,11 +131,15 @@ const CampaignTemplate = (props) => {
   const childCSS= 'https://s3-ap-southeast-1.amazonaws.com/www.cartwire.co/widget' + '/v2.0/css/' + 'cw_gride_widget_magnum_uk.css' +'?ver='+dt.getTime();
   
   {errors && <SEO title="GraphQL Error" />}
-	
   return (
     <Layout>
     <Helmet>
       <link rel="icon" href={favicon} />
+      {/* OneTrust Cookies Consent Notice start for unilever-campaign.netlify.app */}
+      <script async type="text/javascript" src="https://cdn.cookielaw.org/consent/85f62e3a-1550-41d3-b34a-06f23c84631d-test/OtAutoBlock.js"></script>
+      <script async src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-document-language="true" type="text/javascript" charset="UTF-8" data-domain-script="85f62e3a-1550-41d3-b34a-06f23c84631d-test"></script>
+      {/* OneTrust Cookies Consent Notice end for unilever-campaign.netlify.app */}
+
       {/* <script src="/googleAnalytics.js"></script> */}
       <link rel="stylesheet" href={masterCSS} />
       <link rel="stylesheet" href={childCSS} />
@@ -145,7 +150,7 @@ const CampaignTemplate = (props) => {
       {errors && <SEO title="GraphQL Error" />}
       {campaign && (
         <SEO
-          title={campaign.title || "Untitled"}
+          title={campaign.content.title || "Untitled"}
           description={toPlainText(campaign._rawExcerpt)}
         />
       )}
@@ -155,7 +160,7 @@ const CampaignTemplate = (props) => {
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-
+      
       {campaign && <Campaign {...campaign} />}
     </Layout>
   );
