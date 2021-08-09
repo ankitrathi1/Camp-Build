@@ -22,19 +22,7 @@ export  function setPublishedAction(props) {
   const {isValidating, markers} = useValidationStatus(props.id, props.type)
   const [isPublishing, setIsPublishing] = useState(false)
   const [dialogOpen, setDialogOpen] = React.useState(false)
-  if (isValidating) {
-	 console.log("Validation in progress")
-  }
-  if (markers.length > 0) {
-  console.log(markers);
-    console.log("This document is Not ✨perfect✨");
-	
-  }
-  if (markers.length === 0) {
-    console.log("This document is ✨perfect✨")
-	
-  }
-   useEffect(() => {
+  useEffect(() => {
     // if the isPublishing state was set to true and the draft has changed
     // to become `null` the document has been published
     if (isPublishing && !props.draft) {
@@ -77,10 +65,11 @@ export  function setPublishedAction(props) {
         const data= {  
                       campaign_id:props.id,
                       campaign_name: props.draft.content.title,
-                      country_id:	parseInt(props.draft.content.country._ref),
-                      brand_id:	parseInt(props.draft.content.brand._ref.split("_")[1]),
+                      country_id:	parseInt(props.draft.content.country.countryId),
+                      brand_id:	parseInt(props.draft.content.brand.brandId),
                       smartkey_data: smartProductID.toString()
                     }    
+                   
         const jsonString = JSON.stringify(data)
         const requestOptions = 
         {
@@ -92,10 +81,10 @@ export  function setPublishedAction(props) {
         //fetch('https://app.cartwire.co/CW_API/post_BIN_products_details', requestOptions)
         .then(response => response.json())
         .then(data => {
-          console.log('Success:', data.items);
+         
         
           var responseData= addProductAction( data.items,props.id,smartProductID) ;
-          console.log(responseData);
+        
               let transaction = client.transaction();
             responseData.forEach(document => {
               document.forEach(mainDoc=>

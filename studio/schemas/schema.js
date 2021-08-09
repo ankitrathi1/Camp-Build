@@ -37,7 +37,8 @@ import authorReference from "./objects/authorReference";
 import socialLink from "./objects/socialLink";
 import productReference from "./objects/productReference";
 import textEditor from "./objects/textEditor";
-
+// import countryObject from "./objects/countryObject";
+// import brandObject from "./objects/brandObject";
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -78,6 +79,8 @@ export default createSchema({
     retailers,
     countryCount,
     smartProduct
+  //  countryObject,
+   // brandObject
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ]),

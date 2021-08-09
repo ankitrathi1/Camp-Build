@@ -10,10 +10,10 @@ import {MdClear,MdSearch} from "react-icons/md"
 
  const MyCustomObject = React.forwardRef((props, ref) => {
   
-  var countryId= props.document.content.country._ref;
-   console.log(props);
-    const [ data , setData ] = useState({});
-    const [ isDataAvailable , setIsDataAvailable ] = useState(null);
+  var countryId= props.document.content.country.countryId;
+  
+  const [ data , setData ] = useState({});
+  const [ isDataAvailable , setIsDataAvailable ] = useState(null);
   const [ valueSet , setValueSet] = useState({ "smartProductId":null, "productCode": null, "title":null });
    // const [ valueSet , setValueSet] = useState({})
     // destructure props for easier use
@@ -30,7 +30,7 @@ import {MdClear,MdSearch} from "react-icons/md"
       level
     } = props
     console.log(value);
-console.log(value ==undefined? "NotAvalaib":value.productCode );
+
     // var currentSmartId=value[type.fields[1].name]==undefined?null :value[type.fields[1].name];
   //   var currentProductCode=value[type.fields[0].name]==undefined?null :value[type.fields[0].name];
  //    var currentTitle=value[type.fields[2].name]==undefined?null :value[type.fields[2].name];
@@ -41,7 +41,7 @@ console.log(value ==undefined? "NotAvalaib":value.productCode );
            if(field.name == 'productCode'  ){
           let inputValue =(fieldPatchEvent.patches[0].value).toString();
            inputValue="'" + inputValue + "'"
-          console.log("tostring",inputValue);
+          
           if ( inputValue==undefined || (inputValue && inputValue.length < 13) ) { 
             
             setData({});

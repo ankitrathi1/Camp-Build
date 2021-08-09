@@ -1,7 +1,9 @@
 
 import Tabs from "sanity-plugin-tabs";
 import { format } from "date-fns";
-import { MdLocalMovies } from 'react-icons/md'
+import { MdLocalMovies } from 'react-icons/md';
+import searchCountryInput from "../../components/searchCountryInput";
+import searchBrandInput from "../../components/searchBrandInput";
 export default {
     name: "content",
       type: "object",
@@ -21,11 +23,20 @@ export default {
       },
        fields: [
         {
+          name: "country",
+          type: "reference",
+          title: "COUNTRY",
+          to: [{ type: 'country' }],
+          fieldset: "CampaignDetails",
+          inputComponent: searchCountryInput,
+        },
+        {
           name: "brand",
           type: "reference",
           title: "BRAND",
           to: [{ type: 'brand' }],
           fieldset: "CampaignDetails",
+          inputComponent: searchBrandInput,
         },
         {
           name: "locale",
@@ -34,13 +45,7 @@ export default {
           fieldset: "CampaignDetails",
         },
   
-        {
-          name: "country",
-          type: "reference",
-          title: "COUNTRY",
-          to: [{ type: 'country' }],
-          fieldset: "CampaignDetails",
-        },
+       
         {
           name: "title",
           type: "string",
