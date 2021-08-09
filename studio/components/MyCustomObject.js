@@ -10,7 +10,7 @@ import {MdClear,MdSearch} from "react-icons/md"
 
  const MyCustomObject = React.forwardRef((props, ref) => {
   
-  var countryId= props.document.content.country.id;
+  var countryId= props.document.content.country.countryId;
   
   const [ data , setData ] = useState({});
   const [ isDataAvailable , setIsDataAvailable ] = useState(null);

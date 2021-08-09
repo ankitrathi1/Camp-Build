@@ -65,8 +65,8 @@ export  function setPublishedAction(props) {
         const data= {  
                       campaign_id:props.id,
                       campaign_name: props.draft.content.title,
-                      country_id:	parseInt(props.draft.content.country.id),
-                      brand_id:	parseInt(props.draft.content.brand.id),
+                      country_id:	parseInt(props.draft.content.country.countryId),
+                      brand_id:	parseInt(props.draft.content.brand.brandId),
                       smartkey_data: smartProductID.toString()
                     }    
                    

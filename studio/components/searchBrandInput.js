@@ -9,7 +9,7 @@ import SearchableSelect from 'part:@sanity/components/selects/searchable'
 
 const SearchBrandInput = React.forwardRef((props, ref) => {
        if (props.document.content.hasOwnProperty('country') ) {
-        var countryName=props.document.content.country.country;
+        var countryName=props.document.content.country.countryName;
         
        }
       //  alert(1)
@@ -129,7 +129,7 @@ const SearchBrandInput = React.forwardRef((props, ref) => {
         function handleChange({ props }) {
           console.log("on change called ",props)
           const  brand = props.children.props.children;
-          onChange(PatchEvent.from(set({ brand:brand,_type:type.name,id: props.children.props.id})));
+          onChange(PatchEvent.from(set({ brandName:brand,_type:type.name,brandId: props.children.props.id})));
           setInputValue(null);
         }
 
@@ -159,7 +159,7 @@ const SearchBrandInput = React.forwardRef((props, ref) => {
                   onClear={handleClear}
                   title={inputValue}
                   value={value}
-                  inputValue={inputValue === null ? value?.brand : inputValue}
+                  inputValue={inputValue === null ? value?.brandName : inputValue}
                   isLoading={isFetching}
                   items={hits}
                   ref={ref}

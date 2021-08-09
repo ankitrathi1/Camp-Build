@@ -58,7 +58,7 @@ const searchCountryInput = React.forwardRef(
         function handleChange({ props }) {
             console.log("on change props ",props.children.props.children)
             const  country = props.children.props.children;
-            onChange(PatchEvent.from(set({ country:country,_type:type.name,id: props.children.props.id})));
+            onChange(PatchEvent.from(set({ countryName:country,_type:type.name,countryId: props.children.props.id})));
             setInputValue(null);
             getBrand(country)
         }
@@ -125,7 +125,7 @@ const searchCountryInput = React.forwardRef(
                 onSearch={handleSearch}
                 onClear={handleClear}
                 renderItem={renderItem}
-                inputValue={inputValue === null ? value?.country : inputValue}
+                inputValue={inputValue === null ? value?.countryName : inputValue}
                 isLoading={isFetching}
                 items={hits}
                 ref={ref}
