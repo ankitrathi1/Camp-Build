@@ -5,7 +5,7 @@ import {PatchEvent, set, unset} from 'part:@sanity/form-builder/patch-event'
 
 
 const RadioOptions = React.forwardRef((props, ref) => {
-    console.log(props);
+   
     const {
       type,
       value,

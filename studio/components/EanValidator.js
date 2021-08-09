@@ -9,7 +9,7 @@ import {withDocument} from 'part:@sanity/form-builder';
 import { useDocumentOperation } from "@sanity/react-hooks";
 const EanValidator = React.forwardRef((props, ref) => {
     
-    var countryId= props.document.content.country._ref;
+    var countryId= props.document.content.country.id;
   
      const {patch} = useDocumentOperation(props.document._id.replace("drafts.", ""), props.document._type)
     console.log(countryId);
