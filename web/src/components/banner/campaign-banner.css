@@ -92,13 +92,13 @@ picture{padding:0!important;}
     opacity: 1;
 }
 .cw_js_slider .carousel ul.control-dots li.dot.selected {
-    background-color: #c79652;
+    background-color: #00799a;
     -moz-animation: boing 0.5s forwards;
     -o-animation: boing 0.5s forwards;
     -webkit-animation: boing 0.5s forwards;
     animation: boing 0.5s forwards;
 }
-.cw_js_slider .carousel ul.control-dots li.dot:hover {background-color: #c79652;}
+.cw_js_slider .carousel ul.control-dots li.dot:hover {background-color: #00799a;}
 
 @media (max-width:575px){
     .cw_main_container .cw_js_slider{

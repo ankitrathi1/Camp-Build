@@ -5,8 +5,8 @@
   box-sizing: border-box;
 }
 body {    -webkit-overflow-scrolling: touch;    font-family: Arial, sans-serif;    color: #000;    background: #fff;    font-size: 0.875rem;    margin: 0px;    padding: 0px;    min-height: 101vh;    overflow-y: scroll;position:relative}
-a{color: #000000;text-decoration: none;outline: none; -webkit-transition: all 0.3s ease-in;-moz-transition: all 0.3s ease-in;transition: all 0.3s ease-in;}
-a:hover {color: #c79652;text-decoration: none;outline: none; -webkit-transition: all 0.3s ease-in;-moz-transition: all 0.3s ease-in;transition: all 0.3s ease-in;}
+a{color: #1d344c;text-decoration: none;outline: none; -webkit-transition: all 0.3s ease-in;-moz-transition: all 0.3s ease-in;transition: all 0.3s ease-in;}
+a:hover {color: #2181a0;text-decoration: none;outline: none; -webkit-transition: all 0.3s ease-in;-moz-transition: all 0.3s ease-in;transition: all 0.3s ease-in;}
 figure{margin: 0; padding:0;}
 picture{padding: 0; marign:0}
 .visually-hidden { 
@@ -54,7 +54,7 @@ section{
   margin: 0 auto;
 }
 .cw_no_preview a{
-  color:blue;
+  color:#2181a0;
 }
 
 
