@@ -19,6 +19,17 @@ export const query = graphql`
         locale
         rootUrl
         title
+        gaID
+        reportSuiteID
+        brand {
+          brandName
+          brandId
+        }
+        country {
+          countryId
+          countryName
+         
+        }
         bodyComponent {
           ... on SanitySocialChannel {
             socialChannel {
