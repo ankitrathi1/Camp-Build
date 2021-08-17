@@ -1,3 +1,6 @@
+import React from 'react'
+import { ImSuperscript2, ImSubscript2} from 'react-icons/im'
+
 export default {
     name: 'textEditor',
     type: 'array',
@@ -28,7 +31,29 @@ export default {
           // preference or highlighting by editors.
           decorators: [
             {title: 'Strong', value: 'strong'},
-            {title: 'Emphasis', value: 'em'}
+            {title: 'Emphasis', value: 'em'},
+            {title: 'Underline', value: 'underline'},
+            {
+              title: 'Code', 
+              value: 'code',
+            },
+            {title: 'strike-through', value: 'strike-through'},
+            {
+              title: 'Superscript',
+              value: 'sup',
+              blockEditor: {
+                icon: ImSuperscript2,
+                render: ({ children }) => <span><sup>{children}</sup></span>
+              }
+            },
+            {
+              title: 'Subscript',
+              value: 'sub',
+              blockEditor: {
+                icon: ImSubscript2,
+                render: ({ children }) => <span><sub>{children}</sub></span>
+              }
+            },
           ],
           // Annotations can be any object structure – e.g. a link or a footnote.
           annotations: [
