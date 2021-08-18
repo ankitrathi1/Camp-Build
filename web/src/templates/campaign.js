@@ -136,7 +136,7 @@ export const query = graphql`
   }
 `;
 const CampaignTemplate = (props) => {
-  console.log('camp page data', props);
+  //console.log('camp page data', props);
   const { data, errors } = props;
   const campaign = data && data.campaign;
   const dt = new Date;

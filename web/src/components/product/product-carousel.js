@@ -55,7 +55,6 @@ function CampaignProduct(props) {
     <props.headingLevel className="category_title" >{props.heading}</props.headingLevel>
     <PortableText
         blocks={props.introText}
-        serializers={serializer}
     />
     <div className="cw_product_container cw_product_carousel">
                 <Carousel responsive={responsive} infinite={false} autoPlay={false}>
