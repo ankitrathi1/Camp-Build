@@ -21,7 +21,8 @@ const serializer = {
                 }}
             />
             <img src={urlFor(props.node)} alt={props.node.alt} width="210" height="210"/>
-        </figure>)
+        </figure>),
+        undefined : props => (<span>Undefined 1</span>),
     },
     marks: {
         superscript: props => (<sup>{props.children}</sup>),
@@ -55,6 +56,7 @@ function CampaignProduct(props) {
     <props.headingLevel className="category_title" >{props.heading}</props.headingLevel>
     <PortableText
         blocks={props.introText}
+        serializers={serializer}
     />
     <div className="cw_product_container cw_product_carousel">
                 <Carousel responsive={responsive} infinite={false} autoPlay={false}>
