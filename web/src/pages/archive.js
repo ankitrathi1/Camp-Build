@@ -43,7 +43,6 @@ const ArchivePage = (props) => {
   }
 
   const campaignNodes = data && data.campaign && mapEdgesToNodes(data.campaign);
-console.log(campaignNodes);
   return (
     <Layout>
       <SEO title="Archive" />

@@ -29,7 +29,6 @@ class PreviewDoc extends React.Component {
             ...,
           }`
           client.fetch(queryDraft).then(response => {
-            console.log('client response', response[0]);
             let cssFile = '';
             if(response[0].content.style && response[0].content.style.styleFile){
                 cssFile = response[0].content.style.styleFile.asset._ref;
@@ -41,7 +40,6 @@ class PreviewDoc extends React.Component {
                 CampData: response[0],
                 cssFile: cssFile
             });
-            console.log('this is data', this.state.CampData);
           }).catch(error => {
             console.log('problem found', error)
           })
@@ -73,10 +71,8 @@ class PreviewDoc extends React.Component {
     }
   }
 const PreviewPage = (props) => {
-  console.log('index page data', props);
   let campaingId = props.location.search;
   campaingId = campaingId.substring(1);
-  console.log('campaign id:', campaingId);
   return (
     <Layout>
       <PreviewDoc campaingId={campaingId} />

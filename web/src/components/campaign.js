@@ -20,7 +20,6 @@ function Campaign(props) {
     content,
     _id
   } = props;
-  console.log(props);
   
   return (
       <div className="cw_main_container">
