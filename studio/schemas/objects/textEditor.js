@@ -40,18 +40,18 @@ export default {
             {title: 'strike-through', value: 'strike-through'},
             {
               title: 'Superscript',
-              value: 'sup',
+              value: 'superscript',
               blockEditor: {
                 icon: ImSuperscript2,
-                render: ({ children }) => <span><sup>{children}</sup></span>
+                render: ({ children }) => <sup>{children}</sup>
               }
             },
             {
               title: 'Subscript',
-              value: 'sub',
+              value: 'subscript',
               blockEditor: {
                 icon: ImSubscript2,
-                render: ({ children }) => <span><sub>{children}</sub></span>
+                render: ({ children }) => <sub>{children}</sub>
               }
             },
           ],

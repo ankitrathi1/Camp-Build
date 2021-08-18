@@ -1,4 +1,7 @@
 import { format, isFuture } from "date-fns";
+import urlBuilder from "@sanity/image-url";
+
+const clientConfig = require("../../client-config");
 
 export function cn(...args) {
   return args.filter(Boolean).join(" ");
@@ -22,6 +25,11 @@ export function getCampaignUrl(publishedAt, slug) {
   return `/campaign/${
     slug.current || slug
   }/`;
+}
+
+export function urlFor(source = { asset: {} }) {
+  const url = urlBuilder({projectId : clientConfig.sanity.projectId, dataset: clientConfig.sanity.dataset, }).image(source);
+  return url;
 }
 
 export function buildImageObj(source = { asset: {} }) {

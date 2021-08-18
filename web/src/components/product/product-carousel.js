@@ -1,11 +1,33 @@
 import * as styles from "./campaign-product.css";
-import { buildImageObj } from "../../lib/helpers";
+import { urlFor } from "../../lib/helpers";
 import { Link } from "gatsby";
 import React, { useEffect, useState } from 'react';
 import { format } from "date-fns";
-import { urlFor } from "../../lib/image-url";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import PortableText from '@sanity/block-content-to-react'
+
+/*{JSON.stringify(props, null, 2)}*/
+const serializer = {
+    types: {
+        figure: props => (
+        <figure>
+            <picture
+                classeName="bp-image__placeholder"
+                style={{
+                    paddingTop: `100%`,
+                    background: `url(${urlFor(props.node)})`,
+                    backgroundSize: 'cover',
+                }}
+            />
+            <img src={urlFor(props.node)} alt={props.node.alt} width="210" height="210"/>
+        </figure>)
+    },
+    marks: {
+        superscript: props => (<sup>{props.children}</sup>),
+        subscript: props => (<sub>{props.children}</sub>)
+    }
+}
 
 function CampaignProduct(props) {
 
@@ -31,7 +53,10 @@ function CampaignProduct(props) {
   return (
     <div className="cw_product_container product_list_section campaign-component productCarousel-section" data-componentname="productCarousel" data-component-experience-variant="default" data-component-variants="defaultView" data-service-provider="cartwire">
     <props.headingLevel className="category_title" >{props.heading}</props.headingLevel>
-    <p className="category_sub_title">{props.introText[0].children[0].text}</p>
+    <PortableText
+        blocks={props.introText}
+        serializers={serializer}
+    />
     <div className="cw_product_container cw_product_carousel">
                 <Carousel responsive={responsive} infinite={false} autoPlay={false}>
                     {props.product && props.product.map((product,i) => (
