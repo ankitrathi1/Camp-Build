@@ -6,16 +6,23 @@ import {withDocument} from 'part:@sanity/form-builder';
 import { useDocumentOperation } from "@sanity/react-hooks";
 import SearchableSelect from 'part:@sanity/components/selects/searchable'
 
-const searchCountryInput = React.forwardRef( 
-    (
-      { onFocus, onBlur, onChange, type, value, level, markers, readOnly },
-      ref,props
-    ) => {
+const searchCountryInput = React.forwardRef((props, ref) => {
         const [inputValue, setInputValue] = useState(null);
         const [isFetching, setIsFetching] = useState(false);
         const [hits, setHits] = useState([]);
         const [files, setFiles] = useState([]);
-    
+        const {
+          compareValue,
+          focusPath,
+          markers,
+          onBlur,
+          onChange,
+          onFocus,
+          presence,
+          type,
+          value,
+          level
+        } = props
         useEffect(() => {
           const API_URL=`https://app.cartwire.co/CW_API/list_cw_enabled_markets`
           setIsFetching(true);
@@ -24,6 +31,7 @@ const searchCountryInput = React.forwardRef(
             .then(res => res.json())
             .then(response => {
                 if ( !response ) return "no response";
+
                 console.log("resData=======",response)
                 setFiles(response)
                 console.log("setFiles called=======",response)
@@ -70,6 +78,8 @@ const searchCountryInput = React.forwardRef(
 
         function handleSearch(query) {
             console.log("query======",query)
+      
+         
             search(query);
         }
 
@@ -78,16 +88,18 @@ const searchCountryInput = React.forwardRef(
         }
 
         function handleBlur() {
+          console.log("onBlur")
             onBlur();
         }
         
         function search(query) {
-             setInputValue(query);
+            //  setInputValue(query);
+
             setHits(
               files
                 .filter(
                   ({ country }) =>
-                  country.toLowerCase().indexOf(query.toLowerCase()) > -1
+                  country.toLowerCase().indexOf(query.toLowerCase()) > -1 
                 )
                 .map(({ country, id }) => (
                   <div
@@ -97,6 +109,10 @@ const searchCountryInput = React.forwardRef(
                   </div>
                 ))
             );
+             //alert(hits.length);
+             if( hits.length <=0 ) 
+             onChange(PatchEvent.from(set({ countryName:null,_type:type.name,countryId: null}))); 
+             
           }
 
           function renderItem(country) {

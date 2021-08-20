@@ -1,4 +1,4 @@
-import React, { useState,useEffect} from 'react'
+import React, { useState,useEffect,useRef} from 'react'
 import FormField from 'part:@sanity/components/formfields/default'
 import PatchEvent, {set, unset} from '@sanity/form-builder/PatchEvent'
 import client from 'part:@sanity/base/client';
@@ -9,14 +9,20 @@ import SearchableSelect from 'part:@sanity/components/selects/searchable'
 
 const SearchBrandInput = React.forwardRef((props, ref) => {
        if (props.document.content.hasOwnProperty('country') ) {
-        var countryName=props.document.content.country.countryName;
-        
+         var countryName=props.document.content.country.countryName;
        }
-      //  alert(1)
+       // alert(countryName)
+
+      const prevItemIdRef = useRef();
+      useEffect(() => {
+      if(props.document.content.hasOwnProperty('country')){
+           prevItemIdRef.current = props.document.content.country.countryName;
+        }
+        // var prevItemId = prevItemIdRef.current;
+        // console.log("prevItemId",prevItemId)
+      },[]);
+
        useEffect(() => {
-       // setFiles(...files,[]);
-        setInputValue(null);
-      
         const BRAND_URL=`https://app.cartwire.co/CW_API/market_to_brand_mapping/${countryName}`
         setIsFetching(true);
           try{
@@ -26,9 +32,14 @@ const SearchBrandInput = React.forwardRef((props, ref) => {
                 if ( !response ) return "no response";
              
                 setFiles([...response])
-            
                 search(""); 
                 setIsFetching(false);
+                if(prevItemIdRef.current !== props.document.content.country.countryName) {
+                  console.log('diff country name');
+                  handleClear();
+                  setInputValue('');
+                }
+                
             })
         }catch(e){
             console.error(e);
@@ -36,7 +47,7 @@ const SearchBrandInput = React.forwardRef((props, ref) => {
         }
           
       }, [countryName]);
- 
+
        const {
         compareValue,
         focusPath,
@@ -82,7 +93,6 @@ const SearchBrandInput = React.forwardRef((props, ref) => {
         }
 
         function handleOpen() {
-        
           getBrand();
         }
 
@@ -159,7 +169,7 @@ const SearchBrandInput = React.forwardRef((props, ref) => {
                   onClear={handleClear}
                   title={inputValue}
                   value={value}
-                  inputValue={inputValue === null ? value?.brandName : inputValue}
+                  inputValue={ inputValue === null ? value?.brandName : inputValue}
                   isLoading={isFetching}
                   items={hits}
                   ref={ref}
