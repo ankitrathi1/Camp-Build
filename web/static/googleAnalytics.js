@@ -3,27 +3,74 @@ var arr = [];
 var currentScrollDepth = '';
 var contextualizationData = {};
 var ctConstants = {};
+var digitalData = {};
 var firstScrollDepth=0,secondScrollDepth=0,thirdScrollDepth=0,fourthScrollDepth=0;
 var scrollDepth=[];
+var depth;
+var cw_campaign_selector = document.getElementsByClassName("cw_campaign_selector");
+var  campaign_local = cw_campaign_selector[0].getAttribute("data-locale");
+var  GA_ID = cw_campaign_selector[0].getAttribute("data-gaID");
+var  adobe_Report_Suit_ID=cw_campaign_selector[0].getAttribute("data-reportSuiteID");
+var brand_Url=cw_campaign_selector[0].getAttribute("data-rootURL");
 // var GA_ID = document.getElementById("analytics-id").value;
 // var brandUrl = document.getElementById("rootUrl-id").value;
-var GA_ID = "hdgfds";
-var brandUrl ="dsfhsdfg";
-var digitalData = {};
-digitalData = {
-    product: [],
-    trackingInfo: { GID: "D259f49db56EUK0ba77884a2a1c46cPD", tool: [{ id: GA_ID }] },
-    siteInfo: { channel: "", sitetype: "Digital 2.0" },
-    page: { pageInfo: { destinationURL: brandUrl }, category: { pageType: "Home page" } },
+// var GA_ID = "";
+// var brand_Url ="";
+// var adobe_Report_Suit_ID="";
+var campaign_country=cw_campaign_selector[0].getAttribute("data-country");
+var campaign_brand=cw_campaign_selector[0].getAttribute("data-brand");
+//var campaign_local="";
+var currentSectionObj;
+var currentProductObj;
+var compName ,compVar,compPos,serviceProvideName,compExpVar;
+var channelVal;
+channelVal="Shoppable Campaign";
+digitalData.siteInfo={channel:"",sitetype:""},
+digitalData.page={pageInfo:{destinationURL:""},
+category:{pageType:""}},
+digitalData.video=[];
+digitalData.campaign=[];
+digitalData.product=[];
+digitalData.privacy={accessCategories:[{domains:[]}]},
+digitalData.component=[];
+digitalData.trackingInfo={GID:"",un:"",tool:[{ids:""}]},
+digitalData.promotion=[];
+// digitalData={siteInfo:{channel:"",sitetype:""},page:{pageInfo:{destinationURL:""},category:{pageType:""}},video:[],campaign:[],product:[],privacy:{accessCategories:[{domains:[]}]},component:[],trackingInfo:{GID:"",un:"",tool:[{ids:""}]},promotion:[]};
+var contextualizationData={areaInfo:{weather:"",temperature:"",aqi:"",uv:"",uv_range:"",aqi_range:""},profileData:{crmid:"",age:""}};
+ var windowLocation = window.location.pathname.split("/");
+ var lastwindowLocation=windowLocation[windowLocation.length-2];
+
+digitalData.areaInfo=contextualizationData.areaInfo,
+digitalData.page.category.primaryCategory=channelVal,
+digitalData.trackingInfo={},
+digitalData.trackingInfo.tool=[{}],
+digitalData.privacy={},
+digitalData.page.attributes={},
+digitalData.page.dmpattributes={},
+digitalData.privacy.accessCategories=[{}],
+digitalData.privacy.accessCategories[0].domains=[],
+digitalData.event=[],
+digitalData.sitespeed={},
+digitalData.page.entity={},
+digitalData.page.attributes.lazyLoad={},
+digitalData.platform=[] ;
+digitalData.trackingInfo.tool[0]  = {id: GA_ID };
+digitalData.trackingInfo.tool[1]  = {};
+digitalData.product= [];
+digitalData.trackingInfo.GID= "D259f49db56EUK0ba77884a2a1c46cPD" ;
+digitalData.siteInfo={ channel:channelVal, internalDomain:document.location.host, sitetype: "Cartwire Shoppable Media" };
+digitalData.page= { pageInfo: { destinationURL: brand_Url,pageName:lastwindowLocation }, category: { pageType: "Landing page",primaryCategory:channelVal } },
+
+digitalData.page.attributes=
+{
+    brandCategory:"",
+    contentType:"Cartwire Shoppable landing page",
+    country:campaign_country,
+    globalBrand:campaign_brand,
+    lazyLoad:{},
+    localBrand :campaign_brand
 };
-var depth;
-digitalData.event = [];
-var contextualizationData = {};
 
-(digitalData.trackingInfo = {}), (digitalData.trackingInfo.tool = [{}]), (digitalData.privacy = {}), (digitalData.page.attributes = {}), (digitalData.page.dmpattributes = {}), (digitalData.privacy.accessCategories = [{}]), (digitalData.privacy.accessCategories[0].domains = []), (digitalData.platform = []); digitalData.trackingInfo.tool[0] = {};
-digitalData.trackingInfo.tool[1] = {}; digitalData.page.attributes.contentType = "home";
-
-digitalData.component = [];
 if (typeof digitalData.event == 'undefined') {
     digitalData.event = [];
 }
@@ -44,7 +91,7 @@ digitalData.trackEvent = function (e) {
         digitalData.eventList[eventName] = e;
         //alert("Event Name is =" + eventName);
         //console.log('***custome event - '+eventName, e);
-
+        console.log("ctConstants",ctConstants.trackEvent);
         var launchEvent = document.createEvent("CustomEvent");
         launchEvent.initCustomEvent("launch_event", true, true, {
             'eventName': eventName,
@@ -54,6 +101,7 @@ digitalData.trackEvent = function (e) {
             'eventComponent': eventComponent
         });
         document.body.dispatchEvent(launchEvent);
+       
     }
 }
 while (e = digitalData.event.shift()) {
@@ -74,12 +122,13 @@ digitalData.product = [];
         : ((u = ("https:" == document.location.protocol ? "https://" : "http://") + "wa-eu.unileversolutions.com"),
             (digitalData.trackingInfo.GID = "D259f49db56EUK0ba77884a2a1c46cPD"),
             (digitalData.trackingInfo.tool[0].id = GA_ID),
-            (digitalData.trackingInfo.tool[1].id = "unilever-magnum-uk,unilever-global-allbrands")),
-        (digitalData.privacy.accessCategories[0].domains[0] = brandUrl);
+            (digitalData.trackingInfo.tool[1].id = adobe_Report_Suit_ID)),
+        (digitalData.privacy.accessCategories[0].domains[0] = brand_Url);
 })(document);
 
 //End Digital Data Event
 $(document).ready(function () {
+     
     var launchblock = document.createElement('script');
 
 
@@ -87,11 +136,15 @@ $(document).ready(function () {
     launchblock.async = "async";
     launchblock.id = "launch";
     launchblock.type = "text/javascript";
-    document.getElementsByTagName("head")[0].appendChild(launchblock);;          
-   
+    document.getElementsByTagName("head")[0].appendChild(launchblock);
+  
+    $('.campaign-component').each(function(i){
+        $(this).attr('data-component-positions', i+1);
+    });
+    
     const selectorClass='.product_list_section';
     const sectionSelectors=document.querySelectorAll(selectorClass);
-    const bannerClass='.carousel-slider';
+    const bannerClass='.banner_list_section';
     const bannerSectionSelectors=document.querySelectorAll(bannerClass);
 
       //ProductSlider
@@ -99,81 +152,123 @@ $(document).ready(function () {
     {
     sectionSelector.addEventListener('click',function(event)
     {
-      
+        currentSectionObj=sectionSelector;
+        
+        if(event.target.className === 'cw_btn_buynow')
+       {    
+           currentProductObj= event.target;
+        
+       }
     if(event.target.className === 'react-multiple-carousel__arrow react-multiple-carousel__arrow--left')
-    {     arr = { "ComponentName": sectionSelector.firstElementChild.innerText };
+    {     
+
       
         cwDigitalData("", "image_left_scroll_click", arr) 
     }
     if(event.target.className === 'react-multiple-carousel__arrow react-multiple-carousel__arrow--right')
-    {     arr = { "ComponentName": sectionSelector.firstElementChild.innerText };
+    {   
       
         cwDigitalData("", "image_right_scroll_click", arr) 
     }
     if(event.target.className === 'cw_btn_load')
     {     
-        arr = { "ComponentName": sectionSelector.firstElementChild.innerText };
-       
+    
         cwDigitalData("", "load_more_click", arr) 
     }
     })
     });
 
-    //BannerSlider
-//     bannerSectionSelectors.forEach(function(bannerSectionSelector)
-//     {
-//     sectionSelector.addEventListener('click',function(event)
-//     {
-      
-//     if(event.target.className === 'control-arrow control-next')
-//     { 
-       
-// 	cwDigitalData("", "image_right_scroll_click", arr) 
+   // BannerSlider
+    bannerSectionSelectors.forEach(function(bannerSectionSelector)
+    {
+    bannerSectionSelector.addEventListener('click',function(event)
+    { currentSectionObj=bannerSectionSelector;
     
-//     }
-// if(event.target.className === 'control-arrow control-prev')
-//     { 
-
-//     cwDigitalData("", "image_left_scroll_click", arr) 
-//     }
+    if(event.target.className === 'control-arrow control-next')
+    { 
+     cwDigitalData("", "image_right_scroll_click", arr) 
+    
+    }
+   if(event.target.className === 'control-arrow control-prev')
+    { 
+        cwDigitalData("", "image_left_scroll_click", arr) 
+    }
   
-//     })
-//     });
-    // $(".react-multiple-carousel__arrow--right").click(function() {
-    //     var id = $(this).closest("section")[0].firstElementChild.firstElementChild.innerText;
-      
-    //     arr = { "ComponentName": id };
-    //     cwDigitalData("", "image_right_scroll_click", arr) 
-    // });
+    })
+    });
 
-    // $(".cw_btn_load").click(function() {
-    //     var id = $(this).closest("section")[0].firstElementChild.firstElementChild.innerText;
-      
-    //     arr = { "ComponentName": id };
-    //     cwDigitalData("", "load_more_click", arr) 
-    // });
-    
 
 }).scroll(function () {
 
-    var e = $(document).height() - $(window).height(),
-    a = Math.floor(0.25 * e),
-    n = Math.floor(0.5 * e),
-    o = Math.floor(0.75 * e),
-    c = Math.round($(window).scrollTop());
-   
-   
-a <= c && c < n && 0 === firstScrollDepth ? ((firstScrollDepth=1), (depth = "25")) : n <= c && c < o && 0 === secondScrollDepth ? ((secondScrollDepth=1), (depth = "50")) : o <= c && c < e && 0 === thirdScrollDepth ? ((thirdScrollDepth=1), (depth = "75")) : c === e && 0 === fourthScrollDepth && ((fourthScrollDepth=1), (depth = "100")),
-depth && !scrollDepth.includes(depth) &&
+        var e = $(document).height() - $(window).height(),
+        a = Math.floor(0.25 * e),
+        n = Math.floor(0.5 * e),
+        o = Math.floor(0.75 * e),
+        c = Math.round($(window).scrollTop());
+        
+    
+        a <= c && c < n && 0 === firstScrollDepth ? ((firstScrollDepth=1), (depth = "25")) : n <= c && c < o && 0 === secondScrollDepth ? ((secondScrollDepth=1), (depth = "50")) : o <= c && c < e && 0 === thirdScrollDepth ? ((thirdScrollDepth=1), (depth = "75")) : c === e && 0 === fourthScrollDepth && ((fourthScrollDepth=1), (depth = "100")),
+        depth && !scrollDepth.includes(depth) &&
        (scrollDepth.push(depth) ,
         (arr = { "scrollDepth": depth }),
        ( cwDigitalData("", "page_scroll", arr)));
    
-
-
 });
+trackProductInfo=function(productData)
+{
+    var $this = $(currentSectionObj);       
+ digitalData.product.push(
+             {
+                 'productInfo': {
+                     'productID': productData.productID,
+                     'productName':productData.productName,
+                     'price': "",
+                     'brand': productData.brand,
+                     'quantity': productData.quantity,
+                     
+                 },
+                 'attributes': {
+                     'productPosition': parseInt(currentProductObj.getAttribute('data-index')),
+                     'productAward': "",
+                     'productFindingMethod':  $this.data('componentname'),
+                     'productBrand':productData.brand,
+                 },
+                 'category': { 'primaryCategory':campaign_brand },
+             });
+              
+}
 
+trackComponentInfo = function ()
+{
+    var $this = $(currentSectionObj);
+    compName = $this.data('componentname'),
+    compVar = $this.data('component-variants'),
+    compPos = $this.data('component-positions'),
+    serviceProvideName = $this.data('service-provider'),
+    compExpVar = $this.data('component-experience-variant');
+    digitalData.component = [];
+    digitalData.component.push({
+        'componentInfo': {
+            'componentID': compName,
+            'name': compName,
+            'experienceVariant': (compExpVar) ? compExpVar : 'default'
+        },
+        'attributes': {
+            'brandOptin' :'',
+            'position': compPos,
+            'componentVariant': compVar,
+            'reviewVendorName': (serviceProvideName) ? serviceProvideName : '',
+            'promoCreative': '',
+            'promoID':  '',
+            'promoName': '',
+            'promoPosition': compPos,
+            'campaignWorkflow':  '',
+            'toolName':  '',
+            'surveyQuesAns': ''
+        }
+    });
 
+}
 cwDigitalData = function (t, e, p) {
     digitalData.component = [];
     digitalData.eventList = [];
@@ -210,25 +305,9 @@ cwDigitalData = function (t, e, p) {
     }
 
     switch (e) {
-        case "country_list":
-            var ev = {};
-            ev.eventInfo = {
-                'type': ctConstants.trackEvent,
-                'eventAction': ctConstants.linkClick,
-                'eventLabel': "Online-CountryClick",// eLabel,
-                'eventValue': 1,
-            };
-            ev.category = { 'primaryCategory': ctConstants.conversion }
-            ev.subcategory = "Lead";
-            digitalData.event.push(ev);
-            // while (e = digitalData.event.shift()) {
-            digitalData.trackEvent(e);
-            //}
-            digitalData.event = {
-                push: digitalData.trackEvent
-            };
-            break;
+       
         case "product_click":
+            trackComponentInfo();
             digitalData.product.push(
                 {
                     'productInfo': {
@@ -237,7 +316,14 @@ cwDigitalData = function (t, e, p) {
                         'price': "",
                         'brand': p.brand,
                         'quantity': "1"
-                    }
+                    },
+                    'attributes': {
+                        'productPosition': "",
+                        'productAward': "",
+                        'productFindingMethod': "",
+                        'productBrand':"",
+                    },
+                    'category': { 'primaryCategory':"" },
                 });
             var ev = {};
             ev.eventInfo = {
@@ -259,7 +345,7 @@ cwDigitalData = function (t, e, p) {
             break;
 
         case "carousel_click":
-
+            trackComponentInfo();
             var ev = {};
             ev.eventInfo = {
                 'type': ctConstants.trackEvent,
@@ -281,11 +367,7 @@ cwDigitalData = function (t, e, p) {
 
 
         case "image_right_scroll_click":
-            digitalData.component.push({'componentInfo' :
-            {
-                'componentID':p.ComponentName,
-                'componentName' : p.ComponentName
-               }});
+            trackComponentInfo();
             var ev = {};
         
             ev.eventInfo = {
@@ -304,11 +386,7 @@ cwDigitalData = function (t, e, p) {
 
             break;
         case "image_left_scroll_click":
-            digitalData.component.push({'componentInfo' :
-            {
-                'componentID':p.ComponentName,
-                'componentName' : p.ComponentName
-               }});
+           trackComponentInfo();
             var ev = {};
            
             ev.eventInfo = {
@@ -351,11 +429,7 @@ cwDigitalData = function (t, e, p) {
            console.log(ev);
             break;
         case "anchor_click":
-            digitalData.component.push({'componentInfo' :
-            {
-                'componentID':p.ComponentName,
-                'componentName' : p.ComponentName
-               }});
+            trackComponentInfo();
             var ev = {};
         
             ev.eventInfo = {
@@ -374,11 +448,7 @@ cwDigitalData = function (t, e, p) {
 
             break;
             case "load_more_click":
-                digitalData.component.push({'componentInfo' :
-                {
-                    'componentID':p.ComponentName,
-                    'componentName' : p.ComponentName
-                   }});
+                trackComponentInfo();
                 var ev = {};
               
                 ev.eventInfo = {
@@ -398,16 +468,8 @@ cwDigitalData = function (t, e, p) {
     
                 break;
         case "shop_now":
-            digitalData.product.push(
-                {
-                    'productInfo': {
-                        'productID': p.productID,
-                        'productName': p.productName,
-                        'price': "",
-                        'brand': p.brand,
-                        'quantity': "1"
-                    }
-                });
+            trackComponentInfo();
+            trackProductInfo(p)
             var ev = {};
             ev.eventInfo = {
                 'type': ctConstants.trackEvent,
@@ -427,15 +489,19 @@ cwDigitalData = function (t, e, p) {
 
             break;
         case "retailer_click":
+            trackComponentInfo();
             digitalData.product.push(
                 {
                     'productInfo': {
                         'productID': p.productID,
                         'productName': p.productName,
-                        'price': "",
+                        'price': p.price,
                         'brand': p.brand,
-                        'quantity': "1"
-                    }
+                        'quantity': p.quantity,
+                        'sku':p.productID
+                    },
+                    'category': { 'primaryCategory': p.category },
+                    'attributes': { 'productVariants':p.sku, 'country': "", 'productRetailer':p.retailerName, 'listPosition': compPos==undefined? '':compPos, 'integration': serviceProvideName==undefined? '':serviceProvideName },
                 });
             var ev = {};
             ev.eventInfo = {
